@@ -19,18 +19,18 @@ body {
   background: linear-gradient(135deg, #075fc4, #008b61);
   display: flex;
   justify-content: center;
-  padding: 15px;
+  padding: 12px;
 }
 
 .app {
   width: 100%;
-  max-width: 420px;
+  max-width: 430px;
   min-height: 720px;
   background: white;
-  border-radius: 25px;
+  border-radius: 24px;
   overflow: hidden;
   position: relative;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
 }
 
 .screen {
@@ -45,7 +45,7 @@ body {
   background: linear-gradient(135deg, #075fc4, #008b61);
   color: white;
   text-align: center;
-  padding: 30px 15px;
+  padding: 32px 15px;
 }
 
 .header h1 {
@@ -60,12 +60,12 @@ body {
 
 .header p {
   font-size: 12px;
-  font-weight: bold;
   margin-top: 12px;
+  font-weight: bold;
 }
 
 .content {
-  padding: 25px 20px 95px;
+  padding: 24px 20px 100px;
 }
 
 .title {
@@ -79,7 +79,7 @@ body {
   color: #666;
   font-size: 14px;
   line-height: 1.5;
-  margin-bottom: 25px;
+  margin-bottom: 22px;
 }
 
 label {
@@ -90,8 +90,8 @@ label {
 }
 
 input,
-select,
-textarea {
+textarea,
+select {
   width: 100%;
   padding: 14px;
   border: 1px solid #cbd5e1;
@@ -143,20 +143,20 @@ button {
 .topbar {
   background: linear-gradient(135deg, #075fc4, #008b61);
   color: white;
-  padding: 13px;
+  padding: 12px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 .topbar h3 {
-  font-size: 16px;
+  font-size: 15px;
   text-align: center;
 }
 
 .menu-btn {
   width: 45px;
-  padding: 5px;
+  padding: 2px;
   margin: 0;
   background: transparent;
   color: white;
@@ -164,13 +164,13 @@ button {
 }
 
 .bell {
-  font-size: 22px;
+  font-size: 23px;
 }
 
 .banner {
   background: linear-gradient(135deg, #e7f8ee, #dcecff);
   border-radius: 15px;
-  padding: 22px 12px;
+  padding: 24px 10px;
   text-align: center;
   margin-bottom: 20px;
 }
@@ -182,64 +182,43 @@ button {
 
 .banner p {
   color: #24466c;
-  margin-top: 8px;
   font-size: 13px;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-}
-
-.grid button {
-  margin: 0;
-  background: #f3f8fc;
-  color: #173d69;
-  border: 1px solid #d8e4ee;
-  padding: 20px 8px;
-  font-size: 14px;
-}
-
-.grid button span {
-  display: block;
-  font-size: 25px;
-  margin-bottom: 8px;
+  margin-top: 8px;
 }
 
 .section-title {
   color: #173d69;
   margin: 25px 0 12px;
-  font-size: 20px;
+  font-size: 21px;
 }
 
 .post-card {
   background: #f5f8fa;
+  border-left: 4px solid #08a65b;
   border-radius: 12px;
   padding: 15px;
   margin-bottom: 14px;
-  border-left: 4px solid #08a65b;
 }
 
 .post-card h4 {
   color: #173d69;
-  margin-bottom: 8px;
   font-size: 17px;
+  margin-bottom: 8px;
 }
 
 .post-card p {
   color: #555;
   font-size: 14px;
   line-height: 1.5;
+  margin-top: 5px;
 }
 
-.post-card img,
-.post-card video {
+.post-card img {
   width: 100%;
-  border-radius: 10px;
-  margin-top: 12px;
   max-height: 300px;
   object-fit: cover;
+  border-radius: 10px;
+  margin-top: 12px;
 }
 
 .post-date {
@@ -249,6 +228,7 @@ button {
 }
 
 .bottom-menu {
+  display: none;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -256,25 +236,23 @@ button {
   height: 78px;
   background: white;
   border-top: 1px solid #dce5eb;
-  display: none;
   grid-template-columns: repeat(5, 1fr);
   align-items: center;
-  text-align: center;
   z-index: 5;
 }
 
 .bottom-menu button {
   background: transparent;
   color: #173d69;
-  padding: 5px;
+  padding: 4px;
   margin: 0;
   font-size: 11px;
 }
 
 .bottom-menu button span {
   display: block;
-  font-size: 23px;
-  margin-bottom: 5px;
+  font-size: 22px;
+  margin-bottom: 4px;
 }
 
 .plus {
@@ -284,20 +262,20 @@ button {
   height: 55px;
   border-radius: 50%;
   margin: auto !important;
-  font-size: 27px !important;
+  font-size: 28px !important;
 }
 
 .side-menu {
   display: none;
   position: absolute;
-  top: 65px;
+  top: 62px;
   left: 0;
   width: 86%;
   min-height: 620px;
   background: white;
   z-index: 20;
   box-shadow: 5px 5px 20px rgba(0,0,0,0.25);
-  padding: 20px 15px;
+  padding: 18px 15px;
 }
 
 .side-menu.active {
@@ -353,13 +331,36 @@ button {
 
 <section class="content">
 
+<!-- ENTRY SCREEN -->
+<div id="entryScreen" class="screen active">
+
+  <h2 class="title">Welcome</h2>
+
+  <p class="subtitle">
+    YSRCP Yerragondapalem Digital Platform
+  </p>
+
+  <button class="primary" onclick="showScreen('registerScreen')">
+    👤 New Registration
+  </button>
+
+  <button class="secondary" onclick="showScreen('loginScreen')">
+    🔒 Login
+  </button>
+
+</div>
+
 <!-- LOGIN SCREEN -->
-<div id="loginScreen" class="screen active">
+<div id="loginScreen" class="screen">
+
+  <button class="back" onclick="showScreen('entryScreen')">
+    ← Back
+  </button>
 
   <h2 class="title">Login</h2>
 
   <p class="subtitle">
-    Login with your mobile number and password
+    Enter your mobile number and password
   </p>
 
   <label>Mobile Number</label>
@@ -381,17 +382,11 @@ button {
     Login
   </button>
 
-  <button
-    class="secondary"
-    onclick="showScreen('registerScreen')"
-  >
+  <button class="secondary" onclick="showScreen('registerScreen')">
     New User? Register Now
   </button>
 
-  <button
-    class="link"
-    onclick="showScreen('resetScreen')"
-  >
+  <button class="link" onclick="showScreen('resetScreen')">
     Reset Password
   </button>
 
@@ -400,11 +395,8 @@ button {
 <!-- REGISTRATION SCREEN -->
 <div id="registerScreen" class="screen">
 
-  <button
-    class="back"
-    onclick="showScreen('loginScreen')"
-  >
-    ← Back to Login
+  <button class="back" onclick="showScreen('entryScreen')">
+    ← Back
   </button>
 
   <h2 class="title">New Registration</h2>
@@ -421,26 +413,26 @@ button {
     placeholder="Enter 10-digit mobile number"
   >
 
-  <button class="primary" onclick="sendOTP()">
+  <button class="primary" onclick="sendRegisterOTP()">
     Send OTP
   </button>
 
-  <div id="otpArea" style="display:none">
+  <div id="registerOtpArea" style="display:none">
 
     <label>Enter OTP</label>
     <input
-      id="otp"
+      id="registerOtp"
       type="number"
       placeholder="Enter OTP"
     >
 
-    <button class="primary" onclick="verifyOTP()">
+    <button class="primary" onclick="verifyRegisterOTP()">
       Verify OTP
     </button>
 
   </div>
 
-  <div id="passwordArea" style="display:none">
+  <div id="registerPasswordArea" style="display:none">
 
     <label>Create Password</label>
     <input
@@ -456,10 +448,17 @@ button {
       placeholder="Confirm password"
     >
 
-    <button
-      class="primary"
-      onclick="completeRegistration()"
-    >
+    <label>Select Mandal</label>
+    <select id="registerMandal">
+      <option value="">Select Mandal</option>
+      <option>Peddaraveedu</option>
+      <option>Pullalacheruvu</option>
+      <option>Yerragondapalem</option>
+      <option>Pedda Dornala</option>
+      <option>Tripuranthakam</option>
+    </select>
+
+    <button class="primary" onclick="completeRegistration()">
       Complete Registration
     </button>
 
@@ -470,10 +469,7 @@ button {
 <!-- RESET PASSWORD SCREEN -->
 <div id="resetScreen" class="screen">
 
-  <button
-    class="back"
-    onclick="showScreen('loginScreen')"
-  >
+  <button class="back" onclick="showScreen('loginScreen')">
     ← Back to Login
   </button>
 
@@ -491,7 +487,7 @@ button {
     placeholder="Enter 10-digit mobile number"
   >
 
-  <button class="primary" onclick="resetOTP()">
+  <button class="primary" onclick="sendResetOTP()">
     Send OTP
   </button>
 
@@ -499,14 +495,14 @@ button {
 
     <label>Enter OTP</label>
     <input
-      id="resetCode"
+      id="resetOtp"
       type="number"
       placeholder="Enter OTP"
     >
 
     <label>New Password</label>
     <input
-      id="resetPassword"
+      id="resetNewPassword"
       type="password"
       placeholder="Enter new password"
     >
@@ -535,68 +531,20 @@ button {
     <p>Digital Platform for Party Members</p>
   </div>
 
-  <div class="grid">
-
-    <button onclick="showMessage('News Screen')">
-      <span>📰</span>
-      News
-    </button>
-
-    <button onclick="showMessage('Events Screen')">
-      <span>📅</span>
-      Events
-    </button>
-
-    <button onclick="showMessage('Gallery Screen')">
-      <span>🖼️</span>
-      Gallery
-    </button>
-
-    <button onclick="showMessage('Documents Screen')">
-      <span>📄</span>
-      Documents
-    </button>
-
-    <button onclick="showMessage('Mandal Updates Screen')">
-      <span>👥</span>
-      Mandal Updates
-    </button>
-
-    <button onclick="showMessage('Party Updates Screen')">
-      <span>🏛️</span>
-      Party Updates
-    </button>
-
-  </div>
-
   <h3 class="section-title">Posts</h3>
 
-  <div id="postsContainer">
-
-    <div class="post-card">
-      <h4>No Posts Yet</h4>
-      <p>New posts will appear here.</p>
-    </div>
-
-  </div>
+  <div id="postsContainer"></div>
 
 </div>
 
 <!-- CREATE POST SCREEN -->
 <div id="postScreen" class="screen">
 
-  <button
-    class="back"
-    onclick="showScreen('homeScreen')"
-  >
+  <button class="back" onclick="showScreen('homeScreen')">
     ← Back to Home
   </button>
 
   <h2 class="title">Create New Post</h2>
-
-  <p class="subtitle">
-    Share your post with members
-  </p>
 
   <label>Post Title</label>
   <input
@@ -611,7 +559,7 @@ button {
     placeholder="Write your post here"
   ></textarea>
 
-  <label>Photo URL (Optional)</label>
+  <label>Photo URL Optional</label>
   <input
     id="postImage"
     type="url"
@@ -624,13 +572,76 @@ button {
 
 </div>
 
+<!-- GALLERY SCREEN -->
+<div id="galleryScreen" class="screen">
+
+  <button class="back" onclick="showScreen('homeScreen')">
+    ← Back to Home
+  </button>
+
+  <h2 class="title">Gallery</h2>
+
+  <p class="subtitle">
+    Photos and media posts will appear here.
+  </p>
+
+  <div id="galleryContainer"></div>
+
+</div>
+
+<!-- EVENTS SCREEN -->
+<div id="eventsScreen" class="screen">
+
+  <button class="back" onclick="showScreen('homeScreen')">
+    ← Back to Home
+  </button>
+
+  <h2 class="title">Events</h2>
+
+  <p class="subtitle">
+    Mandal and Constituency Party Meetings
+  </p>
+
+  <label>Event Title</label>
+  <input
+    id="eventTitle"
+    type="text"
+    placeholder="Enter meeting title"
+  >
+
+  <label>Event Details</label>
+  <textarea
+    id="eventText"
+    placeholder="Enter meeting details"
+  ></textarea>
+
+  <label>Event Date</label>
+  <input
+    id="eventDate"
+    type="date"
+  >
+
+  <label>Event Location</label>
+  <input
+    id="eventLocation"
+    type="text"
+    placeholder="Enter meeting location"
+  >
+
+  <button class="primary" onclick="publishEvent()">
+    Publish Event
+  </button>
+
+  <h3 class="section-title">Upcoming Events</h3>
+
+  <div id="eventsContainer"></div>
+
+</div>
+
 <!-- PROFILE SCREEN -->
 <div id="profileScreen" class="screen">
 
-  <button
-    class="back"
-    onclick="showScreen('homeScreen')"
-  >
+  <button class="back" onclick="showScreen('homeScreen')">
     ← Back to Home
   </button>
 
@@ -638,30 +649,60 @@ button {
 
   <div class="profile-box">
     <div class="profile-circle">👤</div>
-    <h3 style="margin-top:12px;">YSRCP Member</h3>
-    <p id="profileMobile" style="margin-top:8px;"></p>
+
+    <h3>YSRCP Member</h3>
+
+    <p id="profileMobile"></p>
+    <p id="profileMandal"></p>
+    <p id="profileId"></p>
   </div>
 
-  <button
-    class="primary"
-    onclick="showMessage('My ID Card Screen')"
-  >
+  <button class="primary" onclick="showIdCard()">
     🪪 My ID Card
   </button>
 
-  <button
-    class="secondary"
-    onclick="showMessage('Edit Profile Screen')"
-  >
+  <button class="secondary" onclick="showMessage('Edit Profile')">
     ✏️ Edit Profile
   </button>
 
-  <button
-    class="link"
-    onclick="logoutUser()"
-  >
+  <button class="link" onclick="logoutUser()">
     Logout
   </button>
+
+</div>
+
+<!-- ID CARD SCREEN -->
+<div id="idCardScreen" class="screen">
+
+  <button class="back" onclick="showScreen('profileScreen')">
+    ← Back to Profile
+  </button>
+
+  <h2 class="title">Member ID Card</h2>
+
+  <div class="post-card" style="text-align:center;">
+
+    <h2 style="color:#075fc4;">
+      YSRCP
+    </h2>
+
+    <h3 style="color:#008b61;">
+      YERRAGONDAPALEM
+    </h3>
+
+    <div style="font-size:65px;margin:20px;">
+      👤
+    </div>
+
+    <h3 id="cardName">
+      YSRCP MEMBER
+    </h3>
+
+    <p id="cardId"></p>
+    <p id="cardMobile"></p>
+    <p id="cardMandal"></p>
+
+  </div>
 
 </div>
 
@@ -672,23 +713,23 @@ button {
 
   <div class="profile-box">
     <div class="profile-circle">👤</div>
-    <h3 style="margin-top:10px;">YSRCP Member</h3>
-    <p id="menuMobile" style="margin-top:7px;"></p>
+    <h3>YSRCP Member</h3>
+    <p id="menuMobile"></p>
   </div>
 
   <button onclick="showScreen('profileScreen'); closeMenu();">
     👤 My Profile
   </button>
 
-  <button onclick="showMessage('My ID Card Screen')">
+  <button onclick="showIdCard(); closeMenu();">
     🪪 My ID Card
   </button>
 
-  <button onclick="showMessage('Edit Profile Screen')">
-    ✏️ Edit Profile
+  <button onclick="showScreen('eventsScreen'); closeMenu();">
+    📅 Events
   </button>
 
-  <button onclick="showMessage('Settings Screen')">
+  <button onclick="showMessage('Settings');">
     ⚙️ Settings
   </button>
 
@@ -706,7 +747,7 @@ button {
     Home
   </button>
 
-  <button onclick="showMessage('News Screen')">
+  <button onclick="showMessage('News')">
     <span>📰</span>
     News
   </button>
@@ -715,14 +756,14 @@ button {
     +
   </button>
 
-  <button onclick="showMessage('Gallery Screen')">
+  <button onclick="showScreen('galleryScreen')">
     <span>🖼️</span>
     Gallery
   </button>
 
-  <button onclick="showScreen('profileScreen')">
-    <span>👤</span>
-    Profile
+  <button onclick="showScreen('eventsScreen')">
+    <span>📅</span>
+    Events
   </button>
 
 </div>
@@ -735,6 +776,9 @@ button {
 </main>
 
 <script>
+
+let currentMobile = "";
+let currentMandal = "";
 
 function showScreen(screenId) {
 
@@ -749,7 +793,10 @@ function showScreen(screenId) {
   if (
     screenId === "homeScreen" ||
     screenId === "postScreen" ||
-    screenId === "profileScreen"
+    screenId === "galleryScreen" ||
+    screenId === "eventsScreen" ||
+    screenId === "profileScreen" ||
+    screenId === "idCardScreen"
   ) {
     bottomMenu.style.display = "grid";
   } else {
@@ -758,6 +805,14 @@ function showScreen(screenId) {
 
   if (screenId === "homeScreen") {
     loadPosts();
+  }
+
+  if (screenId === "galleryScreen") {
+    loadGallery();
+  }
+
+  if (screenId === "eventsScreen") {
+    loadEvents();
   }
 }
 
@@ -773,32 +828,32 @@ function showMessage(message) {
   alert(message + " will be added in the next step.");
 }
 
-function sendOTP() {
+function sendRegisterOTP() {
 
   const mobile =
-    document.getElementById("registerMobile").value;
+    document.getElementById("registerMobile").value.trim();
 
   if (!/^[0-9]{10}$/.test(mobile)) {
     alert("Please enter a valid 10-digit mobile number.");
     return;
   }
 
-  document.getElementById("otpArea").style.display = "block";
+  document.getElementById("registerOtpArea").style.display = "block";
 
   alert("Demo OTP: 123456");
 }
 
-function verifyOTP() {
+function verifyRegisterOTP() {
 
   const otp =
-    document.getElementById("otp").value;
+    document.getElementById("registerOtp").value.trim();
 
   if (otp !== "123456") {
     alert("Invalid OTP. Demo OTP is 123456.");
     return;
   }
 
-  document.getElementById("passwordArea").style.display = "block";
+  document.getElementById("registerPasswordArea").style.display = "block";
 
   alert("OTP verified successfully.");
 }
@@ -806,13 +861,16 @@ function verifyOTP() {
 function completeRegistration() {
 
   const mobile =
-    document.getElementById("registerMobile").value;
+    document.getElementById("registerMobile").value.trim();
 
   const password =
     document.getElementById("newPassword").value;
 
   const confirmPassword =
     document.getElementById("confirmPassword").value;
+
+  const mandal =
+    document.getElementById("registerMandal").value;
 
   if (password.length < 6) {
     alert("Password must contain at least 6 characters.");
@@ -824,10 +882,45 @@ function completeRegistration() {
     return;
   }
 
+  if (mandal === "") {
+    alert("Please select your Mandal.");
+    return;
+  }
+
+  let mandalCode = "";
+
+  if (mandal === "Peddaraveedu") {
+    mandalCode = "PDV";
+  }
+
+  if (mandal === "Pullalacheruvu") {
+    mandalCode = "PLC";
+  }
+
+  if (mandal === "Yerragondapalem") {
+    mandalCode = "YGP";
+  }
+
+  if (mandal === "Pedda Dornala") {
+    mandalCode = "PDN";
+  }
+
+  if (mandal === "Tripuranthakam") {
+    mandalCode = "TPK";
+  }
+
+  const memberNumber =
+    String(Date.now()).slice(-3);
+
+  const memberId =
+    "YSRCP-" + mandalCode + "-" + memberNumber;
+
   localStorage.setItem("registeredMobile", mobile);
   localStorage.setItem("registeredPassword", password);
+  localStorage.setItem("registeredMandal", mandal);
+  localStorage.setItem("memberId", memberId);
 
-  alert("Registration completed successfully.");
+  alert("Registration completed successfully.\nYour Member ID: " + memberId);
 
   showScreen("loginScreen");
 }
@@ -835,7 +928,7 @@ function completeRegistration() {
 function loginUser() {
 
   const mobile =
-    document.getElementById("loginMobile").value;
+    document.getElementById("loginMobile").value.trim();
 
   const password =
     document.getElementById("loginPassword").value;
@@ -851,11 +944,22 @@ function loginUser() {
     password === savedPassword
   ) {
 
+    currentMobile = mobile;
+
+    currentMandal =
+      localStorage.getItem("registeredMandal") || "";
+
     document.getElementById("profileMobile").innerText =
-      "Mobile: " + mobile;
+      "Mobile: " + currentMobile;
+
+    document.getElementById("profileMandal").innerText =
+      "Mandal: " + currentMandal;
+
+    document.getElementById("profileId").innerText =
+      "Member ID: " + localStorage.getItem("memberId");
 
     document.getElementById("menuMobile").innerText =
-      "Mobile: " + mobile;
+      "Mobile: " + currentMobile;
 
     showScreen("homeScreen");
 
@@ -864,10 +968,10 @@ function loginUser() {
   }
 }
 
-function resetOTP() {
+function sendResetOTP() {
 
   const mobile =
-    document.getElementById("resetMobile").value;
+    document.getElementById("resetMobile").value.trim();
 
   if (!/^[0-9]{10}$/.test(mobile)) {
     alert("Please enter a valid 10-digit mobile number.");
@@ -882,19 +986,19 @@ function resetOTP() {
 function completeReset() {
 
   const mobile =
-    document.getElementById("resetMobile").value;
+    document.getElementById("resetMobile").value.trim();
 
   const otp =
-    document.getElementById("resetCode").value;
+    document.getElementById("resetOtp").value.trim();
 
   const newPassword =
-    document.getElementById("resetPassword").value;
+    document.getElementById("resetNewPassword").value;
 
   const savedMobile =
     localStorage.getItem("registeredMobile");
 
   if (mobile !== savedMobile) {
-    alert("Mobile number is not registered.");
+    alert("This mobile number is not registered.");
     return;
   }
 
@@ -927,7 +1031,7 @@ function publishPost() {
     document.getElementById("postImage").value.trim();
 
   if (title === "" && text === "") {
-    alert("Please enter a post title or post details.");
+    alert("Please enter post details.");
     return;
   }
 
@@ -987,30 +1091,4 @@ function loadPosts() {
 
     const date = document.createElement("div");
     date.className = "post-date";
-    date.innerText = "Posted: " + post.date;
-
-    card.appendChild(title);
-    card.appendChild(text);
-
-    if (post.image) {
-      const image = document.createElement("img");
-      image.src = post.image;
-      image.alt = "Post Image";
-      card.appendChild(image);
-    }
-
-    card.appendChild(date);
-
-    container.appendChild(card);
-  });
-}
-
-function logoutUser() {
-  closeMenu();
-  showScreen("loginScreen");
-}
-
-</script>
-
-</body>
-</html>
+    date.innerText = "Posted:
