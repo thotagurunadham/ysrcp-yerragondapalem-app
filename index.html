@@ -9,202 +9,223 @@
   <style>
     * {
       box-sizing: border-box;
+      font-family: Arial, sans-serif;
     }
 
     body {
       margin: 0;
       min-height: 100vh;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #fff7e6, #ffffff);
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 20px;
+      background: linear-gradient(135deg, #fff3d6, #ffffff);
     }
 
-    .app {
-      width: 100%;
-      max-width: 430px;
+    .container {
+      width: 92%;
+      max-width: 420px;
       background: white;
-      border-radius: 18px;
       padding: 28px 22px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+      border-radius: 18px;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
       text-align: center;
     }
 
     h1 {
-      color: #d88900;
-      font-size: 25px;
-      margin-bottom: 8px;
+      font-size: 24px;
+      margin-bottom: 25px;
+      color: #b87900;
     }
 
     h2 {
-      color: #333;
-      font-size: 22px;
-      margin-bottom: 20px;
+      font-size: 24px;
+      color: #222;
+      margin-bottom: 25px;
     }
 
-    p {
-      color: #666;
-      line-height: 1.5;
+    input {
+      width: 100%;
+      padding: 15px;
+      margin: 9px 0;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: #d99500;
     }
 
     button {
       width: 100%;
-      padding: 14px;
+      padding: 15px;
       margin-top: 12px;
       border: none;
-      border-radius: 9px;
-      background: #e59b00;
+      border-radius: 10px;
+      background: #d99100;
       color: white;
-      font-size: 16px;
+      font-size: 17px;
       font-weight: bold;
       cursor: pointer;
     }
 
     button:hover {
-      background: #c98300;
+      background: #b97800;
     }
 
-    button.secondary {
-      background: #555;
-    }
-
-    button.secondary:hover {
+    .back-button {
       background: #333;
     }
 
-    input {
-      width: 100%;
-      padding: 14px;
-      margin-top: 12px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 16px;
+    .back-button:hover {
+      background: #111;
     }
 
     .hidden {
-      display: none !important;
+      display: none;
+    }
+
+    #recaptcha-container {
+      margin-top: 15px;
+      display: flex;
+      justify-content: center;
     }
 
     .message {
       margin-top: 15px;
-      color: #d00000;
       font-size: 14px;
+      color: #c62828;
       line-height: 1.5;
+      word-break: break-word;
     }
 
     .success {
       color: green;
     }
 
-    #recaptcha-container {
-      margin-top: 18px;
-      display: flex;
-      justify-content: center;
-    }
-
-    .home-box {
-      background: #fff4d6;
-      padding: 20px;
-      border-radius: 12px;
-      margin-top: 20px;
-    }
-
-    .small {
-      font-size: 13px;
-      color: #777;
+    .home-text {
+      font-size: 20px;
+      font-weight: bold;
+      color: #333;
+      margin: 25px 0;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="app">
+  <div class="container">
 
     <!-- START SCREEN -->
-    <section id="startScreen">
+    <div id="start-screen">
       <h1>YSRCP YERRAGONDAPALEM</h1>
-      <p>Welcome to the official member app</p>
 
-      <button id="newRegistrationBtn">
+      <button onclick="showRegistration()">
         New Registration
       </button>
 
-      <button id="loginBtn" class="secondary">
+      <button onclick="showLogin()">
         Login
       </button>
-    </section>
+    </div>
 
-    <!-- PHONE SCREEN -->
-    <section id="phoneScreen" class="hidden">
-      <h2 id="phoneTitle">New Registration</h2>
+    <!-- REGISTRATION SCREEN -->
+    <div id="registration-screen" class="hidden">
+      <h2>New Registration</h2>
 
       <p>Enter your mobile number</p>
 
       <input
-        id="phoneInput"
         type="tel"
+        id="register-mobile"
         placeholder="Enter 10 digit mobile number"
         maxlength="10"
       />
 
-      <button id="sendOtpBtn">
+      <button id="send-register-otp-btn" onclick="sendRegistrationOTP()">
         Send OTP
       </button>
 
-      <div id="recaptcha-container"></div>
+      <div id="register-recaptcha"></div>
 
-      <button id="backBtn" class="secondary">
-        Back
-      </button>
+      <div id="register-otp-section" class="hidden">
+        <input
+          type="text"
+          id="register-otp"
+          placeholder="Enter OTP"
+          maxlength="6"
+        />
 
-      <div id="phoneMessage" class="message"></div>
-    </section>
-
-    <!-- OTP SCREEN -->
-    <section id="otpScreen" class="hidden">
-      <h2>Verify OTP</h2>
-
-      <p>OTP sent to your mobile number</p>
-
-      <input
-        id="otpInput"
-        type="number"
-        placeholder="Enter 6 digit OTP"
-        maxlength="6"
-      />
-
-      <button id="verifyOtpBtn">
-        Verify OTP
-      </button>
-
-      <button id="otpBackBtn" class="secondary">
-        Back
-      </button>
-
-      <div id="otpMessage" class="message"></div>
-    </section>
-
-    <!-- HOME SCREEN -->
-    <section id="homeScreen" class="hidden">
-      <h1>YSRCP YERRAGONDAPALEM</h1>
-
-      <div class="home-box">
-        <h2>Welcome</h2>
-        <p class="success">
-          You have successfully logged in.
-        </p>
-        <p id="userPhone"></p>
+        <button onclick="verifyRegistrationOTP()">
+          Verify OTP
+        </button>
       </div>
 
-      <button id="logoutBtn" class="secondary">
+      <button class="back-button" onclick="goBack()">
+        Back
+      </button>
+
+      <div id="register-message" class="message"></div>
+    </div>
+
+    <!-- LOGIN SCREEN -->
+    <div id="login-screen" class="hidden">
+      <h2>Login</h2>
+
+      <p>Enter your mobile number</p>
+
+      <input
+        type="tel"
+        id="login-mobile"
+        placeholder="Enter 10 digit mobile number"
+        maxlength="10"
+      />
+
+      <button onclick="sendLoginOTP()">
+        Send OTP
+      </button>
+
+      <div id="login-recaptcha"></div>
+
+      <div id="login-otp-section" class="hidden">
+        <input
+          type="text"
+          id="login-otp"
+          placeholder="Enter OTP"
+          maxlength="6"
+        />
+
+        <button onclick="verifyLoginOTP()">
+          Verify OTP
+        </button>
+      </div>
+
+      <button class="back-button" onclick="goBack()">
+        Back
+      </button>
+
+      <div id="login-message" class="message"></div>
+    </div>
+
+    <!-- HOME SCREEN -->
+    <div id="home-screen" class="hidden">
+      <h1>YSRCP YERRAGONDAPALEM</h1>
+
+      <div class="home-text">
+        Login Successful
+      </div>
+
+      <p>Welcome to Home Screen</p>
+
+      <button class="back-button" onclick="logoutUser()">
         Logout
       </button>
-    </section>
+    </div>
 
   </div>
 
+  <!-- FIREBASE CODE -->
   <script type="module">
 
     import { initializeApp } from
@@ -232,294 +253,262 @@
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
 
-    let confirmationResult = null;
-    let recaptchaVerifier = null;
-    let currentMode = "registration";
+    let registerConfirmationResult = null;
+    let loginConfirmationResult = null;
 
-    const startScreen = document.getElementById("startScreen");
-    const phoneScreen = document.getElementById("phoneScreen");
-    const otpScreen = document.getElementById("otpScreen");
-    const homeScreen = document.getElementById("homeScreen");
+    let registerRecaptchaVerifier = null;
+    let loginRecaptchaVerifier = null;
 
-    const phoneTitle = document.getElementById("phoneTitle");
-    const phoneInput = document.getElementById("phoneInput");
-    const otpInput = document.getElementById("otpInput");
+    window.showRegistration = function () {
+      document.getElementById("start-screen").classList.add("hidden");
+      document.getElementById("login-screen").classList.add("hidden");
+      document.getElementById("home-screen").classList.add("hidden");
+      document.getElementById("registration-screen").classList.remove("hidden");
 
-    const phoneMessage = document.getElementById("phoneMessage");
-    const otpMessage = document.getElementById("otpMessage");
+      clearMessages();
+    };
 
-    const newRegistrationBtn =
-      document.getElementById("newRegistrationBtn");
+    window.showLogin = function () {
+      document.getElementById("start-screen").classList.add("hidden");
+      document.getElementById("registration-screen").classList.add("hidden");
+      document.getElementById("home-screen").classList.add("hidden");
+      document.getElementById("login-screen").classList.remove("hidden");
 
-    const loginBtn =
-      document.getElementById("loginBtn");
+      clearMessages();
+    };
 
-    const sendOtpBtn =
-      document.getElementById("sendOtpBtn");
+    window.goBack = function () {
+      document.getElementById("registration-screen").classList.add("hidden");
+      document.getElementById("login-screen").classList.add("hidden");
+      document.getElementById("home-screen").classList.add("hidden");
+      document.getElementById("start-screen").classList.remove("hidden");
 
-    const verifyOtpBtn =
-      document.getElementById("verifyOtpBtn");
-
-    const backBtn =
-      document.getElementById("backBtn");
-
-    const otpBackBtn =
-      document.getElementById("otpBackBtn");
-
-    const logoutBtn =
-      document.getElementById("logoutBtn");
-
-    function showScreen(screen) {
-      startScreen.classList.add("hidden");
-      phoneScreen.classList.add("hidden");
-      otpScreen.classList.add("hidden");
-      homeScreen.classList.add("hidden");
-
-      screen.classList.remove("hidden");
-    }
-
-    function showMessage(element, message, success = false) {
-      element.textContent = message;
-      element.className = success
-        ? "message success"
-        : "message";
-    }
+      clearMessages();
+    };
 
     function clearMessages() {
-      phoneMessage.textContent = "";
-      otpMessage.textContent = "";
+      document.getElementById("register-message").innerText = "";
+      document.getElementById("login-message").innerText = "";
     }
 
-    function resetRecaptcha() {
-      if (recaptchaVerifier) {
-        try {
-          recaptchaVerifier.clear();
-        } catch (error) {
-          console.log("reCAPTCHA clear error:", error);
-        }
-        recaptchaVerifier = null;
+    function validMobileNumber(number) {
+      return /^[6-9][0-9]{9}$/.test(number);
+    }
+
+    function createRegisterRecaptcha() {
+      if (registerRecaptchaVerifier) {
+        return registerRecaptchaVerifier;
       }
 
-      document.getElementById("recaptcha-container").innerHTML = "";
-    }
-
-    function createRecaptcha() {
-      resetRecaptcha();
-
-      recaptchaVerifier = new RecaptchaVerifier(
+      registerRecaptchaVerifier = new RecaptchaVerifier(
         auth,
-        "recaptcha-container",
+        "register-recaptcha",
         {
           size: "normal",
           callback: function () {
-            showMessage(
-              phoneMessage,
-              "reCAPTCHA verified. Now press Send OTP.",
-              true
-            );
+            console.log("Registration reCAPTCHA completed");
           },
           "expired-callback": function () {
-            showMessage(
-              phoneMessage,
-              "reCAPTCHA expired. Please verify again."
-            );
+            document.getElementById("register-message").innerText =
+              "reCAPTCHA expired. Please complete it again.";
           }
         }
       );
 
-      recaptchaVerifier.render().catch(function (error) {
-        console.error("reCAPTCHA error:", error);
-        showMessage(
-          phoneMessage,
-          "reCAPTCHA load కాలేదు. Page refresh చేయండి."
-        );
-      });
+      return registerRecaptchaVerifier;
     }
 
-    function openPhoneScreen(mode) {
-      currentMode = mode;
-
-      phoneTitle.textContent =
-        mode === "registration"
-          ? "New Registration"
-          : "Login";
-
-      phoneInput.value = "";
-      otpInput.value = "";
-      clearMessages();
-
-      showScreen(phoneScreen);
-      createRecaptcha();
-    }
-
-    newRegistrationBtn.addEventListener("click", function () {
-      openPhoneScreen("registration");
-    });
-
-    loginBtn.addEventListener("click", function () {
-      openPhoneScreen("login");
-    });
-
-    backBtn.addEventListener("click", function () {
-      resetRecaptcha();
-      clearMessages();
-      showScreen(startScreen);
-    });
-
-    otpBackBtn.addEventListener("click", function () {
-      showScreen(phoneScreen);
-    });
-
-    sendOtpBtn.addEventListener("click", async function () {
-
-      clearMessages();
-
-      let mobile = phoneInput.value.trim();
-
-      if (!/^[6-9][0-9]{9}$/.test(mobile)) {
-        showMessage(
-          phoneMessage,
-          "దయచేసి సరైన 10 digit Indian mobile number ఇవ్వండి."
-        );
-        return;
+    function createLoginRecaptcha() {
+      if (loginRecaptchaVerifier) {
+        return loginRecaptchaVerifier;
       }
 
-      if (!recaptchaVerifier) {
-        showMessage(
-          phoneMessage,
-          "reCAPTCHA ఇంకా load కాలేదు. Page refresh చేసి ప్రయత్నించండి."
-        );
+      loginRecaptchaVerifier = new RecaptchaVerifier(
+        auth,
+        "login-recaptcha",
+        {
+          size: "normal",
+          callback: function () {
+            console.log("Login reCAPTCHA completed");
+          },
+          "expired-callback": function () {
+            document.getElementById("login-message").innerText =
+              "reCAPTCHA expired. Please complete it again.";
+          }
+        }
+      );
+
+      return loginRecaptchaVerifier;
+    }
+
+    window.sendRegistrationOTP = async function () {
+      const mobile =
+        document.getElementById("register-mobile").value.trim();
+
+      const message =
+        document.getElementById("register-message");
+
+      if (!validMobileNumber(mobile)) {
+        message.innerText =
+          "దయచేసి సరైన 10 అంకెల మొబైల్ నంబర్ నమోదు చేయండి.";
         return;
       }
 
       const phoneNumber = "+91" + mobile;
 
-      sendOtpBtn.disabled = true;
-      sendOtpBtn.textContent = "Sending OTP...";
-
       try {
+        message.innerText = "reCAPTCHA పూర్తి చేయండి...";
 
-        confirmationResult = await signInWithPhoneNumber(
-          auth,
-          phoneNumber,
-          recaptchaVerifier
-        );
+        const appVerifier = createRegisterRecaptcha();
 
-        showMessage(
-          phoneMessage,
-          "OTP మీ మొబైల్‌కు పంపబడింది.",
-          true
-        );
+        registerConfirmationResult =
+          await signInWithPhoneNumber(
+            auth,
+            phoneNumber,
+            appVerifier
+          );
 
-        showScreen(otpScreen);
+        document
+          .getElementById("register-otp-section")
+          .classList.remove("hidden");
+
+        message.classList.add("success");
+        message.innerText =
+          "OTP మీ మొబైల్‌కు పంపబడింది.";
 
       } catch (error) {
-
         console.error(error);
 
-        let message = error.message;
-
-        if (error.code === "auth/invalid-phone-number") {
-          message = "Mobile number తప్పుగా ఉంది.";
-        }
-
-        if (error.code === "auth/too-many-requests") {
-          message = "చాలా OTPలు పంపబడ్డాయి. కొంతసేపటి తర్వాత ప్రయత్నించండి.";
-        }
-
-        if (error.code === "auth/quota-exceeded") {
-          message = "Firebase SMS daily quota పూర్తయింది.";
-        }
-
-        if (error.code === "auth/operation-not-allowed") {
-          message = "Firebase Phone Authentication enable చేయలేదు.";
-        }
-
-        showMessage(phoneMessage, message);
-
-        createRecaptcha();
-
-      } finally {
-        sendOtpBtn.disabled = false;
-        sendOtpBtn.textContent = "Send OTP";
+        message.classList.remove("success");
+        message.innerText =
+          "OTP పంపలేకపోయింది: " + error.message;
       }
+    };
 
-    });
+    window.verifyRegistrationOTP = async function () {
+      const otp =
+        document.getElementById("register-otp").value.trim();
 
-    verifyOtpBtn.addEventListener("click", async function () {
-
-      clearMessages();
-
-      const otp = otpInput.value.trim();
+      const message =
+        document.getElementById("register-message");
 
       if (!/^[0-9]{6}$/.test(otp)) {
-        showMessage(
-          otpMessage,
-          "దయచేసి 6 digit OTP ఇవ్వండి."
-        );
+        message.innerText =
+          "6 అంకెల OTP నమోదు చేయండి.";
         return;
       }
-
-      if (!confirmationResult) {
-        showMessage(
-          otpMessage,
-          "ముందుగా Send OTP ప్రెస్ చేయండి."
-        );
-        return;
-      }
-
-      verifyOtpBtn.disabled = true;
-      verifyOtpBtn.textContent = "Verifying...";
 
       try {
+        await registerConfirmationResult.confirm(otp);
 
-        await confirmationResult.confirm(otp);
+        message.classList.add("success");
+        message.innerText =
+          "Registration Successful";
 
-        showMessage(
-          otpMessage,
-          "OTP verified successfully.",
-          true
-        );
+        showHome();
 
       } catch (error) {
-
         console.error(error);
 
-        let message = "OTP verification failed.";
+        message.classList.remove("success");
+        message.innerText =
+          "తప్పు OTP. మళ్లీ ప్రయత్నించండి.";
+      }
+    };
 
-        if (error.code === "auth/invalid-verification-code") {
-          message = "OTP తప్పుగా ఉంది.";
-        }
+    window.sendLoginOTP = async function () {
+      const mobile =
+        document.getElementById("login-mobile").value.trim();
 
-        if (error.code === "auth/code-expired") {
-          message = "OTP గడువు ముగిసింది. మళ్లీ OTP పంపించండి.";
-        }
+      const message =
+        document.getElementById("login-message");
 
-        showMessage(otpMessage, message);
-
-      } finally {
-        verifyOtpBtn.disabled = false;
-        verifyOtpBtn.textContent = "Verify OTP";
+      if (!validMobileNumber(mobile)) {
+        message.innerText =
+          "దయచేసి సరైన 10 అంకెల మొబైల్ నంబర్ నమోదు చేయండి.";
+        return;
       }
 
-    });
+      const phoneNumber = "+91" + mobile;
 
-    logoutBtn.addEventListener("click", async function () {
+      try {
+        message.innerText = "reCAPTCHA పూర్తి చేయండి...";
+
+        const appVerifier = createLoginRecaptcha();
+
+        loginConfirmationResult =
+          await signInWithPhoneNumber(
+            auth,
+            phoneNumber,
+            appVerifier
+          );
+
+        document
+          .getElementById("login-otp-section")
+          .classList.remove("hidden");
+
+        message.classList.add("success");
+        message.innerText =
+          "OTP మీ మొబైల్‌కు పంపబడింది.";
+
+      } catch (error) {
+        console.error(error);
+
+        message.classList.remove("success");
+        message.innerText =
+          "OTP పంపలేకపోయింది: " + error.message;
+      }
+    };
+
+    window.verifyLoginOTP = async function () {
+      const otp =
+        document.getElementById("login-otp").value.trim();
+
+      const message =
+        document.getElementById("login-message");
+
+      if (!/^[0-9]{6}$/.test(otp)) {
+        message.innerText =
+          "6 అంకెల OTP నమోదు చేయండి.";
+        return;
+      }
+
+      try {
+        await loginConfirmationResult.confirm(otp);
+
+        message.classList.add("success");
+        message.innerText =
+          "Login Successful";
+
+        showHome();
+
+      } catch (error) {
+        console.error(error);
+
+        message.classList.remove("success");
+        message.innerText =
+          "తప్పు OTP. మళ్లీ ప్రయత్నించండి.";
+      }
+    };
+
+    function showHome() {
+      document.getElementById("start-screen").classList.add("hidden");
+      document.getElementById("registration-screen").classList.add("hidden");
+      document.getElementById("login-screen").classList.add("hidden");
+      document.getElementById("home-screen").classList.remove("hidden");
+    }
+
+    window.logoutUser = async function () {
       await signOut(auth);
-      showScreen(startScreen);
-    });
+      goBack();
+    };
 
     onAuthStateChanged(auth, function (user) {
-
       if (user) {
-        document.getElementById("userPhone").textContent =
-          "Mobile: " + (user.phoneNumber || "");
-
-        showScreen(homeScreen);
+        console.log("User logged in:", user.phoneNumber);
       } else {
-        showScreen(startScreen);
+        console.log("No user logged in");
       }
-
     });
 
   </script>
