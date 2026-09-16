@@ -14,31 +14,30 @@
 
     body {
       margin: 0;
-      background: #f1f4f8;
+      background: #f2f4f7;
       color: #222;
     }
 
     header {
-      position: relative;
       background: linear-gradient(100deg, #087f23, #087f23);
       color: white;
       text-align: center;
-      padding: 22px 45px;
-      font-size: 21px;
+      padding: 20px 45px;
+      font-size: 22px;
       font-weight: bold;
+      position: relative;
     }
 
     .menu-btn {
       position: absolute;
       left: 12px;
-      top: 15px;
+      top: 13px;
       background: white;
       color: #087f23;
       border: none;
       border-radius: 5px;
       padding: 5px 10px;
       font-size: 22px;
-      cursor: pointer;
     }
 
     .side-menu {
@@ -59,25 +58,23 @@
     }
 
     .side-menu button {
-      display: block;
       width: 100%;
+      display: block;
       padding: 17px;
       border: none;
       border-bottom: 1px solid #ddd;
       background: white;
       text-align: left;
       font-size: 16px;
-      cursor: pointer;
     }
 
-    .close-menu {
+    .close-btn {
       position: absolute;
-      top: 15px;
       right: 10px;
+      top: 15px;
       width: auto !important;
       background: #d60000 !important;
       color: white;
-      padding: 7px 12px !important;
       border-radius: 5px;
     }
 
@@ -101,10 +98,6 @@
       margin-top: 0;
     }
 
-    p {
-      line-height: 1.6;
-    }
-
     label {
       display: block;
       margin-top: 13px;
@@ -115,7 +108,7 @@
       width: 100%;
       padding: 12px;
       margin-top: 6px;
-      border: 1px solid #bbb;
+      border: 1px solid #aaa;
       border-radius: 6px;
       font-size: 15px;
     }
@@ -132,10 +125,6 @@
       cursor: pointer;
     }
 
-    .main-btn:hover {
-      background: #055b19;
-    }
-
     .secondary-btn {
       background: #555;
     }
@@ -144,137 +133,158 @@
       display: none !important;
     }
 
-    .login-title {
+    .welcome-title {
       text-align: center;
       color: #087f23;
-      font-size: 25px;
-      font-weight: bold;
-    }
-
-    .photo-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 15px;
-      padding: 18px 15px;
-      background: #f7f7f7;
-    }
-
-    .photo-box {
-      width: 50%;
-      text-align: center;
-    }
-
-    .profile-photo {
-      width: 105px;
-      height: 125px;
-      object-fit: cover;
-      border: 2px solid #087f23;
-      border-radius: 5px;
-      background: white;
-    }
-
-    .photo-label {
-      margin-top: 6px;
-      font-size: 13px;
+      font-size: 24px;
       font-weight: bold;
     }
 
     .id-card {
       background: white;
       border: 3px solid #087f23;
-      border-radius: 12px;
+      border-radius: 10px;
       overflow: hidden;
-      box-shadow: 0 2px 10px #aaa;
     }
 
     .card-header {
-      background: linear-gradient(100deg, #087f23, #087f23);
+      background: linear-gradient(100deg, #0872c9, #087f23);
       color: white;
       text-align: center;
-      padding: 18px 8px;
-      font-size: 20px;
-      font-weight: bold;
+      padding: 10px 8px 15px;
     }
 
-    .card-subtitle {
+    .top-area {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .fixed-photo {
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid white;
+      background: white;
+    }
+
+    .card-title {
+      flex: 1;
+      font-size: 25px;
+      font-weight: bold;
+      line-height: 1.1;
+    }
+
+    .card-title small {
+      display: block;
+      font-size: 17px;
+      margin-top: 5px;
+    }
+
+    .card-label {
       background: white;
       color: #087f23;
-      margin: 12px 20px 0;
       padding: 10px;
-      border-radius: 7px;
-      text-align: center;
+      border-radius: 6px;
+      margin: 12px 45px 0;
+      font-size: 16px;
       font-weight: bold;
-      font-size: 17px;
     }
 
-    .card-content {
-      padding: 10px 18px 20px;
+    .color-line {
+      height: 7px;
+      background: linear-gradient(
+        90deg,
+        #f5a400 0%,
+        #f5a400 33%,
+        #e65b45 33%,
+        #e65b45 66%,
+        #087f23 66%,
+        #087f23 100%
+      );
+    }
+
+    .member-photo-area {
+      text-align: center;
+      padding: 28px 10px 8px;
+    }
+
+    .member-photo {
+      width: 165px;
+      height: 205px;
+      object-fit: cover;
+      border: 5px solid #eee;
+      border-radius: 8px;
+      box-shadow: 0 0 0 2px #ccc;
+      background: #f5f5f5;
     }
 
     .member-name {
       text-align: center;
-      color: #087f23;
-      font-size: 20px;
+      color: #b33131;
+      font-size: 21px;
       font-weight: bold;
-      margin: 12px 0 3px;
+      margin-top: 15px;
       text-transform: uppercase;
     }
 
     .member-role {
       text-align: center;
-      margin-bottom: 18px;
-      color: #555;
-      font-size: 14px;
+      color: #0872c9;
+      font-size: 16px;
+      font-weight: bold;
+      margin-top: 8px;
     }
 
-    .card-line {
+    .constituency {
+      text-align: center;
+      margin-top: 8px;
+      color: #555;
+    }
+
+    .details {
+      padding: 15px 25px 25px;
+    }
+
+    .detail-row {
       display: flex;
       justify-content: space-between;
-      gap: 10px;
+      gap: 15px;
       border-bottom: 1px solid #ddd;
-      padding: 10px 0;
+      padding: 12px 0;
       font-size: 14px;
     }
 
-    .card-line strong {
-      color: #333;
-    }
-
-    .card-line span {
+    .detail-row span:last-child {
       text-align: right;
+      font-weight: bold;
       word-break: break-word;
     }
 
     .success {
       text-align: center;
       color: #087f23;
-      font-size: 25px;
+      font-size: 26px;
       font-weight: bold;
-      padding: 15px 0;
-    }
-
-    .small-text {
-      text-align: center;
-      color: #777;
-      font-size: 13px;
+      padding: 20px 0;
     }
 
     @media print {
+      header,
+      .side-menu,
+      .no-print,
+      h2 {
+        display: none !important;
+      }
+
       body {
         background: white;
       }
 
-      header,
-      .side-menu,
-      .no-print,
-      .small-text {
-        display: none !important;
-      }
-
       .container {
         margin: 0;
-        max-width: 100%;
         padding: 0;
       }
 
@@ -294,32 +304,20 @@
   </header>
 
   <div id="sideMenu" class="side-menu">
-    <button class="close-menu" onclick="closeMenu()">✕</button>
+    <button class="close-btn" onclick="closeMenu()">✕</button>
 
-    <button onclick="showPage('home'); closeMenu()">🏠 Home</button>
-
-    <button onclick="showPage('registration'); closeMenu()">
-      📝 Registration
-    </button>
-
-    <button onclick="showPage('settings'); closeMenu()">
-      ⚙️ Settings
-    </button>
-
-    <button onclick="showPage('idcard'); closeMenu()">
-      🪪 ID Card
-    </button>
-
-    <button onclick="logout(); closeMenu()">
-      🚪 Logout
-    </button>
+    <button onclick="showPage('home'); closeMenu()">Home</button>
+    <button onclick="showPage('registration'); closeMenu()">Registration</button>
+    <button onclick="showPage('settings'); closeMenu()">Settings</button>
+    <button onclick="showPage('card'); closeMenu()">ID Card</button>
+    <button onclick="logout(); closeMenu()">Logout</button>
   </div>
 
   <div class="container">
 
-    <!-- FIRST LOGIN SCREEN -->
+    <!-- LOGIN -->
     <section id="loginPage" class="box">
-      <div class="login-title">
+      <div class="welcome-title">
         YSRCP YERRAGONDAPALEM
       </div>
 
@@ -328,18 +326,10 @@
       </p>
 
       <label>Mobile Number</label>
-      <input
-        type="tel"
-        id="loginMobile"
-        placeholder="Enter mobile number"
-      >
+      <input type="tel" id="loginMobile" placeholder="Enter mobile number">
 
       <label>Password</label>
-      <input
-        type="password"
-        id="loginPassword"
-        placeholder="Enter password"
-      >
+      <input type="password" id="loginPassword" placeholder="Enter password">
 
       <button class="main-btn" onclick="loginUser()">
         Login
@@ -358,12 +348,12 @@
         YSRCP YERRAGONDAPALEM Member App
       </p>
 
-      <button class="main-btn" onclick="showPage('registration')">
-        Member Registration
+      <button class="main-btn" onclick="showPage('card')">
+        View ID Card
       </button>
 
-      <button class="main-btn" onclick="showPage('idcard')">
-        View ID Card
+      <button class="main-btn" onclick="showPage('registration')">
+        Update Member Details
       </button>
     </section>
 
@@ -372,60 +362,25 @@
       <h2>Member Registration</h2>
 
       <label>Full Name</label>
-      <input
-        type="text"
-        id="name"
-        placeholder="Enter full name"
-      >
+      <input type="text" id="name" placeholder="Enter full name">
 
       <label>Mobile Number</label>
-      <input
-        type="tel"
-        id="mobile"
-        placeholder="Enter mobile number"
-      >
+      <input type="tel" id="mobile" placeholder="Enter mobile number">
 
       <label>Password</label>
-      <input
-        type="password"
-        id="password"
-        placeholder="Create password"
-      >
+      <input type="password" id="password" placeholder="Create password">
 
       <label>Village Name</label>
-      <input
-        type="text"
-        id="village"
-        placeholder="Enter village name"
-      >
+      <input type="text" id="village" placeholder="Enter village name">
 
       <label>Panchayat Name</label>
-      <input
-        type="text"
-        id="panchayat"
-        placeholder="Enter panchayat name"
-      >
+      <input type="text" id="panchayat" placeholder="Enter panchayat name">
 
       <label>Mandal Name</label>
-      <input
-        type="text"
-        id="mandal"
-        placeholder="Enter mandal name"
-      >
+      <input type="text" id="mandal" placeholder="Enter mandal name">
 
-      <label>Upload First Photo</label>
-      <input
-        type="file"
-        id="photo1"
-        accept="image/*"
-      >
-
-      <label>Upload Second Photo</label>
-      <input
-        type="file"
-        id="photo2"
-        accept="image/*"
-      >
+      <label>Upload Member Photo</label>
+      <input type="file" id="memberPhoto" accept="image/*">
 
       <button class="main-btn" onclick="registerMember()">
         Complete Registration
@@ -440,21 +395,8 @@
     <section id="settings" class="box hidden">
       <h2>Settings</h2>
 
-      <button class="main-btn" onclick="showPage('idcard')">
+      <button class="main-btn" onclick="showPage('card')">
         ID Card
-      </button>
-    </section>
-
-    <!-- ID CARD MENU -->
-    <section id="idcard" class="box hidden">
-      <h2>ID Card</h2>
-
-      <p style="text-align:center;">
-        మీ వివరాలు నమోదు చేసిన తర్వాత ID Card ఇక్కడ కనిపిస్తుంది.
-      </p>
-
-      <button class="main-btn" onclick="showPage('registration')">
-        Enter Member Details
       </button>
     </section>
 
@@ -465,7 +407,7 @@
       </div>
 
       <p style="text-align:center;">
-        మీ Member Registration విజయవంతంగా పూర్తయింది.
+        మీ Registration విజయవంతంగా పూర్తయింది.
       </p>
 
       <button class="main-btn" onclick="showPage('card')">
@@ -480,74 +422,82 @@
       <div class="id-card">
 
         <div class="card-header">
-          YSRCP<br>
-          YERRAGONDAPALEM
 
-          <div class="card-subtitle">
+          <div class="top-area">
+
+            <!-- FIXED LEFT PHOTO -->
+            <img
+              src="fixed-left.jpg"
+              class="fixed-photo"
+              alt="Fixed Left Photo"
+            >
+
+            <div class="card-title">
+              YSRCP
+              <small>YERRAGONDAPALEM</small>
+            </div>
+
+            <!-- FIXED RIGHT PHOTO -->
+            <img
+              src="fixed-right.jpg"
+              class="fixed-photo"
+              alt="Fixed Right Photo"
+            >
+
+          </div>
+
+          <div class="card-label">
             MEMBER ID CARD
           </div>
-        </div>
-
-        <!-- TWO PHOTOS AT TOP LEFT AND RIGHT -->
-        <div class="photo-row">
-
-          <div class="photo-box">
-            <img
-              id="cardPhoto1"
-              class="profile-photo"
-              alt="First Member Photo"
-            >
-
-            <div class="photo-label">
-              Photo 1
-            </div>
-          </div>
-
-          <div class="photo-box">
-            <img
-              id="cardPhoto2"
-              class="profile-photo"
-              alt="Second Member Photo"
-            >
-
-            <div class="photo-label">
-              Photo 2
-            </div>
-          </div>
 
         </div>
 
-        <div class="card-content">
+        <div class="color-line"></div>
 
-          <div id="cardName" class="member-name">
-            MEMBER NAME
-          </div>
+        <!-- MEMBER PHOTO CHANGES FOR EACH MEMBER -->
+        <div class="member-photo-area">
+          <img
+            id="cardMemberPhoto"
+            class="member-photo"
+            alt="Member Photo"
+          >
+        </div>
 
-          <div class="member-role">
-            YSRCP MEMBER
-          </div>
+        <div id="cardName" class="member-name">
+          MEMBER NAME
+        </div>
 
-          <div class="card-line">
+        <div class="member-role">
+          YSRCP MEMBER
+        </div>
+
+        <div class="constituency">
+          Yerragondapalem Constituency
+        </div>
+
+        <div class="details">
+
+          <div class="detail-row">
             <strong>Member ID</strong>
             <span id="cardId"></span>
           </div>
 
-          <div class="card-line">
+          <div class="detail-row">
             <strong>Mobile</strong>
             <span id="cardMobile"></span>
           </div>
 
-          <div class="card-line">
+          <div class="detail-row">
             <strong>Village</strong>
             <span id="cardVillage"></span>
           </div>
 
-          <div class="card-line">
+          <div class="detail-row">
             <strong>Panchayat</strong>
             <span id="cardPanchayat"></span>
           </div>
 
-          <div class="card-line">
+          <div class="detail-row">
             <strong>Mandal</strong>
             <span id="cardMandal"></span>
           </div>
@@ -564,14 +514,10 @@
       </button>
     </section>
 
-    <p class="small-text">
-      YSRCP YERRAGONDAPALEM
-    </p>
-
   </div>
 
   <script>
-    let memberNumber = 1;
+    let memberNumber = 1359;
 
     function openMenu() {
       document.getElementById("sideMenu").classList.add("open");
@@ -587,7 +533,6 @@
         "home",
         "registration",
         "settings",
-        "idcard",
         "congratulations",
         "card"
       ];
@@ -599,57 +544,14 @@
       document.getElementById(pageId).classList.remove("hidden");
     }
 
-    function loginUser() {
-      const loginMobile =
-        document.getElementById("loginMobile").value.trim();
-
-      const loginPassword =
-        document.getElementById("loginPassword").value.trim();
-
-      const savedMember =
-        JSON.parse(localStorage.getItem("memberData"));
-
-      if (!savedMember) {
-        alert("ముందుగా Registration పూర్తి చేయండి.");
-        showPage("registration");
-        return;
-      }
-
-      if (
-        loginMobile === savedMember.mobile &&
-        loginPassword === savedMember.password
-      ) {
-        loadSavedCard();
-        showPage("home");
-      } else {
-        alert("Mobile Number లేదా Password తప్పుగా ఉంది.");
-      }
-    }
-
     function registerMember() {
-      const name =
-        document.getElementById("name").value.trim();
-
-      const mobile =
-        document.getElementById("mobile").value.trim();
-
-      const password =
-        document.getElementById("password").value.trim();
-
-      const village =
-        document.getElementById("village").value.trim();
-
-      const panchayat =
-        document.getElementById("panchayat").value.trim();
-
-      const mandal =
-        document.getElementById("mandal").value.trim();
-
-      const photoFile1 =
-        document.getElementById("photo1").files[0];
-
-      const photoFile2 =
-        document.getElementById("photo2").files[0];
+      const name = document.getElementById("name").value.trim();
+      const mobile = document.getElementById("mobile").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const village = document.getElementById("village").value.trim();
+      const panchayat = document.getElementById("panchayat").value.trim();
+      const mandal = document.getElementById("mandal").value.trim();
+      const photoFile = document.getElementById("memberPhoto").files[0];
 
       if (
         name === "" ||
@@ -658,10 +560,9 @@
         village === "" ||
         panchayat === "" ||
         mandal === "" ||
-        !photoFile1 ||
-        !photoFile2
+        !photoFile
       ) {
-        alert("దయచేసి అన్ని వివరాలు మరియు రెండు ఫోటోలు పూర్తి చేయండి.");
+        alert("దయచేసి అన్ని వివరాలు మరియు మెంబర్ ఫోటో పూర్తి చేయండి.");
         return;
       }
 
@@ -670,73 +571,89 @@
         return;
       }
 
-      const reader1 = new FileReader();
+      const reader = new FileReader();
 
-      reader1.onload = function(event1) {
-        const reader2 = new FileReader();
-
-        reader2.onload = function(event2) {
-
-          const memberData = {
-            id: "YGP-" + String(memberNumber).padStart(4, "0"),
-            name: name,
-            mobile: mobile,
-            password: password,
-            village: village,
-            panchayat: panchayat,
-            mandal: mandal,
-            photo1: event1.target.result,
-            photo2: event2.target.result
-          };
-
-          localStorage.setItem(
-            "memberData",
-            JSON.stringify(memberData)
-          );
-
-          memberNumber++;
-
-          loadSavedCard();
-          showPage("congratulations");
+      reader.onload = function(event) {
+        const memberData = {
+          id: "YGP-" + memberNumber,
+          name: name,
+          mobile: mobile,
+          password: password,
+          village: village,
+          panchayat: panchayat,
+          mandal: mandal,
+          photo: event.target.result
         };
 
-        reader2.readAsDataURL(photoFile2);
+        localStorage.setItem(
+          "memberData",
+          JSON.stringify(memberData)
+        );
+
+        memberNumber++;
+
+        loadCard();
+        showPage("congratulations");
       };
 
-      reader1.readAsDataURL(photoFile1);
+      reader.readAsDataURL(photoFile);
     }
 
-    function loadSavedCard() {
-      const savedMember =
+    function loadCard() {
+      const memberData =
         JSON.parse(localStorage.getItem("memberData"));
 
-      if (!savedMember) {
+      if (!memberData) {
         return;
       }
 
       document.getElementById("cardId").textContent =
-        savedMember.id;
+        memberData.id;
 
       document.getElementById("cardName").textContent =
-        savedMember.name;
+        memberData.name;
 
       document.getElementById("cardMobile").textContent =
-        savedMember.mobile;
+        memberData.mobile;
 
       document.getElementById("cardVillage").textContent =
-        savedMember.village;
+        memberData.village;
 
       document.getElementById("cardPanchayat").textContent =
-        savedMember.panchayat;
+        memberData.panchayat;
 
       document.getElementById("cardMandal").textContent =
-        savedMember.mandal;
+        memberData.mandal;
 
-      document.getElementById("cardPhoto1").src =
-        savedMember.photo1;
+      document.getElementById("cardMemberPhoto").src =
+        memberData.photo;
+    }
 
-      document.getElementById("cardPhoto2").src =
-        savedMember.photo2;
+    function loginUser() {
+      const mobile =
+        document.getElementById("loginMobile").value.trim();
+
+      const password =
+        document.getElementById("loginPassword").value.trim();
+
+      const memberData =
+        JSON.parse(localStorage.getItem("memberData"));
+
+      if (!memberData) {
+        alert("ముందుగా Registration పూర్తి చేయండి.");
+        showPage("registration");
+        return;
+      }
+
+      if (
+        mobile === memberData.mobile &&
+        password === memberData.password
+      ) {
+        loadCard();
+        showPage("home");
+      } else {
+        alert("Mobile Number లేదా Password తప్పుగా ఉంది.");
+      }
     }
 
     function logout() {
