@@ -15,7 +15,7 @@
 }
 
 body {
-  background: #f1f5f9;
+  background: #eef3f8;
   color: #172033;
 }
 
@@ -35,6 +35,7 @@ input {
   border: 1px solid #cbd5e1;
   border-radius: 8px;
   font-size: 15px;
+  margin-bottom: 8px;
   outline: none;
 }
 
@@ -44,29 +45,16 @@ input:focus {
 
 label {
   display: block;
-  margin-top: 13px;
-  margin-bottom: 6px;
-  font-weight: bold;
   font-size: 14px;
+  font-weight: bold;
+  margin: 10px 0 6px;
 }
 
-.main-header {
-  background: linear-gradient(110deg, #0875c9, #0756a3, #159447);
-  color: white;
-  text-align: center;
-  padding: 22px 12px;
+button:active {
+  transform: scale(.98);
 }
 
-.main-header h1 {
-  font-size: 25px;
-  font-weight: 900;
-  letter-spacing: 2px;
-}
-
-.main-header p {
-  margin-top: 6px;
-  font-size: 13px;
-}
+/* COMMON */
 
 .screen {
   max-width: 650px;
@@ -78,24 +66,24 @@ label {
 .card {
   background: white;
   padding: 20px;
-  border-radius: 14px;
+  border-radius: 15px;
   box-shadow: 0 4px 18px #00000012;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
 }
 
 .card h2 {
   color: #0756a3;
-  margin-bottom: 16px;
-  font-size: 22px;
+  margin-bottom: 18px;
+  font-size: 23px;
 }
 
 .primary-btn {
   width: 100%;
   padding: 14px;
-  margin-top: 18px;
-  background: #0875c9;
-  color: white;
+  margin-top: 15px;
   border-radius: 8px;
+  color: white;
+  background: #0875c9;
   font-size: 16px;
 }
 
@@ -107,6 +95,16 @@ label {
   background: #dc2626;
 }
 
+.secondary-btn {
+  width: 100%;
+  padding: 13px;
+  margin-top: 10px;
+  border-radius: 8px;
+  color: #0756a3;
+  background: #e8f2ff;
+  font-size: 15px;
+}
+
 .note {
   color: #64748b;
   font-size: 12px;
@@ -114,14 +112,34 @@ label {
   margin-top: 10px;
 }
 
-/* MAIN MENU */
+/* LOGIN HEADER */
+
+.login-header {
+  background: linear-gradient(110deg, #0875c9, #0756a3, #159447);
+  color: white;
+  text-align: center;
+  padding: 30px 15px;
+}
+
+.login-header h1 {
+  font-size: 28px;
+  letter-spacing: 2px;
+  font-weight: 900;
+}
+
+.login-header p {
+  margin-top: 8px;
+  font-size: 13px;
+}
+
+/* TOP BAR */
 
 .topbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   background: white;
-  padding: 13px 16px;
+  padding: 14px 18px;
   border-bottom: 1px solid #dbe3ec;
   position: relative;
 }
@@ -135,15 +153,15 @@ label {
   background: #0756a3;
   color: white;
   border-radius: 7px;
-  padding: 6px 13px;
-  font-size: 24px;
+  padding: 4px 13px;
+  font-size: 25px;
 }
 
 .menu-box {
   position: absolute;
-  right: 15px;
   top: 62px;
-  width: 220px;
+  right: 15px;
+  width: 230px;
   background: white;
   border-radius: 10px;
   overflow: hidden;
@@ -153,9 +171,9 @@ label {
 
 .menu-box button {
   width: 100%;
+  padding: 15px;
   background: white;
   color: #172033;
-  padding: 15px;
   text-align: left;
   border-bottom: 1px solid #e2e8f0;
   font-size: 14px;
@@ -165,11 +183,13 @@ label {
   background: #eff6ff;
 }
 
+/* HOME */
+
 .welcome-box {
   background: linear-gradient(110deg, #0875c9, #0756a3, #159447);
   color: white;
   padding: 22px;
-  border-radius: 14px;
+  border-radius: 15px;
   margin-bottom: 18px;
 }
 
@@ -185,12 +205,12 @@ label {
 }
 
 .dashboard button {
+  min-height: 115px;
   background: white;
   color: #0756a3;
   border: 1px solid #dbeafe;
   border-radius: 13px;
-  padding: 20px 8px;
-  min-height: 115px;
+  padding: 18px 8px;
   font-size: 15px;
   box-shadow: 0 3px 12px #0000000d;
 }
@@ -199,6 +219,37 @@ label {
   display: block;
   font-size: 32px;
   margin-bottom: 9px;
+}
+
+/* PROFILE */
+
+.profile-row {
+  border-bottom: 1px solid #e2e8f0;
+  padding: 13px 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.profile-row strong {
+  color: #334155;
+}
+
+.profile-row span {
+  text-align: right;
+  color: #0756a3;
+  font-weight: bold;
+  overflow-wrap: anywhere;
+}
+
+.profile-photo {
+  width: 130px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 5px solid #e2e8f0;
+  display: block;
+  margin: 0 auto 18px;
 }
 
 /* ID CARD */
@@ -216,19 +267,17 @@ label {
   box-shadow: 0 5px 22px #00000025;
 }
 
-/* ID CARD HEADER */
-
 .id-card-header {
   height: 180px;
-  background: linear-gradient(105deg, #0875c9 0%, #0756a3 48%, #159447 100%);
+  background: linear-gradient(105deg, #0875c9, #0756a3 48%, #159447);
   color: white;
   text-align: center;
   position: relative;
-  padding-top: 24px;
+  padding-top: 22px;
 }
 
 .id-card-header h1 {
-  font-size: 36px;
+  font-size: 37px;
   font-weight: 900;
   letter-spacing: 5px;
   line-height: 1.1;
@@ -236,10 +285,9 @@ label {
 
 .id-card-header h2 {
   color: white;
-  font-size: 22px;
+  font-size: 21px;
   font-weight: 900;
-  margin-top: 3px;
-  line-height: 1.2;
+  margin-top: 4px;
 }
 
 .id-card-title {
@@ -253,17 +301,15 @@ label {
   font-weight: 900;
 }
 
-/* DEFAULT LEFT AND RIGHT PHOTOS */
-
 .default-photo {
   position: absolute;
+  top: 30px;
   width: 82px;
   height: 82px;
   object-fit: cover;
   border-radius: 50%;
   border: 5px solid white;
   background: white;
-  top: 30px;
 }
 
 .default-photo.left {
@@ -273,8 +319,6 @@ label {
 .default-photo.right {
   right: 18px;
 }
-
-/* THREE COLOR LINE */
 
 .id-color-line {
   height: 13px;
@@ -288,8 +332,6 @@ label {
     #22c55e 100%
   );
 }
-
-/* ID CARD BODY */
 
 .id-card-body {
   padding: 25px 30px 35px;
@@ -318,7 +360,6 @@ label {
 .photo-placeholder {
   color: #64748b;
   font-size: 13px;
-  padding: 10px;
 }
 
 .id-member-name {
@@ -381,7 +422,7 @@ label {
   overflow-wrap: anywhere;
 }
 
-/* BOTTOM NAVIGATION */
+/* BOTTOM NAV */
 
 .bottom-nav {
   position: fixed;
@@ -471,13 +512,14 @@ label {
 
 <body>
 
-<!-- HEADER -->
-<header id="loginHeader" class="main-header">
-  <h1>YSRCP YERRAGONDAPALEM</h1>
+<!-- LOGIN HEADER -->
+<header id="loginHeader" class="login-header">
+  <h1>YSRCP</h1>
+  <h2>YERRAGONDAPALEM</h2>
   <p>Digital Member ID Platform</p>
 </header>
 
-<!-- LOGIN SCREEN -->
+<!-- LOGIN -->
 <section id="loginScreen" class="screen">
 
   <div class="card">
@@ -489,7 +531,7 @@ label {
       id="loginMobile"
       maxlength="10"
       placeholder="Enter 10-digit mobile number"
-      oninput="setLoginPassword()"
+      oninput="autoLoginPassword()"
     >
 
     <label>Password</label>
@@ -504,13 +546,13 @@ label {
     </button>
 
     <p class="note">
-      Password మొబైల్ నంబర్‌లోని మొదటి 4 అంకెలుగా ఆటోమేటిక్‌గా వస్తుంది.
+      Password మొబైల్ నంబర్‌లోని మొదటి నాలుగు అంకెలుగా ఆటోమేటిక్‌గా వస్తుంది.
     </p>
   </div>
 
 </section>
 
-<!-- DETAILS SCREEN -->
+<!-- FIRST DETAILS -->
 <section id="detailsScreen" class="screen hidden">
 
   <div class="card">
@@ -529,7 +571,7 @@ label {
       id="memberMobile"
       maxlength="10"
       placeholder="Enter Mobile Number"
-      oninput="setDetailsPassword()"
+      oninput="autoDetailsPassword()"
     >
 
     <label>Password</label>
@@ -567,7 +609,7 @@ label {
       placeholder="Enter Party Designation"
     >
 
-    <label>Only Member Photo Upload</label>
+    <label>Member Photo</label>
     <input
       type="file"
       id="memberPhotoInput"
@@ -576,11 +618,14 @@ label {
     >
 
     <p class="note">
-      ID Left Photo మరియు ID Right Photo బై డిఫాల్ట్‌గా వస్తాయి.
+      Left Photo మరియు Right Photo డిఫాల్ట్‌గా ID Cardలో వస్తాయి.
       ఇక్కడ Member Photo మాత్రమే upload చేయాలి.
     </p>
 
-    <button class="primary-btn green-btn" onclick="saveMemberDetails()">
+    <button
+      class="primary-btn green-btn"
+      onclick="saveMemberDetails()"
+    >
       Save Details
     </button>
   </div>
@@ -591,6 +636,7 @@ label {
 <section id="mainScreen" class="hidden">
 
   <div class="topbar">
+
     <h2>Main Menu</h2>
 
     <button class="three-dots" onclick="toggleMenu()">
@@ -607,11 +653,16 @@ label {
         👤 My Profile
       </button>
 
+      <button onclick="openEditProfile()">
+        ✏️ Edit Profile
+      </button>
+
       <button onclick="logoutUser()">
         🚪 Logout
       </button>
 
     </div>
+
   </div>
 
   <div class="screen">
@@ -631,6 +682,11 @@ label {
       <button onclick="openProfile()">
         <span>👤</span>
         My Profile
+      </button>
+
+      <button onclick="openEditProfile()">
+        <span>✏️</span>
+        Edit Profile
       </button>
 
       <button onclick="showSimplePage('Latest News')">
@@ -653,12 +709,18 @@ label {
         Notifications
       </button>
 
+      <button onclick="showSimplePage('Party Updates')">
+        <span>📢</span>
+        Party Updates
+      </button>
+
     </div>
 
   </div>
+
 </section>
 
-<!-- ID CARD SCREEN -->
+<!-- ID CARD -->
 <section id="idCardScreen" class="screen hidden">
 
   <div id="printCard" class="id-card-wrapper">
@@ -671,14 +733,14 @@ label {
         <img
           src="./id-left.jpeg"
           class="default-photo left"
-          alt="ID Left Photo"
+          alt="Left Photo"
         >
 
         <!-- DEFAULT RIGHT PHOTO -->
         <img
           src="./id-right.jpeg"
           class="default-photo right"
-          alt="ID Right Photo"
+          alt="Right Photo"
         >
 
         <h1>YSRCP</h1>
@@ -694,7 +756,7 @@ label {
 
       <div class="id-card-body">
 
-        <!-- ONLY MEMBER PHOTO -->
+        <!-- MEMBER UPLOAD PHOTO -->
         <div class="member-photo-box">
 
           <img
@@ -774,7 +836,7 @@ label {
   </button>
 
   <button
-    class="primary-btn no-print"
+    class="secondary-btn no-print"
     onclick="showScreen('mainScreen')"
   >
     Back to Main Menu
@@ -782,35 +844,147 @@ label {
 
 </section>
 
-<!-- PROFILE SCREEN -->
+<!-- PROFILE -->
 <section id="profileScreen" class="screen hidden">
 
   <div class="card">
+
     <h2>My Profile</h2>
 
-    <p><b>Name:</b> <span id="profileName">-</span></p>
-    <br>
+    <img
+      id="profilePhoto"
+      class="profile-photo hidden"
+      alt="Profile Photo"
+    >
 
-    <p><b>Mobile:</b> <span id="profileMobile">-</span></p>
-    <br>
+    <div class="profile-row">
+      <strong>Name</strong>
+      <span id="profileName">-</span>
+    </div>
 
-    <p><b>Village:</b> <span id="profileVillage">-</span></p>
-    <br>
+    <div class="profile-row">
+      <strong>Mobile</strong>
+      <span id="profileMobile">-</span>
+    </div>
 
-    <p><b>Panchayat:</b> <span id="profilePanchayat">-</span></p>
-    <br>
+    <div class="profile-row">
+      <strong>Village</strong>
+      <span id="profileVillage">-</span>
+    </div>
 
-    <p><b>Mandal:</b> <span id="profileMandal">-</span></p>
-    <br>
+    <div class="profile-row">
+      <strong>Panchayat</strong>
+      <span id="profilePanchayat">-</span>
+    </div>
 
-    <p><b>Designation:</b> <span id="profileDesignation">-</span></p>
+    <div class="profile-row">
+      <strong>Mandal</strong>
+      <span id="profileMandal">-</span>
+    </div>
+
+    <div class="profile-row">
+      <strong>Designation</strong>
+      <span id="profileDesignation">-</span>
+    </div>
 
     <button
       class="primary-btn"
+      onclick="openEditProfile()"
+    >
+      Edit Profile
+    </button>
+
+    <button
+      class="secondary-btn"
       onclick="showScreen('mainScreen')"
     >
       Back to Main Menu
     </button>
+
+  </div>
+
+</section>
+
+<!-- EDIT PROFILE -->
+<section id="editProfileScreen" class="screen hidden">
+
+  <div class="card">
+
+    <h2>Edit Profile</h2>
+
+    <label>Change Member Photo</label>
+    <input
+      type="file"
+      id="editPhotoInput"
+      accept="image/*"
+      onchange="editMemberPhoto(event)"
+    >
+
+    <label>Member Name</label>
+    <input
+      type="text"
+      id="editName"
+      placeholder="Enter Member Name"
+    >
+
+    <label>Mobile Number</label>
+    <input
+      type="tel"
+      id="editMobile"
+      maxlength="10"
+      placeholder="Enter Mobile Number"
+      oninput="autoEditPassword()"
+    >
+
+    <label>Password</label>
+    <input
+      type="password"
+      id="editPassword"
+      placeholder="Password"
+    >
+
+    <label>Village Name</label>
+    <input
+      type="text"
+      id="editVillage"
+      placeholder="Enter Village Name"
+    >
+
+    <label>Panchayat Name</label>
+    <input
+      type="text"
+      id="editPanchayat"
+      placeholder="Enter Panchayat Name"
+    >
+
+    <label>Mandal Name</label>
+    <input
+      type="text"
+      id="editMandal"
+      placeholder="Enter Mandal Name"
+    >
+
+    <label>Party Designation</label>
+    <input
+      type="text"
+      id="editDesignation"
+      placeholder="Enter Party Designation"
+    >
+
+    <button
+      class="primary-btn green-btn"
+      onclick="saveEditedProfile()"
+    >
+      Save Profile Changes
+    </button>
+
+    <button
+      class="secondary-btn"
+      onclick="openProfile()"
+    >
+      Cancel
+    </button>
+
   </div>
 
 </section>
@@ -819,6 +993,7 @@ label {
 <section id="simpleScreen" class="screen hidden">
 
   <div class="card">
+
     <h2 id="simpleTitle">Page</h2>
 
     <p>This section will be updated soon.</p>
@@ -829,6 +1004,7 @@ label {
     >
       Back to Main Menu
     </button>
+
   </div>
 
 </section>
@@ -853,9 +1029,12 @@ label {
 <script>
 let currentUser = null;
 let uploadedMemberPhoto = "";
+let editedPhoto = "";
 
-/* SCREEN CONTROL */
+/* SHOW SCREEN */
+
 function showScreen(screenId) {
+
   document.querySelectorAll(".screen").forEach(screen => {
     screen.classList.add("hidden");
   });
@@ -872,14 +1051,18 @@ function showScreen(screenId) {
     screenId === "loginScreen" ||
     screenId === "detailsScreen"
   ) {
-    document.getElementById("bottomNav").classList.add("hidden");
+    document.getElementById("bottomNav")
+      .classList.add("hidden");
   } else {
-    document.getElementById("bottomNav").classList.remove("hidden");
+    document.getElementById("bottomNav")
+      .classList.remove("hidden");
   }
 }
 
-/* LOGIN PASSWORD AUTO FILL */
-function setLoginPassword() {
+/* LOGIN PASSWORD FIRST 4 DIGITS */
+
+function autoLoginPassword() {
+
   const mobile =
     document.getElementById("loginMobile").value;
 
@@ -889,8 +1072,10 @@ function setLoginPassword() {
       : "";
 }
 
-/* DETAILS PASSWORD AUTO FILL */
-function setDetailsPassword() {
+/* DETAILS PASSWORD FIRST 4 DIGITS */
+
+function autoDetailsPassword() {
+
   const mobile =
     document.getElementById("memberMobile").value;
 
@@ -900,8 +1085,23 @@ function setDetailsPassword() {
       : "";
 }
 
+/* EDIT PASSWORD FIRST 4 DIGITS */
+
+function autoEditPassword() {
+
+  const mobile =
+    document.getElementById("editMobile").value;
+
+  document.getElementById("editPassword").value =
+    mobile.length >= 4
+      ? mobile.substring(0, 4)
+      : "";
+}
+
 /* LOGIN */
+
 function loginUser() {
+
   const mobile =
     document.getElementById("loginMobile").value.trim();
 
@@ -917,12 +1117,15 @@ function loginUser() {
     JSON.parse(localStorage.getItem("ysrcpUser"));
 
   if (!savedUser) {
-    document.getElementById("memberMobile").value = mobile;
+
+    document.getElementById("memberMobile").value =
+      mobile;
+
     document.getElementById("memberPassword").value =
       mobile.substring(0, 4);
 
-    alert("Login successful. Please fill your details.");
     showScreen("detailsScreen");
+
     return;
   }
 
@@ -935,12 +1138,16 @@ function loginUser() {
   }
 
   currentUser = savedUser;
+
   loadUserData();
+
   showScreen("mainScreen");
 }
 
-/* SAVE DETAILS */
+/* SAVE FIRST DETAILS */
+
 function saveMemberDetails() {
+
   const name =
     document.getElementById("memberName").value.trim();
 
@@ -972,31 +1179,34 @@ function saveMemberDetails() {
     return;
   }
 
-  if (!village) {
-    alert("Please enter Village Name");
-    return;
-  }
-
-  if (!panchayat) {
-    alert("Please enter Panchayat Name");
-    return;
-  }
-
-  if (!mandal) {
-    alert("Please enter Mandal Name");
+  if (!village || !panchayat || !mandal) {
+    alert("Please fill Village, Panchayat and Mandal");
     return;
   }
 
   const user = {
+
     name: name,
+
     mobile: mobile,
+
     password: password || mobile.substring(0, 4),
+
     village: village,
+
     panchayat: panchayat,
+
     mandal: mandal,
+
     designation: designation,
-    memberId: "YSRCP-" + mandal.substring(0, 3).toUpperCase() + "-001",
+
+    memberId:
+      "YSRCP-" +
+      mandal.substring(0, 3).toUpperCase() +
+      "-001",
+
     memberPhoto: uploadedMemberPhoto
+
   };
 
   localStorage.setItem(
@@ -1005,6 +1215,7 @@ function saveMemberDetails() {
   );
 
   currentUser = user;
+
   loadUserData();
 
   alert("Member details saved successfully");
@@ -1013,7 +1224,9 @@ function saveMemberDetails() {
 }
 
 /* MEMBER PHOTO UPLOAD */
+
 function uploadMemberPhoto(event) {
+
   const file = event.target.files[0];
 
   if (!file) return;
@@ -1021,12 +1234,8 @@ function uploadMemberPhoto(event) {
   const reader = new FileReader();
 
   reader.onload = function(e) {
-    uploadedMemberPhoto = e.target.result;
 
-    localStorage.setItem(
-      "memberPhoto",
-      uploadedMemberPhoto
-    );
+    uploadedMemberPhoto = e.target.result;
 
     document.getElementById("cardMemberPhoto").src =
       uploadedMemberPhoto;
@@ -1036,62 +1245,84 @@ function uploadMemberPhoto(event) {
 
     document.getElementById("photoPlaceholder")
       .classList.add("hidden");
+
   };
 
   reader.readAsDataURL(file);
 }
 
-/* LOAD USER DATA */
+/* EDIT MEMBER PHOTO */
+
+function editMemberPhoto(event) {
+
+  const file = event.target.files[0];
+
+  if (!file) return;
+
+  const reader = new FileReader();
+
+  reader.onload = function(e) {
+
+    editedPhoto = e.target.result;
+
+  };
+
+  reader.readAsDataURL(file);
+}
+
+/* LOAD ALL DATA */
+
 function loadUserData() {
+
   if (!currentUser) return;
 
   document.getElementById("welcomeName").textContent =
     "Welcome, " + currentUser.name;
 
   document.getElementById("cardMemberName").textContent =
-    currentUser.name;
+    currentUser.name || "-";
 
   document.getElementById("cardMemberId").textContent =
-    currentUser.memberId;
+    currentUser.memberId || "-";
 
   document.getElementById("cardMobile").textContent =
-    currentUser.mobile;
+    currentUser.mobile || "-";
 
   document.getElementById("cardVillage").textContent =
-    currentUser.village;
+    currentUser.village || "-";
 
   document.getElementById("cardPanchayat").textContent =
-    currentUser.panchayat;
+    currentUser.panchayat || "-";
 
   document.getElementById("cardMandal").textContent =
-    currentUser.mandal;
+    currentUser.mandal || "-";
 
   document.getElementById("cardDesignation").textContent =
     currentUser.designation || "-";
 
   document.getElementById("profileName").textContent =
-    currentUser.name;
+    currentUser.name || "-";
 
   document.getElementById("profileMobile").textContent =
-    currentUser.mobile;
+    currentUser.mobile || "-";
 
   document.getElementById("profileVillage").textContent =
-    currentUser.village;
+    currentUser.village || "-";
 
   document.getElementById("profilePanchayat").textContent =
-    currentUser.panchayat;
+    currentUser.panchayat || "-";
 
   document.getElementById("profileMandal").textContent =
-    currentUser.mandal;
+    currentUser.mandal || "-";
 
   document.getElementById("profileDesignation").textContent =
     currentUser.designation || "-";
 
   const savedPhoto =
-    currentUser.memberPhoto ||
-    localStorage.getItem("memberPhoto");
+    currentUser.memberPhoto || "";
 
   if (savedPhoto) {
+
     document.getElementById("cardMemberPhoto").src =
       savedPhoto;
 
@@ -1100,33 +1331,172 @@ function loadUserData() {
 
     document.getElementById("photoPlaceholder")
       .classList.add("hidden");
+
+    document.getElementById("profilePhoto").src =
+      savedPhoto;
+
+    document.getElementById("profilePhoto")
+      .classList.remove("hidden");
+
+  } else {
+
+    document.getElementById("cardMemberPhoto")
+      .classList.add("hidden");
+
+    document.getElementById("photoPlaceholder")
+      .classList.remove("hidden");
+
+    document.getElementById("profilePhoto")
+      .classList.add("hidden");
+
   }
 }
-  /* OPEN ID CARD */
+
+/* OPEN ID CARD */
+
 function openIdCard() {
+
   closeMenu();
+
+  loadUserData();
+
   showScreen("idCardScreen");
 }
 
 /* OPEN PROFILE */
+
 function openProfile() {
+
   closeMenu();
+
+  loadUserData();
+
   showScreen("profileScreen");
 }
 
-/* THREE DOTS MENU */
+/* OPEN EDIT PROFILE */
+
+function openEditProfile() {
+
+  closeMenu();
+
+  if (!currentUser) return;
+
+  document.getElementById("editName").value =
+    currentUser.name || "";
+
+  document.getElementById("editMobile").value =
+    currentUser.mobile || "";
+
+  document.getElementById("editPassword").value =
+    currentUser.password || "";
+
+  document.getElementById("editVillage").value =
+    currentUser.village || "";
+
+  document.getElementById("editPanchayat").value =
+    currentUser.panchayat || "";
+
+  document.getElementById("editMandal").value =
+    currentUser.mandal || "";
+
+  document.getElementById("editDesignation").value =
+    currentUser.designation || "";
+
+  editedPhoto = currentUser.memberPhoto || "";
+
+  showScreen("editProfileScreen");
+}
+
+/* SAVE EDIT PROFILE */
+
+function saveEditedProfile() {
+
+  const name =
+    document.getElementById("editName").value.trim();
+
+  const mobile =
+    document.getElementById("editMobile").value.trim();
+
+  const password =
+    document.getElementById("editPassword").value.trim();
+
+  const village =
+    document.getElementById("editVillage").value.trim();
+
+  const panchayat =
+    document.getElementById("editPanchayat").value.trim();
+
+  const mandal =
+    document.getElementById("editMandal").value.trim();
+
+  const designation =
+    document.getElementById("editDesignation").value.trim();
+
+  if (!name) {
+    alert("Please enter Member Name");
+    return;
+  }
+
+  if (!/^[0-9]{10}$/.test(mobile)) {
+    alert("Please enter valid 10 digit mobile number");
+    return;
+  }
+
+  if (!village || !panchayat || !mandal) {
+    alert("Please fill Village, Panchayat and Mandal");
+    return;
+  }
+
+  currentUser.name = name;
+
+  currentUser.mobile = mobile;
+
+  currentUser.password =
+    password || mobile.substring(0, 4);
+
+  currentUser.village = village;
+
+  currentUser.panchayat = panchayat;
+
+  currentUser.mandal = mandal;
+
+  currentUser.designation = designation;
+
+  currentUser.memberPhoto = editedPhoto;
+
+  localStorage.setItem(
+    "ysrcpUser",
+    JSON.stringify(currentUser)
+  );
+
+  loadUserData();
+
+  alert("Profile updated successfully");
+
+  showScreen("profileScreen");
+}
+
+/* THREE DOTS */
+
 function toggleMenu() {
+
   document.getElementById("menuBox")
     .classList.toggle("hidden");
+
 }
 
 function closeMenu() {
+
   document.getElementById("menuBox")
     .classList.add("hidden");
+
 }
 
 /* SIMPLE PAGES */
+
 function showSimplePage(title) {
+
   closeMenu();
 
   document.getElementById("simpleTitle")
@@ -1136,7 +1506,9 @@ function showSimplePage(title) {
 }
 
 /* LOGOUT */
+
 function logoutUser() {
+
   closeMenu();
 
   currentUser = null;
@@ -1146,12 +1518,14 @@ function logoutUser() {
   alert("Logged out successfully");
 }
 
-/* INITIAL PAGE */
+/* START */
+
 window.onload = function() {
+
   showScreen("loginScreen");
+
 };
 </script>
 
 </body>
-  </html>
-  
+</html>
