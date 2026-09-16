@@ -20,7 +20,7 @@
 
     body {
       min-height: 100vh;
-      background: linear-gradient(135deg, #fff1d2, #ffffff);
+      background: linear-gradient(135deg, #fff1d6, #ffffff);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -40,23 +40,30 @@
       text-align: center;
     }
 
-    h1 {
-      color: #b56a00;
-      font-size: 25px;
-      line-height: 1.4;
+    .logo {
+      width: 90px;
+      height: 90px;
+      object-fit: contain;
       margin-bottom: 15px;
+    }
+
+    h1 {
+      color: #b66b00;
+      font-size: 24px;
+      line-height: 1.3;
+      margin-bottom: 14px;
     }
 
     h2 {
       color: #222222;
       font-size: 25px;
-      margin-bottom: 15px;
+      margin-bottom: 18px;
     }
 
     p {
       color: #555555;
       font-size: 15px;
-      line-height: 1.6;
+      line-height: 1.5;
       margin-bottom: 22px;
     }
 
@@ -92,16 +99,16 @@
 
     .primary {
       background: #d88900;
-      color: #ffffff;
+      color: white;
     }
 
     .primary:hover {
-      background: #b96f00;
+      background: #b86e00;
     }
 
     .dark {
       background: #222222;
-      color: #ffffff;
+      color: white;
     }
 
     .light {
@@ -110,11 +117,11 @@
     }
 
     .hidden {
-      display: none;
+      display: none !important;
     }
 
     .error {
-      color: #c00000;
+      color: #d00000;
       font-size: 14px;
       line-height: 1.5;
       margin-top: 16px;
@@ -129,25 +136,32 @@
     }
 
     .home-title {
-      color: #b56a00;
-      font-size: 25px;
+      color: #b66b00;
+      font-size: 26px;
       font-weight: bold;
-      line-height: 1.5;
-      margin-bottom: 20px;
+      line-height: 1.4;
+      margin-bottom: 18px;
     }
 
-    .mobile-box {
-      background: #fff4dc;
-      color: #444444;
-      padding: 14px;
+    .user-mobile {
+      background: #fff5df;
+      padding: 15px;
       border-radius: 12px;
+      color: #444444;
+      line-height: 1.8;
       margin-bottom: 20px;
-      line-height: 1.7;
     }
 
-    .recaptcha-box {
-      margin-top: 10px;
-      min-height: 1px;
+    .small-text {
+      color: #777777;
+      font-size: 13px;
+      margin-top: 15px;
+    }
+
+    .loading {
+      color: #b66b00;
+      font-size: 14px;
+      margin-top: 15px;
     }
   </style>
 </head>
@@ -157,7 +171,7 @@
   <div class="app">
 
     <!-- START SCREEN -->
-    <section id="startScreen" class="card">
+    <div id="startScreen" class="card">
 
       <h1>YSRCP YERRAGONDAPALEM</h1>
 
@@ -182,12 +196,11 @@
       </button>
 
       <div id="startError" class="error"></div>
-
-    </section>
+    </div>
 
 
     <!-- REGISTRATION SCREEN -->
-    <section id="registrationScreen" class="card hidden">
+    <div id="registrationScreen" class="card hidden">
 
       <h2>New Registration</h2>
 
@@ -196,11 +209,11 @@
       </p>
 
       <input
-        id="registrationMobile"
         type="tel"
-        inputmode="numeric"
-        maxlength="10"
+        id="registrationMobile"
         placeholder="Enter 10 digit mobile number"
+        maxlength="10"
+        inputmode="numeric"
       />
 
       <button
@@ -222,13 +235,12 @@
       <div id="registrationSuccess" class="success"></div>
 
       <!-- Invisible reCAPTCHA -->
-      <div id="registrationRecaptcha" class="recaptcha-box"></div>
-
-    </section>
+      <div id="registrationRecaptcha"></div>
+    </div>
 
 
     <!-- LOGIN SCREEN -->
-    <section id="loginScreen" class="card hidden">
+    <div id="loginScreen" class="card hidden">
 
       <h2>Login</h2>
 
@@ -237,11 +249,11 @@
       </p>
 
       <input
-        id="loginMobile"
         type="tel"
-        inputmode="numeric"
-        maxlength="10"
+        id="loginMobile"
         placeholder="Enter 10 digit mobile number"
+        maxlength="10"
+        inputmode="numeric"
       />
 
       <button
@@ -263,13 +275,12 @@
       <div id="loginSuccess" class="success"></div>
 
       <!-- Invisible reCAPTCHA -->
-      <div id="loginRecaptcha" class="recaptcha-box"></div>
-
-    </section>
+      <div id="loginRecaptcha"></div>
+    </div>
 
 
     <!-- OTP SCREEN -->
-    <section id="otpScreen" class="card hidden">
+    <div id="otpScreen" class="card hidden">
 
       <h2>Verify OTP</h2>
 
@@ -278,11 +289,11 @@
       </p>
 
       <input
-        id="otpInput"
         type="text"
-        inputmode="numeric"
-        maxlength="6"
+        id="otpInput"
         placeholder="Enter 6 digit OTP"
+        maxlength="6"
+        inputmode="numeric"
       />
 
       <button
@@ -302,18 +313,17 @@
 
       <div id="otpError" class="error"></div>
       <div id="otpSuccess" class="success"></div>
-
-    </section>
+    </div>
 
 
     <!-- HOME SCREEN -->
-    <section id="homeScreen" class="card hidden">
+    <div id="homeScreen" class="card hidden">
 
       <div class="home-title">
         YSRCP YERRAGONDAPALEM
       </div>
 
-      <div class="mobile-box">
+      <div class="user-mobile">
         <b>Login Successful</b>
         <br />
         <span id="loggedMobile"></span>
@@ -329,8 +339,7 @@
       >
         Logout
       </button>
-
-    </section>
+    </div>
 
   </div>
 
@@ -338,27 +347,32 @@
   <script>
 
     /*
-      IMPORTANT:
-      Replace ONLY the Firebase Configuration below
-      with the exact configuration from Firebase Console.
+      FIREBASE CONFIGURATION
     */
 
     const firebaseConfig = {
-      apiKey: "PASTE_EXACT_FIREBASE_API_KEY_HERE",
+      apiKey: "AIzaSyAUhbObA7ZeANatdSktvZyXMEENCz29zQ8",
       authDomain: "ysrcp-yerragondapalem-70f87.firebaseapp.com",
       projectId: "ysrcp-yerragondapalem-70f87",
       storageBucket: "ysrcp-yerragondapalem-70f87.firebasestorage.app",
       messagingSenderId: "299917147474",
-      appId: "PASTE_EXACT_FIREBASE_APP_ID_HERE",
-      measurementId: "PASTE_EXACT_MEASUREMENT_ID_HERE"
+      appId: "1:299917147474:web:ededaaf3c289cc08250e8b",
+      measurementId: "G-1V385HHPPGC"
     };
 
 
-    // Start Firebase
+    /*
+      INITIALIZE FIREBASE
+    */
+
     firebase.initializeApp(firebaseConfig);
 
     const auth = firebase.auth();
 
+
+    /*
+      GLOBAL VARIABLES
+    */
 
     let confirmationResult = null;
     let currentMode = "";
@@ -367,6 +381,10 @@
     let registrationRecaptchaVerifier = null;
     let loginRecaptchaVerifier = null;
 
+
+    /*
+      SCREEN FUNCTIONS
+    */
 
     function hideAllScreens() {
       document.getElementById("startScreen").classList.add("hidden");
@@ -399,9 +417,7 @@
         .getElementById("registrationScreen")
         .classList.remove("hidden");
 
-      document
-        .getElementById("registrationMobile")
-        .focus();
+      document.getElementById("registrationMobile").focus();
     }
 
 
@@ -413,9 +429,7 @@
         .getElementById("loginScreen")
         .classList.remove("hidden");
 
-      document
-        .getElementById("loginMobile")
-        .focus();
+      document.getElementById("loginMobile").focus();
     }
 
 
@@ -445,10 +459,18 @@
     }
 
 
+    /*
+      MOBILE VALIDATION
+    */
+
     function validateMobile(mobile) {
       return /^[6-9][0-9]{9}$/.test(mobile);
     }
 
+
+    /*
+      CREATE INVISIBLE RECAPTCHA
+    */
 
     function createRegistrationRecaptcha() {
       if (!registrationRecaptchaVerifier) {
@@ -456,9 +478,17 @@
           new firebase.auth.RecaptchaVerifier(
             "registrationRecaptcha",
             {
-              size: "invisible"
+              size: "invisible",
+              callback: function () {
+                console.log("Registration security verification completed");
+              },
+              "expired-callback": function () {
+                registrationRecaptchaVerifier = null;
+              }
             }
           );
+
+        registrationRecaptchaVerifier.render();
       }
 
       return registrationRecaptchaVerifier;
@@ -471,24 +501,26 @@
           new firebase.auth.RecaptchaVerifier(
             "loginRecaptcha",
             {
-              size: "invisible"
+              size: "invisible",
+              callback: function () {
+                console.log("Login security verification completed");
+              },
+              "expired-callback": function () {
+                loginRecaptchaVerifier = null;
+              }
             }
           );
+
+        loginRecaptchaVerifier.render();
       }
 
       return loginRecaptchaVerifier;
     }
 
 
-    function setButtonLoading(buttonId, isLoading, normalText) {
-      const button = document.getElementById(buttonId);
-
-      button.disabled = isLoading;
-      button.innerText = isLoading
-        ? "Please wait..."
-        : normalText;
-    }
-
+    /*
+      SEND REGISTRATION OTP
+    */
 
     function sendRegistrationOTP() {
       clearMessages();
@@ -499,9 +531,7 @@
         .trim();
 
       if (!validateMobile(mobile)) {
-        document
-          .getElementById("registrationError")
-          .innerText =
+        document.getElementById("registrationError").innerText =
           "Please enter a valid 10 digit Indian mobile number.";
 
         return;
@@ -512,18 +542,17 @@
 
       const phoneNumber = "+91" + mobile;
 
-      const appVerifier = createRegistrationRecaptcha();
-
-      document
-        .getElementById("registrationSuccess")
-        .innerText =
-        "Sending OTP. Please wait...";
-
-      setButtonLoading(
-        "registrationSendButton",
-        true,
-        "Send OTP"
+      const button = document.getElementById(
+        "registrationSendButton"
       );
+
+      button.disabled = true;
+      button.innerText = "Sending OTP...";
+
+      document.getElementById("registrationSuccess").innerText =
+        "Please wait. OTP is being sent.";
+
+      const appVerifier = createRegistrationRecaptcha();
 
       auth.signInWithPhoneNumber(phoneNumber, appVerifier)
         .then(function (result) {
@@ -535,32 +564,29 @@
             .getElementById("otpScreen")
             .classList.remove("hidden");
 
-          document
-            .getElementById("otpMessage")
-            .innerText =
+          document.getElementById("otpMessage").innerText =
             "Enter the OTP sent to +91 " + currentMobile;
 
-          document
-            .getElementById("otpInput")
-            .focus();
+          document.getElementById("otpInput").value = "";
+          document.getElementById("otpInput").focus();
         })
         .catch(function (error) {
-          document
-            .getElementById("registrationError")
-            .innerText =
+          document.getElementById("registrationSuccess").innerText = "";
+
+          document.getElementById("registrationError").innerText =
             getFriendlyError(error);
 
+          button.disabled = false;
+          button.innerText = "Send OTP";
+
           resetRegistrationRecaptcha();
-        })
-        .finally(function () {
-          setButtonLoading(
-            "registrationSendButton",
-            false,
-            "Send OTP"
-          );
         });
     }
 
+
+    /*
+      SEND LOGIN OTP
+    */
 
     function sendLoginOTP() {
       clearMessages();
@@ -571,9 +597,7 @@
         .trim();
 
       if (!validateMobile(mobile)) {
-        document
-          .getElementById("loginError")
-          .innerText =
+        document.getElementById("loginError").innerText =
           "Please enter a valid 10 digit Indian mobile number.";
 
         return;
@@ -584,18 +608,17 @@
 
       const phoneNumber = "+91" + mobile;
 
-      const appVerifier = createLoginRecaptcha();
-
-      document
-        .getElementById("loginSuccess")
-        .innerText =
-        "Sending OTP. Please wait...";
-
-      setButtonLoading(
-        "loginSendButton",
-        true,
-        "Send OTP"
+      const button = document.getElementById(
+        "loginSendButton"
       );
+
+      button.disabled = true;
+      button.innerText = "Sending OTP...";
+
+      document.getElementById("loginSuccess").innerText =
+        "Please wait. OTP is being sent.";
+
+      const appVerifier = createLoginRecaptcha();
 
       auth.signInWithPhoneNumber(phoneNumber, appVerifier)
         .then(function (result) {
@@ -607,32 +630,29 @@
             .getElementById("otpScreen")
             .classList.remove("hidden");
 
-          document
-            .getElementById("otpMessage")
-            .innerText =
+          document.getElementById("otpMessage").innerText =
             "Enter the OTP sent to +91 " + currentMobile;
 
-          document
-            .getElementById("otpInput")
-            .focus();
+          document.getElementById("otpInput").value = "";
+          document.getElementById("otpInput").focus();
         })
         .catch(function (error) {
-          document
-            .getElementById("loginError")
-            .innerText =
+          document.getElementById("loginSuccess").innerText = "";
+
+          document.getElementById("loginError").innerText =
             getFriendlyError(error);
 
+          button.disabled = false;
+          button.innerText = "Send OTP";
+
           resetLoginRecaptcha();
-        })
-        .finally(function () {
-          setButtonLoading(
-            "loginSendButton",
-            false,
-            "Send OTP"
-          );
         });
     }
 
+
+    /*
+      VERIFY OTP
+    */
 
     function verifyOTP() {
       clearMessages();
@@ -643,42 +663,35 @@
         .trim();
 
       if (!/^[0-9]{6}$/.test(otp)) {
-        document
-          .getElementById("otpError")
-          .innerText =
+        document.getElementById("otpError").innerText =
           "Please enter the 6 digit OTP.";
 
         return;
       }
 
       if (!confirmationResult) {
-        document
-          .getElementById("otpError")
-          .innerText =
+        document.getElementById("otpError").innerText =
           "OTP session expired. Please request a new OTP.";
 
         return;
       }
 
-      document
-        .getElementById("otpSuccess")
-        .innerText =
-        "Verifying OTP. Please wait...";
+      const button = document.getElementById("verifyButton");
 
-      setButtonLoading(
-        "verifyButton",
-        true,
-        "Verify OTP"
-      );
+      button.disabled = true;
+      button.innerText = "Verifying...";
+
+      document.getElementById("otpSuccess").innerText =
+        "Please wait. OTP is being verified.";
 
       confirmationResult.confirm(otp)
         .then(function (result) {
           const user = result.user;
 
-          document
-            .getElementById("loggedMobile")
-            .innerText =
+          document.getElementById("loggedMobile").innerText =
             user.phoneNumber || "+91 " + currentMobile;
+
+          confirmationResult = null;
 
           hideAllScreens();
 
@@ -687,20 +700,20 @@
             .classList.remove("hidden");
         })
         .catch(function (error) {
-          document
-            .getElementById("otpError")
-            .innerText =
+          document.getElementById("otpSuccess").innerText = "";
+
+          document.getElementById("otpError").innerText =
             getFriendlyError(error);
-        })
-        .finally(function () {
-          setButtonLoading(
-            "verifyButton",
-            false,
-            "Verify OTP"
-          );
+
+          button.disabled = false;
+          button.innerText = "Verify OTP";
         });
     }
 
+
+    /*
+      LOGOUT
+    */
 
     function logoutUser() {
       auth.signOut()
@@ -709,36 +722,46 @@
           currentMode = "";
           currentMobile = "";
 
-          document
-            .getElementById("otpInput")
-            .value = "";
+          document.getElementById("otpInput").value = "";
 
           goBack();
         })
         .catch(function (error) {
-          document
-            .getElementById("otpError")
-            .innerText =
+          document.getElementById("otpError").innerText =
             getFriendlyError(error);
         });
     }
 
 
+    /*
+      RESET RECAPTCHA
+    */
+
     function resetRegistrationRecaptcha() {
-      if (registrationRecaptchaVerifier) {
-        registrationRecaptchaVerifier.clear();
-        registrationRecaptchaVerifier = null;
-      }
+      registrationRecaptchaVerifier = null;
+
+      const container = document.getElementById(
+        "registrationRecaptcha"
+      );
+
+      container.innerHTML = "";
     }
 
 
     function resetLoginRecaptcha() {
-      if (loginRecaptchaVerifier) {
-        loginRecaptchaVerifier.clear();
-        loginRecaptchaVerifier = null;
-      }
+      loginRecaptchaVerifier = null;
+
+      const container = document.getElementById(
+        "loginRecaptcha"
+      );
+
+      container.innerHTML = "";
     }
 
+
+    /*
+      FIREBASE ERROR MESSAGES
+    */
 
     function getFriendlyError(error) {
       if (!error || !error.code) {
@@ -780,8 +803,8 @@
         case "auth/unauthorized-domain":
           return "This website domain is not authorized in Firebase.";
 
-        case "auth/missing-phone-number":
-          return "Please enter your mobile number.";
+        case "auth/invalid-verification-id":
+          return "OTP verification session is invalid. Please request a new OTP.";
 
         default:
           return error.message || "Something went wrong. Please try again.";
@@ -789,11 +812,13 @@
     }
 
 
+    /*
+      AUTH STATE
+    */
+
     auth.onAuthStateChanged(function (user) {
       if (user) {
-        document
-          .getElementById("loggedMobile")
-          .innerText =
+        document.getElementById("loggedMobile").innerText =
           user.phoneNumber || "";
 
         hideAllScreens();
