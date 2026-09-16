@@ -1,296 +1,144 @@
 <!DOCTYPE html>
 <html lang="te">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>YSRCP YERRAGONDAPALEM</title>
 
   <style>
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
       font-family: Arial, sans-serif;
     }
 
     body {
-      margin: 0;
-      background: #f2f4f7;
-      color: #222;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0066cc, #008f5a);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
     }
 
-    header {
-      background: linear-gradient(100deg, #087f23, #087f23);
-      color: white;
-      text-align: center;
-      padding: 20px 45px;
-      font-size: 22px;
-      font-weight: bold;
-      position: relative;
-    }
-
-    .menu-btn {
-      position: absolute;
-      left: 12px;
-      top: 13px;
-      background: white;
-      color: #087f23;
-      border: none;
-      border-radius: 5px;
-      padding: 5px 10px;
-      font-size: 22px;
-    }
-
-    .side-menu {
-      position: fixed;
-      left: -280px;
-      top: 0;
-      width: 270px;
-      height: 100%;
-      background: white;
-      box-shadow: 2px 0 8px #777;
-      z-index: 100;
-      padding-top: 70px;
-      transition: 0.3s;
-    }
-
-    .side-menu.open {
-      left: 0;
-    }
-
-    .side-menu button {
+    .app-screen {
       width: 100%;
-      display: block;
+      max-width: 390px;
+      min-height: 720px;
+      border-radius: 28px;
+      overflow: hidden;
+      background: white;
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .top-section {
+      text-align: center;
+      color: white;
+      padding: 45px 20px 35px;
+      background: linear-gradient(160deg, #075fc4, #008b61);
+    }
+
+    .top-section h1 {
+      font-size: 30px;
+      letter-spacing: 2px;
+      font-weight: 800;
+    }
+
+    .top-section h2 {
+      font-size: 20px;
+      margin-top: 5px;
+      letter-spacing: 1px;
+    }
+
+    .top-section p {
+      margin-top: 15px;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .content {
+      flex: 1;
+      padding: 45px 25px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .welcome-text {
+      text-align: center;
+      color: #183b65;
+      margin-bottom: 10px;
+    }
+
+    .welcome-text h3 {
+      font-size: 23px;
+      margin-bottom: 8px;
+    }
+
+    .welcome-text p {
+      font-size: 14px;
+      color: #666;
+    }
+
+    .app-button {
+      width: 100%;
       padding: 17px;
       border: none;
-      border-bottom: 1px solid #ddd;
-      background: white;
-      text-align: left;
-      font-size: 16px;
-    }
-
-    .close-btn {
-      position: absolute;
-      right: 10px;
-      top: 15px;
-      width: auto !important;
-      background: #d60000 !important;
-      color: white;
-      border-radius: 5px;
-    }
-
-    .container {
-      max-width: 520px;
-      margin: 25px auto;
-      padding: 15px;
-    }
-
-    .box {
-      background: white;
-      padding: 22px;
       border-radius: 12px;
-      box-shadow: 0 2px 8px #ccc;
-      margin-bottom: 20px;
-    }
-
-    h2 {
-      text-align: center;
-      color: #087f23;
-      margin-top: 0;
-    }
-
-    label {
-      display: block;
-      margin-top: 13px;
-      font-weight: bold;
-    }
-
-    input {
-      width: 100%;
-      padding: 12px;
-      margin-top: 6px;
-      border: 1px solid #aaa;
-      border-radius: 6px;
-      font-size: 15px;
-    }
-
-    .main-btn {
-      width: 100%;
-      padding: 13px;
-      margin-top: 18px;
-      background: #087f23;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    .secondary-btn {
-      background: #555;
-    }
-
-    .hidden {
-      display: none !important;
-    }
-
-    .welcome-title {
-      text-align: center;
-      color: #087f23;
-      font-size: 24px;
-      font-weight: bold;
-    }
-
-    .id-card {
-      background: white;
-      border: 3px solid #087f23;
-      border-radius: 10px;
-      overflow: hidden;
-    }
-
-    .card-header {
-      background: linear-gradient(100deg, #0872c9, #087f23);
-      color: white;
-      text-align: center;
-      padding: 10px 8px 15px;
-    }
-
-    .top-area {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .fixed-photo {
-      width: 76px;
-      height: 76px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid white;
-      background: white;
-    }
-
-    .card-title {
-      flex: 1;
-      font-size: 25px;
-      font-weight: bold;
-      line-height: 1.1;
-    }
-
-    .card-title small {
-      display: block;
       font-size: 17px;
-      margin-top: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
     }
 
-    .card-label {
+    .register-btn {
+      background: #08a65b;
+      color: white;
+    }
+
+    .login-btn {
       background: white;
-      color: #087f23;
-      padding: 10px;
-      border-radius: 6px;
-      margin: 12px 45px 0;
-      font-size: 16px;
-      font-weight: bold;
+      color: #075fc4;
+      border: 2px solid #075fc4;
     }
 
-    .color-line {
-      height: 7px;
-      background: linear-gradient(
-        90deg,
-        #f5a400 0%,
-        #f5a400 33%,
-        #e65b45 33%,
-        #e65b45 66%,
-        #087f23 66%,
-        #087f23 100%
-      );
+    .app-button:active {
+      transform: scale(0.98);
     }
 
-    .member-photo-area {
+    .bottom-section {
+      background: #f2f7fb;
       text-align: center;
-      padding: 28px 10px 8px;
+      padding: 22px 15px;
+      color: #24466c;
+      font-size: 13px;
+      line-height: 1.6;
     }
 
-    .member-photo {
-      width: 165px;
-      height: 205px;
-      object-fit: cover;
-      border: 5px solid #eee;
-      border-radius: 8px;
-      box-shadow: 0 0 0 2px #ccc;
-      background: #f5f5f5;
-    }
-
-    .member-name {
-      text-align: center;
-      color: #b33131;
-      font-size: 21px;
-      font-weight: bold;
-      margin-top: 15px;
-      text-transform: uppercase;
-    }
-
-    .member-role {
-      text-align: center;
-      color: #0872c9;
-      font-size: 16px;
-      font-weight: bold;
-      margin-top: 8px;
-    }
-
-    .constituency {
-      text-align: center;
-      margin-top: 8px;
-      color: #555;
-    }
-
-    .details {
-      padding: 15px 25px 25px;
-    }
-
-    .detail-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 15px;
-      border-bottom: 1px solid #ddd;
-      padding: 12px 0;
+    .bottom-section strong {
+      display: block;
+      color: #008b61;
       font-size: 14px;
+      margin-bottom: 5px;
     }
 
-    .detail-row span:last-child {
-      text-align: right;
-      font-weight: bold;
-      word-break: break-word;
-    }
-
-    .success {
-      text-align: center;
-      color: #087f23;
-      font-size: 26px;
-      font-weight: bold;
-      padding: 20px 0;
-    }
-
-    @media print {
-      header,
-      .side-menu,
-      .no-print,
-      h2 {
-        display: none !important;
+    @media (max-height: 700px) {
+      .app-screen {
+        min-height: 620px;
       }
 
-      body {
-        background: white;
+      .top-section {
+        padding: 30px 15px;
       }
 
-      .container {
-        margin: 0;
-        padding: 0;
-      }
-
-      .box {
-        box-shadow: none;
-        padding: 0;
+      .content {
+        padding: 30px 22px;
       }
     }
   </style>
@@ -298,366 +146,45 @@
 
 <body>
 
-  <header>
-    <button class="menu-btn" onclick="openMenu()">☰</button>
-    YSRCP YERRAGONDAPALEM
-  </header>
+  <main class="app-screen">
 
-  <div id="sideMenu" class="side-menu">
-    <button class="close-btn" onclick="closeMenu()">✕</button>
+    <section class="top-section">
+      <h1>YSRCP</h1>
+      <h2>YERRAGONDAPALEM</h2>
+      <p>PEOPLE • PROGRESS • PROSPERITY</p>
+    </section>
 
-    <button onclick="showPage('home'); closeMenu()">Home</button>
-    <button onclick="showPage('registration'); closeMenu()">Registration</button>
-    <button onclick="showPage('settings'); closeMenu()">Settings</button>
-    <button onclick="showPage('card'); closeMenu()">ID Card</button>
-    <button onclick="logout(); closeMenu()">Logout</button>
-  </div>
+    <section class="content">
 
-  <div class="container">
-
-    <!-- LOGIN -->
-    <section id="loginPage" class="box">
-      <div class="welcome-title">
-        YSRCP YERRAGONDAPALEM
+      <div class="welcome-text">
+        <h3>Welcome</h3>
+        <p>YSRCP Yerragondapalem Digital Platform</p>
       </div>
 
-      <p style="text-align:center;">
-        Digital Member ID Card
-      </p>
-
-      <label>Mobile Number</label>
-      <input type="tel" id="loginMobile" placeholder="Enter mobile number">
-
-      <label>Password</label>
-      <input type="password" id="loginPassword" placeholder="Enter password">
-
-      <button class="main-btn" onclick="loginUser()">
-        Login
+      <button class="app-button register-btn" onclick="newRegistration()">
+        👤 New Registration
       </button>
 
-      <button class="main-btn secondary-btn" onclick="showPage('registration')">
-        Registration
+      <button class="app-button login-btn" onclick="loginUser()">
+        🔒 Login
       </button>
+
     </section>
 
-    <!-- HOME -->
-    <section id="home" class="box hidden">
-      <h2>Welcome</h2>
+    <footer class="bottom-section">
+      <strong>YSRCP YERRAGONDAPALEM</strong>
+      Digital Platform for Party Members
+    </footer>
 
-      <p style="text-align:center;">
-        YSRCP YERRAGONDAPALEM Member App
-      </p>
-
-      <button class="main-btn" onclick="showPage('card')">
-        View ID Card
-      </button>
-
-      <button class="main-btn" onclick="showPage('registration')">
-        Update Member Details
-      </button>
-    </section>
-
-    <!-- REGISTRATION -->
-    <section id="registration" class="box hidden">
-      <h2>Member Registration</h2>
-
-      <label>Full Name</label>
-      <input type="text" id="name" placeholder="Enter full name">
-
-      <label>Mobile Number</label>
-      <input type="tel" id="mobile" placeholder="Enter mobile number">
-
-      <label>Password</label>
-      <input type="password" id="password" placeholder="Create password">
-
-      <label>Village Name</label>
-      <input type="text" id="village" placeholder="Enter village name">
-
-      <label>Panchayat Name</label>
-      <input type="text" id="panchayat" placeholder="Enter panchayat name">
-
-      <label>Mandal Name</label>
-      <input type="text" id="mandal" placeholder="Enter mandal name">
-
-      <label>Upload Member Photo</label>
-      <input type="file" id="memberPhoto" accept="image/*">
-
-      <button class="main-btn" onclick="registerMember()">
-        Complete Registration
-      </button>
-
-      <button class="main-btn secondary-btn" onclick="showPage('loginPage')">
-        Back to Login
-      </button>
-    </section>
-
-    <!-- SETTINGS -->
-    <section id="settings" class="box hidden">
-      <h2>Settings</h2>
-
-      <button class="main-btn" onclick="showPage('card')">
-        ID Card
-      </button>
-    </section>
-
-    <!-- CONGRATULATIONS -->
-    <section id="congratulations" class="box hidden">
-      <div class="success">
-        Congratulations!
-      </div>
-
-      <p style="text-align:center;">
-        మీ Registration విజయవంతంగా పూర్తయింది.
-      </p>
-
-      <button class="main-btn" onclick="showPage('card')">
-        View ID Card
-      </button>
-    </section>
-
-    <!-- ID CARD -->
-    <section id="card" class="box hidden">
-      <h2 class="no-print">Digital Member ID Card</h2>
-
-      <div class="id-card">
-
-        <div class="card-header">
-
-          <div class="top-area">
-
-            <!-- FIXED LEFT PHOTO -->
-            <img
-              src="fixed-left.jpg"
-              class="fixed-photo"
-              alt="Fixed Left Photo"
-            >
-
-            <div class="card-title">
-              YSRCP
-              <small>YERRAGONDAPALEM</small>
-            </div>
-
-            <!-- FIXED RIGHT PHOTO -->
-            <img
-              src="fixed-right.jpg"
-              class="fixed-photo"
-              alt="Fixed Right Photo"
-            >
-
-          </div>
-
-          <div class="card-label">
-            MEMBER ID CARD
-          </div>
-
-        </div>
-
-        <div class="color-line"></div>
-
-        <!-- MEMBER PHOTO CHANGES FOR EACH MEMBER -->
-        <div class="member-photo-area">
-          <img
-            id="cardMemberPhoto"
-            class="member-photo"
-            alt="Member Photo"
-          >
-        </div>
-
-        <div id="cardName" class="member-name">
-          MEMBER NAME
-        </div>
-
-        <div class="member-role">
-          YSRCP MEMBER
-        </div>
-
-        <div class="constituency">
-          Yerragondapalem Constituency
-        </div>
-
-        <div class="details">
-
-          <div class="detail-row">
-            <strong>Member ID</strong>
-            <span id="cardId"></span>
-          </div>
-
-          <div class="detail-row">
-            <strong>Mobile</strong>
-            <span id="cardMobile"></span>
-          </div>
-
-          <div class="detail-row">
-            <strong>Village</strong>
-            <span id="cardVillage"></span>
-          </div>
-
-          <div class="detail-row">
-            <strong>Panchayat</strong>
-            <span id="cardPanchayat"></span>
-          </div>
-
-          <div class="detail-row">
-            <strong>Mandal</strong>
-            <span id="cardMandal"></span>
-          </div>
-
-        </div>
-      </div>
-
-      <button class="main-btn no-print" onclick="window.print()">
-        Print / Save ID Card
-      </button>
-
-      <button class="main-btn secondary-btn no-print" onclick="showPage('home')">
-        Back to Home
-      </button>
-    </section>
-
-  </div>
+  </main>
 
   <script>
-    let memberNumber = 1359;
-
-    function openMenu() {
-      document.getElementById("sideMenu").classList.add("open");
-    }
-
-    function closeMenu() {
-      document.getElementById("sideMenu").classList.remove("open");
-    }
-
-    function showPage(pageId) {
-      const pages = [
-        "loginPage",
-        "home",
-        "registration",
-        "settings",
-        "congratulations",
-        "card"
-      ];
-
-      pages.forEach(function(page) {
-        document.getElementById(page).classList.add("hidden");
-      });
-
-      document.getElementById(pageId).classList.remove("hidden");
-    }
-
-    function registerMember() {
-      const name = document.getElementById("name").value.trim();
-      const mobile = document.getElementById("mobile").value.trim();
-      const password = document.getElementById("password").value.trim();
-      const village = document.getElementById("village").value.trim();
-      const panchayat = document.getElementById("panchayat").value.trim();
-      const mandal = document.getElementById("mandal").value.trim();
-      const photoFile = document.getElementById("memberPhoto").files[0];
-
-      if (
-        name === "" ||
-        mobile === "" ||
-        password === "" ||
-        village === "" ||
-        panchayat === "" ||
-        mandal === "" ||
-        !photoFile
-      ) {
-        alert("దయచేసి అన్ని వివరాలు మరియు మెంబర్ ఫోటో పూర్తి చేయండి.");
-        return;
-      }
-
-      if (mobile.length !== 10) {
-        alert("10 అంకెల Mobile Number ఇవ్వండి.");
-        return;
-      }
-
-      const reader = new FileReader();
-
-      reader.onload = function(event) {
-        const memberData = {
-          id: "YGP-" + memberNumber,
-          name: name,
-          mobile: mobile,
-          password: password,
-          village: village,
-          panchayat: panchayat,
-          mandal: mandal,
-          photo: event.target.result
-        };
-
-        localStorage.setItem(
-          "memberData",
-          JSON.stringify(memberData)
-        );
-
-        memberNumber++;
-
-        loadCard();
-        showPage("congratulations");
-      };
-
-      reader.readAsDataURL(photoFile);
-    }
-
-    function loadCard() {
-      const memberData =
-        JSON.parse(localStorage.getItem("memberData"));
-
-      if (!memberData) {
-        return;
-      }
-
-      document.getElementById("cardId").textContent =
-        memberData.id;
-
-      document.getElementById("cardName").textContent =
-        memberData.name;
-
-      document.getElementById("cardMobile").textContent =
-        memberData.mobile;
-
-      document.getElementById("cardVillage").textContent =
-        memberData.village;
-
-      document.getElementById("cardPanchayat").textContent =
-        memberData.panchayat;
-
-      document.getElementById("cardMandal").textContent =
-        memberData.mandal;
-
-      document.getElementById("cardMemberPhoto").src =
-        memberData.photo;
+    function newRegistration() {
+      alert("New Registration screen will open in the next step.");
     }
 
     function loginUser() {
-      const mobile =
-        document.getElementById("loginMobile").value.trim();
-
-      const password =
-        document.getElementById("loginPassword").value.trim();
-
-      const memberData =
-        JSON.parse(localStorage.getItem("memberData"));
-
-      if (!memberData) {
-        alert("ముందుగా Registration పూర్తి చేయండి.");
-        showPage("registration");
-        return;
-      }
-
-      if (
-        mobile === memberData.mobile &&
-        password === memberData.password
-      ) {
-        loadCard();
-        showPage("home");
-      } else {
-        alert("Mobile Number లేదా Password తప్పుగా ఉంది.");
-      }
-    }
-
-    function logout() {
-      showPage("loginPage");
+      alert("Login screen will open in the next step.");
     }
   </script>
 
