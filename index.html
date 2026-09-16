@@ -15,17 +15,17 @@
 
     body {
       min-height: 100vh;
-      background: linear-gradient(135deg, #0066cc, #008f5a);
+      background: linear-gradient(135deg, #075fc4, #008b61);
       display: flex;
       justify-content: center;
       align-items: center;
       padding: 20px;
     }
 
-    .app-screen {
+    .app {
       width: 100%;
       max-width: 390px;
-      min-height: 720px;
+      min-height: 700px;
       background: white;
       border-radius: 28px;
       overflow: hidden;
@@ -36,50 +36,50 @@
       background: linear-gradient(160deg, #075fc4, #008b61);
       color: white;
       text-align: center;
-      padding: 35px 15px;
+      padding: 42px 15px;
     }
 
     .header h1 {
-      font-size: 28px;
+      font-size: 30px;
       letter-spacing: 2px;
     }
 
     .header h2 {
-      font-size: 19px;
+      font-size: 20px;
       margin-top: 5px;
     }
 
     .header p {
-      margin-top: 12px;
       font-size: 12px;
       font-weight: bold;
+      margin-top: 15px;
     }
 
     .content {
       padding: 35px 25px;
     }
 
-    .back-button {
-      border: none;
-      background: transparent;
-      color: #075fc4;
-      font-size: 16px;
-      cursor: pointer;
-      margin-bottom: 25px;
+    .screen {
+      display: none;
+    }
+
+    .screen.active {
+      display: block;
     }
 
     h3 {
       text-align: center;
       color: #183b65;
-      font-size: 25px;
+      font-size: 26px;
       margin-bottom: 10px;
     }
 
-    .description {
+    .subtitle {
       text-align: center;
       color: #666;
       font-size: 14px;
       margin-bottom: 30px;
+      line-height: 1.5;
     }
 
     label {
@@ -89,41 +89,90 @@
       margin-bottom: 8px;
     }
 
-    input {
+    input,
+    select {
       width: 100%;
-      padding: 16px;
+      padding: 15px;
       border: 1px solid #cbd5e1;
       border-radius: 10px;
       font-size: 16px;
+      margin-bottom: 18px;
       outline: none;
-      margin-bottom: 20px;
     }
 
-    input:focus {
+    input:focus,
+    select:focus {
       border-color: #075fc4;
     }
 
-    .main-button {
+    button {
       width: 100%;
-      padding: 17px;
+      padding: 16px;
       border: none;
       border-radius: 10px;
-      background: #08a65b;
-      color: white;
-      font-size: 17px;
+      font-size: 16px;
       font-weight: bold;
       cursor: pointer;
+      margin-top: 8px;
     }
 
-    .note {
-      margin-top: 25px;
-      padding: 15px;
-      background: #f0f7f3;
+    button:active {
+      transform: scale(0.98);
+    }
+
+    .primary {
+      background: #08a65b;
+      color: white;
+    }
+
+    .secondary {
+      background: white;
+      color: #075fc4;
+      border: 2px solid #075fc4;
+    }
+
+    .link {
+      background: transparent;
+      color: #075fc4;
+      padding: 12px;
+    }
+
+    .back {
+      background: transparent;
+      color: #075fc4;
+      text-align: left;
+      padding: 0;
+      margin-bottom: 25px;
+    }
+
+    .message {
+      margin-top: 20px;
+      padding: 14px;
       border-radius: 10px;
+      background: #f0f7f3;
       color: #35634c;
+      text-align: center;
       font-size: 13px;
       line-height: 1.6;
+    }
+
+    .home-card {
+      background: #f0f7f3;
+      border-radius: 15px;
+      padding: 25px 15px;
       text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .home-card h4 {
+      color: #008b61;
+      font-size: 21px;
+      margin-bottom: 10px;
+    }
+
+    .home-card p {
+      color: #555;
+      font-size: 14px;
     }
 
     .footer {
@@ -133,12 +182,24 @@
       color: #24466c;
       font-size: 12px;
     }
+
+    .footer strong {
+      color: #008b61;
+    }
+
+    .small-note {
+      text-align: center;
+      color: #777;
+      font-size: 12px;
+      margin-top: 15px;
+      line-height: 1.5;
+    }
   </style>
 </head>
 
 <body>
 
-  <main class="app-screen">
+  <main class="app">
 
     <header class="header">
       <h1>YSRCP</h1>
@@ -148,30 +209,214 @@
 
     <section class="content">
 
-      <button class="back-button" onclick="goBack()">← Back</button>
+      <!-- LOGIN SCREEN -->
+      <div id="loginScreen" class="screen active">
 
-      <h3>New Registration</h3>
+        <h3>Login</h3>
 
-      <p class="description">
-        Enter your mobile number to continue
-      </p>
+        <p class="subtitle">
+          Login with your mobile number and password
+        </p>
 
-      <label for="mobile">Mobile Number</label>
+        <label for="loginMobile">Mobile Number</label>
 
-      <input
-        type="tel"
-        id="mobile"
-        placeholder="Enter 10-digit mobile number"
-        maxlength="10"
-      >
+        <input
+          type="tel"
+          id="loginMobile"
+          placeholder="Enter 10-digit mobile number"
+          maxlength="10"
+        >
 
-      <button class="main-button" onclick="sendOTP()">
-        Send OTP
-      </button>
+        <label for="loginPassword">Password</label>
 
-      <div class="note">
-        Your mobile number will be used for OTP verification
-        and account registration.
+        <input
+          type="password"
+          id="loginPassword"
+          placeholder="Enter your password"
+        >
+
+        <button class="primary" onclick="loginUser()">
+          Login
+        </button>
+
+        <button
+          class="secondary"
+          onclick="showScreen('registerScreen')"
+        >
+          New User? Register Now
+        </button>
+
+        <button
+          class="link"
+          onclick="showScreen('resetScreen')"
+        >
+          Reset Password
+        </button>
+
+      </div>
+
+      <!-- REGISTRATION SCREEN -->
+      <div id="registerScreen" class="screen">
+
+        <button
+          class="back"
+          onclick="showScreen('loginScreen')"
+        >
+          ← Back to Login
+        </button>
+
+        <h3>New Registration</h3>
+
+        <p class="subtitle">
+          Create your YSRCP member account
+        </p>
+
+        <label for="registerMobile">Mobile Number</label>
+
+        <input
+          type="tel"
+          id="registerMobile"
+          placeholder="Enter 10-digit mobile number"
+          maxlength="10"
+        >
+
+        <button class="primary" onclick="sendOTP()">
+          Send OTP
+        </button>
+
+        <div id="otpArea" style="display:none; margin-top:25px;">
+
+          <label for="otp">Enter OTP</label>
+
+          <input
+            type="number"
+            id="otp"
+            placeholder="Enter OTP"
+          >
+
+          <button class="primary" onclick="verifyOTP()">
+            Verify OTP
+          </button>
+
+        </div>
+
+        <div
+          id="passwordArea"
+          style="display:none; margin-top:25px;"
+        >
+
+          <label for="newPassword">Create Password</label>
+
+          <input
+            type="password"
+            id="newPassword"
+            placeholder="Create password"
+          >
+
+          <label for="confirmPassword">Confirm Password</label>
+
+          <input
+            type="password"
+            id="confirmPassword"
+            placeholder="Confirm password"
+          >
+
+          <button
+            class="primary"
+            onclick="completeRegistration()"
+          >
+            Complete Registration
+          </button>
+
+        </div>
+
+        <p class="small-note">
+          Password must contain at least 6 characters.
+        </p>
+
+      </div>
+
+      <!-- RESET PASSWORD SCREEN -->
+      <div id="resetScreen" class="screen">
+
+        <button
+          class="back"
+          onclick="showScreen('loginScreen')"
+        >
+          ← Back to Login
+        </button>
+
+        <h3>Reset Password</h3>
+
+        <p class="subtitle">
+          Verify your mobile number to reset password
+        </p>
+
+        <label for="resetMobile">Mobile Number</label>
+
+        <input
+          type="tel"
+          id="resetMobile"
+          placeholder="Enter 10-digit mobile number"
+          maxlength="10"
+        >
+
+        <button class="primary" onclick="resetOTP()">
+          Send OTP
+        </button>
+
+        <div
+          id="resetArea"
+          style="display:none; margin-top:25px;"
+        >
+
+          <label for="resetCode">Enter OTP</label>
+
+          <input
+            type="number"
+            id="resetCode"
+            placeholder="Enter OTP"
+          >
+
+          <label for="resetPassword">New Password</label>
+
+          <input
+            type="password"
+            id="resetPassword"
+            placeholder="Enter new password"
+          >
+
+          <button
+            class="primary"
+            onclick="completeReset()"
+          >
+            Reset Password
+          </button>
+
+        </div>
+
+      </div>
+
+      <!-- HOME SCREEN -->
+      <div id="homeScreen" class="screen">
+
+        <h3>Home</h3>
+
+        <div class="home-card">
+          <h4>Welcome to YSRCP</h4>
+          <p>YSRCP YERRAGONDAPALEM</p>
+          <p style="margin-top:8px;">
+            Your registration is successful.
+          </p>
+        </div>
+
+        <button
+          class="primary"
+          onclick="logoutUser()"
+        >
+          Logout
+        </button>
+
       </div>
 
     </section>
@@ -184,20 +429,147 @@
   </main>
 
   <script>
-    function sendOTP() {
-      const mobile = document.getElementById("mobile").value;
 
-      if (mobile.length !== 10 || isNaN(mobile)) {
+    function showScreen(screenId) {
+      document.querySelectorAll(".screen").forEach(screen => {
+        screen.classList.remove("active");
+      });
+
+      document.getElementById(screenId).classList.add("active");
+    }
+
+    function sendOTP() {
+      const mobile =
+        document.getElementById("registerMobile").value;
+
+      if (!/^[0-9]{10}$/.test(mobile)) {
         alert("Please enter a valid 10-digit mobile number.");
         return;
       }
 
-      alert("OTP screen will open in the next step.");
+      document.getElementById("otpArea").style.display = "block";
+
+      alert("Demo OTP: 123456");
     }
 
-    function goBack() {
-      window.location.href = "index.html";
+    function verifyOTP() {
+      const otp =
+        document.getElementById("otp").value;
+
+      if (otp !== "123456") {
+        alert("Invalid OTP. Demo OTP is 123456.");
+        return;
+      }
+
+      document.getElementById("passwordArea").style.display = "block";
+
+      alert("OTP verified successfully.");
     }
+
+    function completeRegistration() {
+      const mobile =
+        document.getElementById("registerMobile").value;
+
+      const password =
+        document.getElementById("newPassword").value;
+
+      const confirmPassword =
+        document.getElementById("confirmPassword").value;
+
+      if (password.length < 6) {
+        alert("Password must contain at least 6 characters.");
+        return;
+      }
+
+      if (password !== confirmPassword) {
+        alert("Passwords do not match.");
+        return;
+      }
+
+      localStorage.setItem("registeredMobile", mobile);
+      localStorage.setItem("registeredPassword", password);
+
+      alert("Registration completed successfully.");
+
+      showScreen("loginScreen");
+    }
+
+    function loginUser() {
+      const mobile =
+        document.getElementById("loginMobile").value;
+
+      const password =
+        document.getElementById("loginPassword").value;
+
+      const savedMobile =
+        localStorage.getItem("registeredMobile");
+
+      const savedPassword =
+        localStorage.getItem("registeredPassword");
+
+      if (
+        mobile === savedMobile &&
+        password === savedPassword
+      ) {
+        showScreen("homeScreen");
+      } else {
+        alert("Invalid Mobile Number or Password.");
+      }
+    }
+
+    function resetOTP() {
+      const mobile =
+        document.getElementById("resetMobile").value;
+
+      if (!/^[0-9]{10}$/.test(mobile)) {
+        alert("Please enter a valid 10-digit mobile number.");
+        return;
+      }
+
+      document.getElementById("resetArea").style.display = "block";
+
+      alert("Demo OTP: 123456");
+    }
+
+    function completeReset() {
+      const mobile =
+        document.getElementById("resetMobile").value;
+
+      const otp =
+        document.getElementById("resetCode").value;
+
+      const newPassword =
+        document.getElementById("resetPassword").value;
+
+      const savedMobile =
+        localStorage.getItem("registeredMobile");
+
+      if (otp !== "123456") {
+        alert("Invalid OTP. Demo OTP is 123456.");
+        return;
+      }
+
+      if (mobile !== savedMobile) {
+        alert("Mobile number is not registered.");
+        return;
+      }
+
+      if (newPassword.length < 6) {
+        alert("Password must contain at least 6 characters.");
+        return;
+      }
+
+      localStorage.setItem("registeredPassword", newPassword);
+
+      alert("Password reset successfully.");
+
+      showScreen("loginScreen");
+    }
+
+    function logoutUser() {
+      showScreen("loginScreen");
+    }
+
   </script>
 
 </body>
