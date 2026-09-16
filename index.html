@@ -6,508 +6,663 @@
 
   <title>YSRCP YERRAGONDAPALEM</title>
 
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+
   <style>
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
       font-family: Arial, sans-serif;
     }
 
     body {
-      margin: 0;
       min-height: 100vh;
+      background: linear-gradient(135deg, #fff3d6, #ffffff);
       display: flex;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(135deg, #fff3d6, #ffffff);
+      padding: 20px;
     }
 
-    .container {
-      width: 92%;
-      max-width: 420px;
-      background: white;
+    .app {
+      width: 100%;
+      max-width: 430px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 22px;
       padding: 28px 22px;
-      border-radius: 18px;
-      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
       text-align: center;
     }
 
+    .logo {
+      width: 95px;
+      height: 95px;
+      object-fit: contain;
+      margin-bottom: 12px;
+    }
+
     h1 {
-      font-size: 24px;
-      margin-bottom: 25px;
-      color: #b87900;
+      color: #b56a00;
+      font-size: 25px;
+      margin-bottom: 10px;
     }
 
     h2 {
-      font-size: 24px;
       color: #222;
-      margin-bottom: 25px;
+      font-size: 24px;
+      margin-bottom: 22px;
+    }
+
+    p {
+      color: #555;
+      font-size: 15px;
+      margin-bottom: 22px;
+      line-height: 1.5;
     }
 
     input {
       width: 100%;
       padding: 15px;
-      margin: 9px 0;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      font-size: 16px;
+      border: 1px solid #cccccc;
+      border-radius: 12px;
+      font-size: 17px;
       outline: none;
+      margin-bottom: 15px;
     }
 
     input:focus {
-      border-color: #d99500;
+      border-color: #d88900;
     }
 
     button {
       width: 100%;
       padding: 15px;
-      margin-top: 12px;
       border: none;
-      border-radius: 10px;
-      background: #d99100;
-      color: white;
+      border-radius: 12px;
       font-size: 17px;
       font-weight: bold;
       cursor: pointer;
+      margin-top: 8px;
     }
 
-    button:hover {
-      background: #b97800;
+    .primary {
+      background: #d88900;
+      color: white;
     }
 
-    .back-button {
-      background: #333;
+    .primary:hover {
+      background: #b96f00;
     }
 
-    .back-button:hover {
-      background: #111;
+    .dark {
+      background: #222222;
+      color: white;
+    }
+
+    .light {
+      background: #eeeeee;
+      color: #222222;
     }
 
     .hidden {
       display: none;
     }
 
-    #recaptcha-container {
-      margin-top: 15px;
-      display: flex;
-      justify-content: center;
-    }
-
-    .message {
-      margin-top: 15px;
+    .error {
+      color: #d00000;
       font-size: 14px;
-      color: #c62828;
+      margin-top: 15px;
       line-height: 1.5;
       word-break: break-word;
     }
 
     .success {
-      color: green;
+      color: #168000;
+      font-size: 14px;
+      margin-top: 15px;
+      line-height: 1.5;
     }
 
-    .home-text {
-      font-size: 20px;
-      font-weight: bold;
-      color: #333;
-      margin: 25px 0;
+    .top-space {
+      margin-top: 20px;
+    }
+
+    .home-title {
+      color: #b56a00;
+      font-size: 27px;
+      margin-bottom: 15px;
+    }
+
+    .user-mobile {
+      background: #fff5df;
+      padding: 13px;
+      border-radius: 10px;
+      color: #444;
+      margin-bottom: 20px;
+    }
+
+    .small-text {
+      font-size: 13px;
+      color: #777;
+      margin-top: 15px;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="container">
+  <div class="app">
 
     <!-- START SCREEN -->
-    <div id="start-screen">
+    <div id="startScreen" class="card">
+
       <h1>YSRCP YERRAGONDAPALEM</h1>
 
-      <button onclick="showRegistration()">
+      <p>
+        Welcome to YSRCP Yerragondapalem App
+      </p>
+
+      <button class="primary" onclick="showRegistration()">
         New Registration
       </button>
 
-      <button onclick="showLogin()">
+      <button class="dark" onclick="showLogin()">
         Login
       </button>
+
+      <div id="startError" class="error"></div>
     </div>
+
 
     <!-- REGISTRATION SCREEN -->
-    <div id="registration-screen" class="hidden">
+    <div id="registrationScreen" class="card hidden">
+
       <h2>New Registration</h2>
 
-      <p>Enter your mobile number</p>
+      <p>
+        Enter your mobile number to continue
+      </p>
 
       <input
         type="tel"
-        id="register-mobile"
+        id="registrationMobile"
         placeholder="Enter 10 digit mobile number"
         maxlength="10"
       />
 
-      <button id="send-register-otp-btn" onclick="sendRegistrationOTP()">
+      <button class="primary" onclick="sendRegistrationOTP()">
         Send OTP
       </button>
 
-      <div id="register-recaptcha"></div>
-
-      <div id="register-otp-section" class="hidden">
-        <input
-          type="text"
-          id="register-otp"
-          placeholder="Enter OTP"
-          maxlength="6"
-        />
-
-        <button onclick="verifyRegistrationOTP()">
-          Verify OTP
-        </button>
-      </div>
-
-      <button class="back-button" onclick="goBack()">
+      <button class="dark" onclick="goBack()">
         Back
       </button>
 
-      <div id="register-message" class="message"></div>
+      <div id="registrationError" class="error"></div>
+      <div id="registrationSuccess" class="success"></div>
+
+      <!-- Invisible reCAPTCHA container -->
+      <div id="registrationRecaptcha"></div>
     </div>
+
 
     <!-- LOGIN SCREEN -->
-    <div id="login-screen" class="hidden">
+    <div id="loginScreen" class="card hidden">
+
       <h2>Login</h2>
 
-      <p>Enter your mobile number</p>
+      <p>
+        Enter your registered mobile number
+      </p>
 
       <input
         type="tel"
-        id="login-mobile"
+        id="loginMobile"
         placeholder="Enter 10 digit mobile number"
         maxlength="10"
       />
 
-      <button onclick="sendLoginOTP()">
+      <button class="primary" onclick="sendLoginOTP()">
         Send OTP
       </button>
 
-      <div id="login-recaptcha"></div>
-
-      <div id="login-otp-section" class="hidden">
-        <input
-          type="text"
-          id="login-otp"
-          placeholder="Enter OTP"
-          maxlength="6"
-        />
-
-        <button onclick="verifyLoginOTP()">
-          Verify OTP
-        </button>
-      </div>
-
-      <button class="back-button" onclick="goBack()">
+      <button class="dark" onclick="goBack()">
         Back
       </button>
 
-      <div id="login-message" class="message"></div>
+      <div id="loginError" class="error"></div>
+      <div id="loginSuccess" class="success"></div>
+
+      <!-- Invisible reCAPTCHA container -->
+      <div id="loginRecaptcha"></div>
     </div>
 
-    <!-- HOME SCREEN -->
-    <div id="home-screen" class="hidden">
-      <h1>YSRCP YERRAGONDAPALEM</h1>
 
-      <div class="home-text">
-        Login Successful
+    <!-- OTP SCREEN -->
+    <div id="otpScreen" class="card hidden">
+
+      <h2>Verify OTP</h2>
+
+      <p id="otpMessage">
+        Enter the OTP sent to your mobile number
+      </p>
+
+      <input
+        type="text"
+        id="otpInput"
+        placeholder="Enter 6 digit OTP"
+        maxlength="6"
+      />
+
+      <button class="primary" onclick="verifyOTP()">
+        Verify OTP
+      </button>
+
+      <button class="dark" onclick="goBackToMobileScreen()">
+        Back
+      </button>
+
+      <div id="otpError" class="error"></div>
+      <div id="otpSuccess" class="success"></div>
+    </div>
+
+
+    <!-- HOME SCREEN -->
+    <div id="homeScreen" class="card hidden">
+
+      <div class="home-title">
+        YSRCP YERRAGONDAPALEM
       </div>
 
-      <p>Welcome to Home Screen</p>
+      <div class="user-mobile">
+        <b>Login Successful</b>
+        <br />
+        <span id="loggedMobile"></span>
+      </div>
 
-      <button class="back-button" onclick="logoutUser()">
+      <p>
+        Welcome to the Home Screen
+      </p>
+
+      <button class="primary" onclick="logoutUser()">
         Logout
       </button>
     </div>
 
   </div>
 
-  <!-- FIREBASE CODE -->
-  <script type="module">
 
-    import { initializeApp } from
-      "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+  <script>
 
-    import {
-      getAuth,
-      RecaptchaVerifier,
-      signInWithPhoneNumber,
-      onAuthStateChanged,
-      signOut
-    } from
-      "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+    /*
+      IMPORTANT:
+      Replace the below Firebase configuration
+      with your own Firebase project configuration.
+    */
 
     const firebaseConfig = {
-      apiKey: "AIzaSyAUhbObA7zEaNAtdSktvZYXmEENCz29zQ8",
-      authDomain: "ysrcp-yerragondapalem-70f87.firebaseapp.com",
-      projectId: "ysrcp-yerragondapalem-70f87",
-      storageBucket: "ysrcp-yerragondapalem-70f87.firebasestorage.app",
-      messagingSenderId: "299917147474",
-      appId: "1:299917147474:web:ededaaf3c289cc08250e8b",
-      measurementId: "G-1V385HHPGC"
+      apiKey: "PASTE_YOUR_API_KEY_HERE",
+      authDomain: "PASTE_YOUR_PROJECT_ID.firebaseapp.com",
+      projectId: "PASTE_YOUR_PROJECT_ID",
+      storageBucket: "PASTE_YOUR_PROJECT_ID.appspot.com",
+      messagingSenderId: "PASTE_YOUR_MESSAGING_SENDER_ID",
+      appId: "PASTE_YOUR_APP_ID"
     };
 
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
+    firebase.initializeApp(firebaseConfig);
 
-    let registerConfirmationResult = null;
-    let loginConfirmationResult = null;
+    const auth = firebase.auth();
 
-    let registerRecaptchaVerifier = null;
+    let confirmationResult = null;
+    let currentMode = "";
+    let currentMobile = "";
+
+    let registrationRecaptchaVerifier = null;
     let loginRecaptchaVerifier = null;
 
-    window.showRegistration = function () {
-      document.getElementById("start-screen").classList.add("hidden");
-      document.getElementById("login-screen").classList.add("hidden");
-      document.getElementById("home-screen").classList.add("hidden");
-      document.getElementById("registration-screen").classList.remove("hidden");
 
-      clearMessages();
-    };
+    function hideAllScreens() {
+      document.getElementById("startScreen").classList.add("hidden");
+      document.getElementById("registrationScreen").classList.add("hidden");
+      document.getElementById("loginScreen").classList.add("hidden");
+      document.getElementById("otpScreen").classList.add("hidden");
+      document.getElementById("homeScreen").classList.add("hidden");
+    }
 
-    window.showLogin = function () {
-      document.getElementById("start-screen").classList.add("hidden");
-      document.getElementById("registration-screen").classList.add("hidden");
-      document.getElementById("home-screen").classList.add("hidden");
-      document.getElementById("login-screen").classList.remove("hidden");
-
-      clearMessages();
-    };
-
-    window.goBack = function () {
-      document.getElementById("registration-screen").classList.add("hidden");
-      document.getElementById("login-screen").classList.add("hidden");
-      document.getElementById("home-screen").classList.add("hidden");
-      document.getElementById("start-screen").classList.remove("hidden");
-
-      clearMessages();
-    };
 
     function clearMessages() {
-      document.getElementById("register-message").innerText = "";
-      document.getElementById("login-message").innerText = "";
+      document.getElementById("startError").innerText = "";
+
+      document.getElementById("registrationError").innerText = "";
+      document.getElementById("registrationSuccess").innerText = "";
+
+      document.getElementById("loginError").innerText = "";
+      document.getElementById("loginSuccess").innerText = "";
+
+      document.getElementById("otpError").innerText = "";
+      document.getElementById("otpSuccess").innerText = "";
     }
 
-    function validMobileNumber(number) {
-      return /^[6-9][0-9]{9}$/.test(number);
+
+    function showRegistration() {
+      hideAllScreens();
+      clearMessages();
+
+      document
+        .getElementById("registrationScreen")
+        .classList.remove("hidden");
+
+      document.getElementById("registrationMobile").focus();
     }
 
-    function createRegisterRecaptcha() {
-      if (registerRecaptchaVerifier) {
-        return registerRecaptchaVerifier;
+
+    function showLogin() {
+      hideAllScreens();
+      clearMessages();
+
+      document
+        .getElementById("loginScreen")
+        .classList.remove("hidden");
+
+      document.getElementById("loginMobile").focus();
+    }
+
+
+    function goBack() {
+      hideAllScreens();
+      clearMessages();
+
+      document
+        .getElementById("startScreen")
+        .classList.remove("hidden");
+    }
+
+
+    function goBackToMobileScreen() {
+      hideAllScreens();
+      clearMessages();
+
+      if (currentMode === "registration") {
+        document
+          .getElementById("registrationScreen")
+          .classList.remove("hidden");
+      } else {
+        document
+          .getElementById("loginScreen")
+          .classList.remove("hidden");
+      }
+    }
+
+
+    function validateMobile(mobile) {
+      return /^[6-9][0-9]{9}$/.test(mobile);
+    }
+
+
+    function createRegistrationRecaptcha() {
+      if (!registrationRecaptchaVerifier) {
+        registrationRecaptchaVerifier =
+          new firebase.auth.RecaptchaVerifier(
+            "registrationRecaptcha",
+            {
+              size: "invisible",
+              callback: function () {
+                console.log("Registration reCAPTCHA verified");
+              },
+              "expired-callback": function () {
+                registrationRecaptchaVerifier = null;
+              }
+            }
+          );
+
+        registrationRecaptchaVerifier.render();
       }
 
-      registerRecaptchaVerifier = new RecaptchaVerifier(
-        auth,
-        "register-recaptcha",
-        {
-          size: "normal",
-          callback: function () {
-            console.log("Registration reCAPTCHA completed");
-          },
-          "expired-callback": function () {
-            document.getElementById("register-message").innerText =
-              "reCAPTCHA expired. Please complete it again.";
-          }
-        }
-      );
-
-      return registerRecaptchaVerifier;
+      return registrationRecaptchaVerifier;
     }
+
 
     function createLoginRecaptcha() {
-      if (loginRecaptchaVerifier) {
-        return loginRecaptchaVerifier;
-      }
+      if (!loginRecaptchaVerifier) {
+        loginRecaptchaVerifier =
+          new firebase.auth.RecaptchaVerifier(
+            "loginRecaptcha",
+            {
+              size: "invisible",
+              callback: function () {
+                console.log("Login reCAPTCHA verified");
+              },
+              "expired-callback": function () {
+                loginRecaptchaVerifier = null;
+              }
+            }
+          );
 
-      loginRecaptchaVerifier = new RecaptchaVerifier(
-        auth,
-        "login-recaptcha",
-        {
-          size: "normal",
-          callback: function () {
-            console.log("Login reCAPTCHA completed");
-          },
-          "expired-callback": function () {
-            document.getElementById("login-message").innerText =
-              "reCAPTCHA expired. Please complete it again.";
-          }
-        }
-      );
+        loginRecaptchaVerifier.render();
+      }
 
       return loginRecaptchaVerifier;
     }
 
-    window.sendRegistrationOTP = async function () {
+
+    function sendRegistrationOTP() {
+      clearMessages();
+
       const mobile =
-        document.getElementById("register-mobile").value.trim();
+        document.getElementById("registrationMobile").value.trim();
 
-      const message =
-        document.getElementById("register-message");
+      if (!validateMobile(mobile)) {
+        document.getElementById("registrationError").innerText =
+          "Please enter a valid 10 digit Indian mobile number.";
 
-      if (!validMobileNumber(mobile)) {
-        message.innerText =
-          "దయచేసి సరైన 10 అంకెల మొబైల్ నంబర్ నమోదు చేయండి.";
         return;
       }
+
+      currentMode = "registration";
+      currentMobile = mobile;
 
       const phoneNumber = "+91" + mobile;
 
-      try {
-        message.innerText = "reCAPTCHA పూర్తి చేయండి...";
+      const appVerifier = createRegistrationRecaptcha();
 
-        const appVerifier = createRegisterRecaptcha();
+      document.getElementById("registrationSuccess").innerText =
+        "Sending OTP. Please wait...";
 
-        registerConfirmationResult =
-          await signInWithPhoneNumber(
-            auth,
-            phoneNumber,
-            appVerifier
-          );
+      auth.signInWithPhoneNumber(phoneNumber, appVerifier)
+        .then(function (result) {
+          confirmationResult = result;
 
-        document
-          .getElementById("register-otp-section")
-          .classList.remove("hidden");
+          hideAllScreens();
 
-        message.classList.add("success");
-        message.innerText =
-          "OTP మీ మొబైల్‌కు పంపబడింది.";
+          document
+            .getElementById("otpScreen")
+            .classList.remove("hidden");
 
-      } catch (error) {
-        console.error(error);
+          document.getElementById("otpMessage").innerText =
+            "Enter the OTP sent to +91 " + currentMobile;
 
-        message.classList.remove("success");
-        message.innerText =
-          "OTP పంపలేకపోయింది: " + error.message;
-      }
-    };
+          document.getElementById("otpInput").focus();
+        })
+        .catch(function (error) {
+          document.getElementById("registrationSuccess").innerText = "";
 
-    window.verifyRegistrationOTP = async function () {
-      const otp =
-        document.getElementById("register-otp").value.trim();
-
-      const message =
-        document.getElementById("register-message");
-
-      if (!/^[0-9]{6}$/.test(otp)) {
-        message.innerText =
-          "6 అంకెల OTP నమోదు చేయండి.";
-        return;
-      }
-
-      try {
-        await registerConfirmationResult.confirm(otp);
-
-        message.classList.add("success");
-        message.innerText =
-          "Registration Successful";
-
-        showHome();
-
-      } catch (error) {
-        console.error(error);
-
-        message.classList.remove("success");
-        message.innerText =
-          "తప్పు OTP. మళ్లీ ప్రయత్నించండి.";
-      }
-    };
-
-    window.sendLoginOTP = async function () {
-      const mobile =
-        document.getElementById("login-mobile").value.trim();
-
-      const message =
-        document.getElementById("login-message");
-
-      if (!validMobileNumber(mobile)) {
-        message.innerText =
-          "దయచేసి సరైన 10 అంకెల మొబైల్ నంబర్ నమోదు చేయండి.";
-        return;
-      }
-
-      const phoneNumber = "+91" + mobile;
-
-      try {
-        message.innerText = "reCAPTCHA పూర్తి చేయండి...";
-
-        const appVerifier = createLoginRecaptcha();
-
-        loginConfirmationResult =
-          await signInWithPhoneNumber(
-            auth,
-            phoneNumber,
-            appVerifier
-          );
-
-        document
-          .getElementById("login-otp-section")
-          .classList.remove("hidden");
-
-        message.classList.add("success");
-        message.innerText =
-          "OTP మీ మొబైల్‌కు పంపబడింది.";
-
-      } catch (error) {
-        console.error(error);
-
-        message.classList.remove("success");
-        message.innerText =
-          "OTP పంపలేకపోయింది: " + error.message;
-      }
-    };
-
-    window.verifyLoginOTP = async function () {
-      const otp =
-        document.getElementById("login-otp").value.trim();
-
-      const message =
-        document.getElementById("login-message");
-
-      if (!/^[0-9]{6}$/.test(otp)) {
-        message.innerText =
-          "6 అంకెల OTP నమోదు చేయండి.";
-        return;
-      }
-
-      try {
-        await loginConfirmationResult.confirm(otp);
-
-        message.classList.add("success");
-        message.innerText =
-          "Login Successful";
-
-        showHome();
-
-      } catch (error) {
-        console.error(error);
-
-        message.classList.remove("success");
-        message.innerText =
-          "తప్పు OTP. మళ్లీ ప్రయత్నించండి.";
-      }
-    };
-
-    function showHome() {
-      document.getElementById("start-screen").classList.add("hidden");
-      document.getElementById("registration-screen").classList.add("hidden");
-      document.getElementById("login-screen").classList.add("hidden");
-      document.getElementById("home-screen").classList.remove("hidden");
+          document.getElementById("registrationError").innerText =
+            getFriendlyError(error);
+        });
     }
 
-    window.logoutUser = async function () {
-      await signOut(auth);
-      goBack();
-    };
 
-    onAuthStateChanged(auth, function (user) {
+    function sendLoginOTP() {
+      clearMessages();
+
+      const mobile =
+        document.getElementById("loginMobile").value.trim();
+
+      if (!validateMobile(mobile)) {
+        document.getElementById("loginError").innerText =
+          "Please enter a valid 10 digit Indian mobile number.";
+
+        return;
+      }
+
+      currentMode = "login";
+      currentMobile = mobile;
+
+      const phoneNumber = "+91" + mobile;
+
+      const appVerifier = createLoginRecaptcha();
+
+      document.getElementById("loginSuccess").innerText =
+        "Sending OTP. Please wait...";
+
+      auth.signInWithPhoneNumber(phoneNumber, appVerifier)
+        .then(function (result) {
+          confirmationResult = result;
+
+          hideAllScreens();
+
+          document
+            .getElementById("otpScreen")
+            .classList.remove("hidden");
+
+          document.getElementById("otpMessage").innerText =
+            "Enter the OTP sent to +91 " + currentMobile;
+
+          document.getElementById("otpInput").focus();
+        })
+        .catch(function (error) {
+          document.getElementById("loginSuccess").innerText = "";
+
+          document.getElementById("loginError").innerText =
+            getFriendlyError(error);
+        });
+    }
+
+
+    function verifyOTP() {
+      clearMessages();
+
+      const otp =
+        document.getElementById("otpInput").value.trim();
+
+      if (!/^[0-9]{6}$/.test(otp)) {
+        document.getElementById("otpError").innerText =
+          "Please enter the 6 digit OTP.";
+
+        return;
+      }
+
+      if (!confirmationResult) {
+        document.getElementById("otpError").innerText =
+          "OTP session expired. Please request a new OTP.";
+
+        return;
+      }
+
+      document.getElementById("otpSuccess").innerText =
+        "Verifying OTP. Please wait...";
+
+      confirmationResult.confirm(otp)
+        .then(function (result) {
+          const user = result.user;
+
+          document.getElementById("loggedMobile").innerText =
+            user.phoneNumber || ("+91 " + currentMobile);
+
+          hideAllScreens();
+
+          document
+            .getElementById("homeScreen")
+            .classList.remove("hidden");
+        })
+        .catch(function (error) {
+          document.getElementById("otpSuccess").innerText = "";
+
+          document.getElementById("otpError").innerText =
+            getFriendlyError(error);
+        });
+    }
+
+
+    function logoutUser() {
+      auth.signOut()
+        .then(function () {
+          confirmationResult = null;
+          currentMode = "";
+          currentMobile = "";
+
+          document.getElementById("otpInput").value = "";
+
+          goBack();
+        })
+        .catch(function (error) {
+          document.getElementById("otpError").innerText =
+            getFriendlyError(error);
+        });
+    }
+
+
+    function getFriendlyError(error) {
+      if (!error || !error.code) {
+        return "Something went wrong. Please try again.";
+      }
+
+      switch (error.code) {
+        case "auth/invalid-phone-number":
+          return "Invalid mobile number. Please check and try again.";
+
+        case "auth/too-many-requests":
+          return "Too many OTP requests. Please wait and try again later.";
+
+        case "auth/quota-exceeded":
+          return "SMS quota exceeded. Please try again later.";
+
+        case "auth/operation-not-allowed":
+          return "Phone Authentication is not enabled in Firebase.";
+
+        case "auth/captcha-check-failed":
+          return "Security verification failed. Please refresh the page and try again.";
+
+        case "auth/invalid-verification-code":
+          return "Incorrect OTP. Please enter the correct OTP.";
+
+        case "auth/code-expired":
+          return "OTP expired. Please request a new OTP.";
+
+        case "auth/network-request-failed":
+          return "Network error. Please check your internet connection.";
+
+        case "auth/unauthorized-domain":
+          return "This website domain is not authorized in Firebase.";
+
+        default:
+          return error.message || "Something went wrong. Please try again.";
+      }
+    }
+
+
+    auth.onAuthStateChanged(function (user) {
       if (user) {
-        console.log("User logged in:", user.phoneNumber);
+        document.getElementById("loggedMobile").innerText =
+          user.phoneNumber || "";
+
+        hideAllScreens();
+
+        document
+          .getElementById("homeScreen")
+          .classList.remove("hidden");
       } else {
-        console.log("No user logged in");
+        hideAllScreens();
+
+        document
+          .getElementById("startScreen")
+          .classList.remove("hidden");
       }
     });
 
