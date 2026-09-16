@@ -1,954 +1,528 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>YSRCP YERRAGONDAPALEM</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<style>
-* {
-  box-sizing: border-box;
-}
+  <title>YSRCP YERRAGONDAPALEM</title>
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #0066cc, #008c55);
-  min-height: 100vh;
-  color: #17324d;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-.app {
-  width: 100%;
-  max-width: 480px;
-  min-height: 100vh;
-  margin: auto;
-  background: white;
-  position: relative;
-  overflow: hidden;
-}
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #fff7e6, #ffffff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
 
-.header {
-  background: linear-gradient(100deg, #0564c9, #008b57);
-  color: white;
-  padding: 25px 15px;
-  text-align: center;
-}
+    .app {
+      width: 100%;
+      max-width: 430px;
+      background: white;
+      border-radius: 18px;
+      padding: 28px 22px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+      text-align: center;
+    }
 
-.header h1 {
-  margin: 0;
-  font-size: 25px;
-  letter-spacing: 1px;
-}
+    h1 {
+      color: #d88900;
+      font-size: 25px;
+      margin-bottom: 8px;
+    }
 
-.header p {
-  margin: 8px 0 0;
-  font-size: 13px;
-}
+    h2 {
+      color: #333;
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
 
-.content {
-  padding: 22px;
-  padding-bottom: 100px;
-}
+    p {
+      color: #666;
+      line-height: 1.5;
+    }
 
-.welcome {
-  text-align: center;
-  padding: 20px 10px;
-}
+    button {
+      width: 100%;
+      padding: 14px;
+      margin-top: 12px;
+      border: none;
+      border-radius: 9px;
+      background: #e59b00;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
 
-.welcome h2 {
-  color: #087d55;
-  font-size: 27px;
-}
+    button:hover {
+      background: #c98300;
+    }
 
-.welcome p {
-  color: #555;
-}
+    button.secondary {
+      background: #555;
+    }
 
-button {
-  width: 100%;
-  padding: 15px;
-  margin-top: 12px;
-  border: none;
-  border-radius: 10px;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-}
+    button.secondary:hover {
+      background: #333;
+    }
 
-.primary {
-  background: #08a653;
-  color: white;
-}
+    input {
+      width: 100%;
+      padding: 14px;
+      margin-top: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
 
-.secondary {
-  background: white;
-  color: #0754a4;
-  border: 2px solid #0754a4;
-}
+    .hidden {
+      display: none !important;
+    }
 
-.danger {
-  background: #e53935;
-  color: white;
-}
+    .message {
+      margin-top: 15px;
+      color: #d00000;
+      font-size: 14px;
+      line-height: 1.5;
+    }
 
-button:active {
-  transform: scale(0.98);
-}
+    .success {
+      color: green;
+    }
 
-input, select, textarea {
-  width: 100%;
-  padding: 14px;
-  margin-top: 8px;
-  border: 1px solid #c9d3dd;
-  border-radius: 8px;
-  font-size: 15px;
-}
+    #recaptcha-container {
+      margin-top: 18px;
+      display: flex;
+      justify-content: center;
+    }
 
-label {
-  display: block;
-  margin-top: 14px;
-  font-weight: bold;
-}
+    .home-box {
+      background: #fff4d6;
+      padding: 20px;
+      border-radius: 12px;
+      margin-top: 20px;
+    }
 
-.screen {
-  display: none;
-}
-
-.screen.active {
-  display: block;
-}
-
-.form-title {
-  text-align: center;
-  color: #0754a4;
-  margin-bottom: 20px;
-}
-
-.small-link {
-  text-align: center;
-  color: #0754a4;
-  font-weight: bold;
-  cursor: pointer;
-  margin-top: 18px;
-}
-
-.demo-otp {
-  background: #fff4cc;
-  color: #795500;
-  padding: 12px;
-  border-radius: 8px;
-  margin-top: 12px;
-  text-align: center;
-  font-weight: bold;
-}
-
-.topbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: linear-gradient(100deg, #0564c9, #008b57);
-  color: white;
-  padding: 17px 15px;
-}
-
-.topbar h2 {
-  font-size: 17px;
-  margin: 0;
-}
-
-.menu-btn {
-  background: transparent;
-  color: white;
-  width: auto;
-  padding: 0;
-  margin: 0;
-  font-size: 27px;
-}
-
-.bell {
-  font-size: 23px;
-}
-
-.hero {
-  background: #eef8f2;
-  padding: 22px 15px;
-  text-align: center;
-  border-radius: 15px;
-  margin-bottom: 20px;
-}
-
-.hero h2 {
-  color: #087d55;
-  margin: 0 0 8px;
-}
-
-.hero p {
-  margin: 0;
-}
-
-.post-box {
-  border-left: 5px solid #08a653;
-  background: #f7f7f7;
-  padding: 15px;
-  border-radius: 8px;
-  margin-top: 14px;
-}
-
-.post-box h3 {
-  margin: 0 0 8px;
-  color: #0754a4;
-}
-
-.post-box p {
-  margin: 0;
-  color: #555;
-}
-
-.bottom-menu {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  max-width: 480px;
-  background: white;
-  border-top: 1px solid #ddd;
-  display: flex;
-  justify-content: space-around;
-  padding: 8px 2px;
-  z-index: 10;
-}
-
-.bottom-menu button {
-  background: white;
-  color: #17324d;
-  font-size: 12px;
-  padding: 8px 2px;
-  margin: 0;
-  border-radius: 5px;
-}
-
-.bottom-menu button.active {
-  color: #008b57;
-}
-
-.side-menu {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 285px;
-  max-width: 85%;
-  height: 100%;
-  background: white;
-  z-index: 30;
-  box-shadow: 3px 0 12px #0003;
-  padding: 22px;
-}
-
-.side-menu.active {
-  display: block;
-}
-
-.side-menu h2 {
-  color: #087d55;
-}
-
-.side-menu button {
-  text-align: left;
-  background: white;
-  color: #17324d;
-  border-bottom: 1px solid #eee;
-  border-radius: 0;
-  margin: 0;
-}
-
-.close-menu {
-  text-align: right;
-  color: red;
-  font-size: 25px;
-  cursor: pointer;
-}
-
-.id-card {
-  border: 2px solid #087d55;
-  border-radius: 12px;
-  overflow: hidden;
-  margin-top: 20px;
-}
-
-.id-header {
-  background: linear-gradient(100deg, #0564c9, #008b57);
-  color: white;
-  padding: 20px;
-  text-align: center;
-}
-
-.id-header h2 {
-  margin: 0;
-}
-
-.id-body {
-  padding: 20px;
-}
-
-.id-row {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  border-bottom: 1px solid #ddd;
-  padding: 12px 0;
-}
-
-.id-row span:first-child {
-  font-weight: bold;
-}
-
-.hidden {
-  display: none !important;
-}
-
-.message {
-  text-align: center;
-  margin-top: 12px;
-  color: #087d55;
-  font-weight: bold;
-}
-</style>
+    .small {
+      font-size: 13px;
+      color: #777;
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="app">
+  <div class="app">
 
-  <!-- ENTRY SCREEN -->
-  <section id="entryScreen" class="screen active">
-    <div class="header">
-      <h1>YSRCP</h1>
-      <h1>YERRAGONDAPALEM</h1>
-      <p>PEOPLE • PROGRESS • PROSPERITY</p>
-    </div>
+    <!-- START SCREEN -->
+    <section id="startScreen">
+      <h1>YSRCP YERRAGONDAPALEM</h1>
+      <p>Welcome to the official member app</p>
 
-    <div class="content">
-      <div class="welcome">
-        <h2>Welcome</h2>
-        <p>YSRCP Yerragondapalem Digital Platform</p>
-
-        <button class="primary" onclick="showScreen('registerScreen')">
-          👤 New Registration
-        </button>
-
-        <button class="secondary" onclick="showScreen('loginScreen')">
-          🔒 Login
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- REGISTRATION SCREEN -->
-  <section id="registerScreen" class="screen">
-    <div class="header">
-      <h1>New Registration</h1>
-    </div>
-
-    <div class="content">
-      <h2 class="form-title">Create New Account</h2>
-
-      <label>Mobile Number</label>
-      <input id="regMobile" type="tel" maxlength="10"
-             placeholder="Enter 10-digit mobile number">
-
-      <label>Full Name</label>
-      <input id="regName" type="text" placeholder="Enter full name">
-
-      <label>Mandal Name</label>
-      <select id="regMandal">
-        <option value="">Select Mandal</option>
-        <option value="PDV">Peddaraveedu</option>
-        <option value="PLC">Pullalacheruvu</option>
-        <option value="YGP">Yerragondapalem</option>
-        <option value="PDR">Pedda Dornala</option>
-        <option value="TPK">Tripuranthakam</option>
-      </select>
-
-      <label>Password</label>
-      <input id="regPassword" type="password"
-             placeholder="Create password">
-
-      <label>Confirm Password</label>
-      <input id="regConfirmPassword" type="password"
-             placeholder="Confirm password">
-
-      <button class="primary" onclick="sendRegistrationOTP()">
-        Send OTP
+      <button id="newRegistrationBtn">
+        New Registration
       </button>
 
-      <div id="regOtpArea" class="hidden">
-        <div class="demo-otp">
-          Demo OTP: 123456
-        </div>
-
-        <label>Enter OTP</label>
-        <input id="regOtp" type="tel" maxlength="6"
-               placeholder="Enter 6-digit OTP">
-
-        <button class="primary" onclick="completeRegistration()">
-          Complete Registration
-        </button>
-      </div>
-
-      <div class="small-link" onclick="showScreen('entryScreen')">
-        ← Back to Entry
-      </div>
-
-      <div id="regMessage" class="message"></div>
-    </div>
-  </section>
-
-  <!-- LOGIN SCREEN -->
-  <section id="loginScreen" class="screen">
-    <div class="header">
-      <h1>Login</h1>
-    </div>
-
-    <div class="content">
-      <h2 class="form-title">Member Login</h2>
-
-      <label>Mobile Number</label>
-      <input id="loginMobile" type="tel" maxlength="10"
-             placeholder="Enter mobile number">
-
-      <label>Password</label>
-      <input id="loginPassword" type="password"
-             placeholder="Enter password">
-
-      <button class="primary" onclick="loginUser()">
+      <button id="loginBtn" class="secondary">
         Login
       </button>
+    </section>
 
-      <div class="small-link" onclick="showScreen('resetScreen')">
-        Reset Password
-      </div>
+    <!-- PHONE SCREEN -->
+    <section id="phoneScreen" class="hidden">
+      <h2 id="phoneTitle">New Registration</h2>
 
-      <div class="small-link" onclick="showScreen('registerScreen')">
-        New Registration
-      </div>
+      <p>Enter your mobile number</p>
 
-      <div class="small-link" onclick="showScreen('entryScreen')">
-        ← Back to Entry
-      </div>
+      <input
+        id="phoneInput"
+        type="tel"
+        placeholder="Enter 10 digit mobile number"
+        maxlength="10"
+      />
 
-      <div id="loginMessage" class="message"></div>
-    </div>
-  </section>
-
-  <!-- RESET PASSWORD SCREEN -->
-  <section id="resetScreen" class="screen">
-    <div class="header">
-      <h1>Reset Password</h1>
-    </div>
-
-    <div class="content">
-      <h2 class="form-title">Reset Your Password</h2>
-
-      <label>Mobile Number</label>
-      <input id="resetMobile" type="tel" maxlength="10"
-             placeholder="Enter registered mobile number">
-
-      <button class="primary" onclick="sendResetOTP()">
+      <button id="sendOtpBtn">
         Send OTP
       </button>
 
-      <div id="resetOtpArea" class="hidden">
-        <div class="demo-otp">
-          Demo OTP: 123456
-        </div>
+      <div id="recaptcha-container"></div>
 
-        <label>Enter OTP</label>
-        <input id="resetOtp" type="tel" maxlength="6"
-               placeholder="Enter OTP">
+      <button id="backBtn" class="secondary">
+        Back
+      </button>
 
-        <label>New Password</label>
-        <input id="newPassword" type="password"
-               placeholder="Enter new password">
+      <div id="phoneMessage" class="message"></div>
+    </section>
 
-        <label>Confirm New Password</label>
-        <input id="confirmNewPassword" type="password"
-               placeholder="Confirm new password">
+    <!-- OTP SCREEN -->
+    <section id="otpScreen" class="hidden">
+      <h2>Verify OTP</h2>
 
-        <button class="primary" onclick="resetPassword()">
-          Reset Password
-        </button>
+      <p>OTP sent to your mobile number</p>
+
+      <input
+        id="otpInput"
+        type="number"
+        placeholder="Enter 6 digit OTP"
+        maxlength="6"
+      />
+
+      <button id="verifyOtpBtn">
+        Verify OTP
+      </button>
+
+      <button id="otpBackBtn" class="secondary">
+        Back
+      </button>
+
+      <div id="otpMessage" class="message"></div>
+    </section>
+
+    <!-- HOME SCREEN -->
+    <section id="homeScreen" class="hidden">
+      <h1>YSRCP YERRAGONDAPALEM</h1>
+
+      <div class="home-box">
+        <h2>Welcome</h2>
+        <p class="success">
+          You have successfully logged in.
+        </p>
+        <p id="userPhone"></p>
       </div>
 
-      <div class="small-link" onclick="showScreen('loginScreen')">
-        ← Back to Login
-      </div>
-
-      <div id="resetMessage" class="message"></div>
-    </div>
-  </section>
-
-  <!-- MAIN APP SCREEN -->
-  <section id="mainScreen" class="screen">
-
-    <div class="topbar">
-      <button class="menu-btn" onclick="openSideMenu()">☰</button>
-      <h2>YSRCP YERRAGONDAPALEM</h2>
-      <div class="bell">🔔</div>
-    </div>
-
-    <div class="content">
-
-      <!-- HOME -->
-      <div id="homePage" class="page">
-        <div class="hero">
-          <h2>YSRCP YERRAGONDAPALEM</h2>
-          <p>Digital Platform for Party Members</p>
-        </div>
-
-        <h2>Posts</h2>
-
-        <div id="postsContainer">
-          <div class="post-box">
-            <h3>No Posts Yet</h3>
-            <p>New posts will appear here.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- NEWS -->
-      <div id="newsPage" class="page hidden">
-        <h2 class="form-title">News</h2>
-        <div class="post-box">
-          <h3>YSRCP Yerragondapalem Updates</h3>
-          <p>Latest constituency news and party updates will appear here.</p>
-        </div>
-      </div>
-
-      <!-- EVENTS -->
-      <div id="eventsPage" class="page hidden">
-        <h2 class="form-title">Events</h2>
-        <div class="post-box">
-          <h3>Party Meetings and Events</h3>
-          <p>Mandal and constituency level meeting details will appear here.</p>
-        </div>
-      </div>
-
-      <!-- CREATE POST -->
-      <div id="createPostPage" class="page hidden">
-        <h2 class="form-title">Create Post</h2>
-
-        <label>Post Title</label>
-        <input id="postTitle" type="text"
-               placeholder="Enter post title">
-
-        <label>Post Details</label>
-        <textarea id="postDetails" rows="5"
-                  placeholder="Write your post here"></textarea>
-
-        <label>Category</label>
-        <select id="postCategory">
-          <option>General</option>
-          <option>News</option>
-          <option>Events</option>
-          <option>Mandal Updates</option>
-          <option>Party Updates</option>
-        </select>
-
-        <button class="primary" onclick="publishPost()">
-          Publish Post
-        </button>
-
-        <div id="postMessage" class="message"></div>
-      </div>
-
-      <!-- PROFILE -->
-      <div id="profilePage" class="page hidden">
-        <h2 class="form-title">My Profile</h2>
-        <div id="profileDetails"></div>
-      </div>
-
-    </div>
-
-    <!-- BOTTOM MENU -->
-    <div class="bottom-menu">
-      <button onclick="showPage('homePage')">🏠<br>Home</button>
-      <button onclick="showPage('newsPage')">📰<br>News</button>
-      <button onclick="showPage('createPostPage')">➕<br>New Post</button>
-      <button onclick="showPage('eventsPage')">📅<br>Events</button>
-      <button onclick="showPage('profilePage')">👤<br>Profile</button>
-    </div>
-
-  </section>
-
-</div>
-
-<!-- SIDE MENU -->
-<div id="sideMenu" class="side-menu">
-  <div class="close-menu" onclick="closeSideMenu()">✕</div>
-
-  <h2>YSRCP Menu</h2>
-
-  <button onclick="showPageFromMenu('profilePage')">
-    👤 My Profile
-  </button>
-
-  <button onclick="showIdCard()">
-    🪪 My ID Card
-  </button>
-
-  <button onclick="showPageFromMenu('eventsPage')">
-    📅 Events
-  </button>
-
-  <button onclick="showPageFromMenu('newsPage')">
-    📰 News
-  </button>
-
-  <button onclick="logoutUser()" class="danger">
-    🚪 Logout
-  </button>
-</div>
-
-<script>
-let currentUser = null;
-
-function showScreen(screenId) {
-  document.querySelectorAll(".screen").forEach(screen => {
-    screen.classList.remove("active");
-  });
-
-  document.getElementById(screenId).classList.add("active");
-
-  document.getElementById("regMessage").innerText = "";
-  document.getElementById("loginMessage").innerText = "";
-  document.getElementById("resetMessage").innerText = "";
-}
-
-function getUsers() {
-  return JSON.parse(localStorage.getItem("ysrcpUsers") || "[]");
-}
-
-function saveUsers(users) {
-  localStorage.setItem("ysrcpUsers", JSON.stringify(users));
-}
-
-function sendRegistrationOTP() {
-  const mobile = document.getElementById("regMobile").value.trim();
-  const name = document.getElementById("regName").value.trim();
-  const mandal = document.getElementById("regMandal").value;
-  const password = document.getElementById("regPassword").value;
-  const confirmPassword =
-    document.getElementById("regConfirmPassword").value;
-
-  if (!/^[0-9]{10}$/.test(mobile)) {
-    alert("10-digit mobile number enter చేయండి.");
-    return;
-  }
-
-  if (name === "") {
-    alert("Full Name enter చేయండి.");
-    return;
-  }
-
-  if (mandal === "") {
-    alert("Mandal select చేయండి.");
-    return;
-  }
-
-  if (password.length < 6) {
-    alert("Password కనీసం 6 characters ఉండాలి.");
-    return;
-  }
-
-  if (password !== confirmPassword) {
-    alert("Passwords match కావడం లేదు.");
-    return;
-  }
-
-  const users = getUsers();
-
-  if (users.some(user => user.mobile === mobile)) {
-    alert("ఈ mobile number ఇప్పటికే registration అయింది.");
-    return;
-  }
-
-  document.getElementById("regOtpArea").classList.remove("hidden");
-  document.getElementById("regMessage").innerText =
-    "OTP sent successfully. Demo OTP: 123456";
-}
-
-function completeRegistration() {
-  const otp = document.getElementById("regOtp").value.trim();
-
-  if (otp !== "123456") {
-    alert("Wrong OTP. Demo OTP 123456");
-    return;
-  }
-
-  const mobile = document.getElementById("regMobile").value.trim();
-  const name = document.getElementById("regName").value.trim();
-  const mandal = document.getElementById("regMandal").value;
-  const password = document.getElementById("regPassword").value;
-
-  const users = getUsers();
-
-  const prefix = {
-    PDV: "PDV",
-    PLC: "PLC",
-    YGP: "YGP",
-    PDR: "PDR",
-    TPK: "TPK"
-  };
-
-  const mandalUsers = users.filter(user => user.mandal === mandal);
-  const serial = String(mandalUsers.length + 1).padStart(3, "0");
-
-  const memberId = "YSRCP-" + prefix[mandal] + "-" + serial;
-
-  const newUser = {
-    mobile: mobile,
-    name: name,
-    mandal: mandal,
-    password: password,
-    memberId: memberId
-  };
-
-  users.push(newUser);
-  saveUsers(users);
-
-  alert("Registration successful. Your ID: " + memberId);
-
-  currentUser = newUser;
-  openMainApp();
-}
-
-function loginUser() {
-  const mobile = document.getElementById("loginMobile").value.trim();
-  const password = document.getElementById("loginPassword").value;
-
-  const users = getUsers();
-
-  const user = users.find(
-    item => item.mobile === mobile && item.password === password
-  );
-
-  if (!user) {
-    document.getElementById("loginMessage").innerText =
-      "Mobile number లేదా password తప్పుగా ఉంది.";
-    return;
-  }
-
-  currentUser = user;
-  openMainApp();
-}
-
-function sendResetOTP() {
-  const mobile = document.getElementById("resetMobile").value.trim();
-  const users = getUsers();
-
-  if (!users.some(user => user.mobile === mobile)) {
-    alert("ఈ mobile number registration కాలేదు.");
-    return;
-  }
-
-  document.getElementById("resetOtpArea").classList.remove("hidden");
-  document.getElementById("resetMessage").innerText =
-    "OTP sent successfully. Demo OTP: 123456";
-}
-
-function resetPassword() {
-  const mobile = document.getElementById("resetMobile").value.trim();
-  const otp = document.getElementById("resetOtp").value.trim();
-  const newPassword = document.getElementById("newPassword").value;
-  const confirmPassword =
-    document.getElementById("confirmNewPassword").value;
-
-  if (otp !== "123456") {
-    alert("Wrong OTP. Demo OTP 123456");
-    return;
-  }
-
-  if (newPassword.length < 6) {
-    alert("Password కనీసం 6 characters ఉండాలి.");
-    return;
-  }
-
-  if (newPassword !== confirmPassword) {
-    alert("New passwords match కావడం లేదు.");
-    return;
-  }
-
-  const users = getUsers();
-  const index = users.findIndex(user => user.mobile === mobile);
-
-  if (index === -1) {
-    alert("User not found.");
-    return;
-  }
-
-  users[index].password = newPassword;
-  saveUsers(users);
-
-  alert("Password reset successful.");
-  showScreen("loginScreen");
-}
-
-function openMainApp() {
-  showScreen("mainScreen");
-  showPage("homePage");
-  loadPosts();
-}
-
-function showPage(pageId) {
-  document.querySelectorAll(".page").forEach(page => {
-    page.classList.add("hidden");
-  });
-
-  document.getElementById(pageId).classList.remove("hidden");
-
-  if (pageId === "profilePage") {
-    loadProfile();
-  }
-}
-
-function showPageFromMenu(pageId) {
-  closeSideMenu();
-  showPage(pageId);
-}
-
-function openSideMenu() {
-  document.getElementById("sideMenu").classList.add("active");
-}
-
-function closeSideMenu() {
-  document.getElementById("sideMenu").classList.remove("active");
-}
-
-function publishPost() {
-  const title = document.getElementById("postTitle").value.trim();
-  const details = document.getElementById("postDetails").value.trim();
-  const category = document.getElementById("postCategory").value;
-
-  if (title === "" || details === "") {
-    alert("Post title మరియు details enter చేయండి.");
-    return;
-  }
-
-  const posts = JSON.parse(localStorage.getItem("ysrcpPosts") || "[]");
-
-  posts.unshift({
-    title: title,
-    details: details,
-    category: category,
-    date: new Date().toLocaleString()
-  });
-
-  localStorage.setItem("ysrcpPosts", JSON.stringify(posts));
-
-  document.getElementById("postTitle").value = "";
-  document.getElementById("postDetails").value = "";
-
-  document.getElementById("postMessage").innerText =
-    "Post published successfully.";
-
-  loadPosts();
-}
-
-function loadPosts() {
-  const posts = JSON.parse(localStorage.getItem("ysrcpPosts") || "[]");
-  const container = document.getElementById("postsContainer");
-
-  if (posts.length === 0) {
-    container.innerHTML = `
-      <div class="post-box">
-        <h3>No Posts Yet</h3>
-        <p>New posts will appear here.</p>
-      </div>
-    `;
-    return;
-  }
-
-  container.innerHTML = "";
-
-  posts.forEach(post => {
-    const box = document.createElement("div");
-    box.className = "post-box";
-
-    box.innerHTML = `
-      <h3>${escapeHtml(post.title)}</h3>
-      <p>${escapeHtml(post.details)}</p>
-      <br>
-      <small>${escapeHtml(post.category)} | ${escapeHtml(post.date)}</small>
-    `;
-
-    container.appendChild(box);
-  });
-}
-
-function loadProfile() {
-  if (!currentUser) return;
-
-  document.getElementById("profileDetails").innerHTML = `
-    <div class="post-box">
-      <h3>${escapeHtml(currentUser.name)}</h3>
-      <p><b>Member ID:</b> ${escapeHtml(currentUser.memberId)}</p>
-      <p><b>Mobile:</b> ${escapeHtml(currentUser.mobile)}</p>
-      <p><b>Mandal:</b> ${escapeHtml(currentUser.mandal)}</p>
-    </div>
-  `;
-}
-
-function showIdCard() {
-  closeSideMenu();
-
-  if (!currentUser) return;
-
-  document.getElementById("profileDetails").innerHTML = `
-    <div class="id-card">
-      <div class="id-header">
-        <h2>YSRCP</h2>
-        <h3>YERRAGONDAPALEM</h3>
-        <p>MEMBER ID CARD</p>
-      </div>
-
-      <div class="id-body">
-        <div class="id-row">
-          <span>Name</span>
-          <span>${escapeHtml(currentUser.name)}</span>
-        </div>
-
-        <div class="id-row">
-          <span>Member ID</span>
-          <span>${escapeHtml(currentUser.memberId)}</span>
-        </div>
-        <div class="id-row">
-                <span>Mobile</span>
-                <span>${escapeHtml(currentUser.mobile || "")}</span>
-            </div>
-
-            <div class="id-row">
-                <span>Village</span>
-                <span>${escapeHtml(currentUser.village || "")}</span>
-            </div>
-
-            <div class="id-row">
-                <span>Panchayat</span>
-                <span>${escapeHtml(currentUser.panchayat || "")}</span>
-            </div>
-
-            <div class="id-row">
-                <span>Mandal</span>
-                <span>${escapeHtml(currentUser.mandal || "")}</span>
-            </div>
-
-        </div>
-    </div>
-
-    <button class="primary-btn" onclick="closeModal()">
-        Close
-    </button>
-    `;
-
-    document.getElementById("profileModal").style.display = "flex";
-}
+      <button id="logoutBtn" class="secondary">
+        Logout
+      </button>
+    </section>
+
+  </div>
+
+  <script type="module">
+
+    import { initializeApp } from
+      "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+
+    import {
+      getAuth,
+      RecaptchaVerifier,
+      signInWithPhoneNumber,
+      onAuthStateChanged,
+      signOut
+    } from
+      "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAUhbObA7zEaNAtdSktvZYXmEENCz29zQ8",
+      authDomain: "ysrcp-yerragondapalem-70f87.firebaseapp.com",
+      projectId: "ysrcp-yerragondapalem-70f87",
+      storageBucket: "ysrcp-yerragondapalem-70f87.firebasestorage.app",
+      messagingSenderId: "299917147474",
+      appId: "1:299917147474:web:ededaaf3c289cc08250e8b",
+      measurementId: "G-1V385HHPGC"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    let confirmationResult = null;
+    let recaptchaVerifier = null;
+    let currentMode = "registration";
+
+    const startScreen = document.getElementById("startScreen");
+    const phoneScreen = document.getElementById("phoneScreen");
+    const otpScreen = document.getElementById("otpScreen");
+    const homeScreen = document.getElementById("homeScreen");
+
+    const phoneTitle = document.getElementById("phoneTitle");
+    const phoneInput = document.getElementById("phoneInput");
+    const otpInput = document.getElementById("otpInput");
+
+    const phoneMessage = document.getElementById("phoneMessage");
+    const otpMessage = document.getElementById("otpMessage");
+
+    const newRegistrationBtn =
+      document.getElementById("newRegistrationBtn");
+
+    const loginBtn =
+      document.getElementById("loginBtn");
+
+    const sendOtpBtn =
+      document.getElementById("sendOtpBtn");
+
+    const verifyOtpBtn =
+      document.getElementById("verifyOtpBtn");
+
+    const backBtn =
+      document.getElementById("backBtn");
+
+    const otpBackBtn =
+      document.getElementById("otpBackBtn");
+
+    const logoutBtn =
+      document.getElementById("logoutBtn");
+
+    function showScreen(screen) {
+      startScreen.classList.add("hidden");
+      phoneScreen.classList.add("hidden");
+      otpScreen.classList.add("hidden");
+      homeScreen.classList.add("hidden");
+
+      screen.classList.remove("hidden");
+    }
+
+    function showMessage(element, message, success = false) {
+      element.textContent = message;
+      element.className = success
+        ? "message success"
+        : "message";
+    }
+
+    function clearMessages() {
+      phoneMessage.textContent = "";
+      otpMessage.textContent = "";
+    }
+
+    function resetRecaptcha() {
+      if (recaptchaVerifier) {
+        try {
+          recaptchaVerifier.clear();
+        } catch (error) {
+          console.log("reCAPTCHA clear error:", error);
+        }
+        recaptchaVerifier = null;
+      }
+
+      document.getElementById("recaptcha-container").innerHTML = "";
+    }
+
+    function createRecaptcha() {
+      resetRecaptcha();
+
+      recaptchaVerifier = new RecaptchaVerifier(
+        auth,
+        "recaptcha-container",
+        {
+          size: "normal",
+          callback: function () {
+            showMessage(
+              phoneMessage,
+              "reCAPTCHA verified. Now press Send OTP.",
+              true
+            );
+          },
+          "expired-callback": function () {
+            showMessage(
+              phoneMessage,
+              "reCAPTCHA expired. Please verify again."
+            );
+          }
+        }
+      );
+
+      recaptchaVerifier.render().catch(function (error) {
+        console.error("reCAPTCHA error:", error);
+        showMessage(
+          phoneMessage,
+          "reCAPTCHA load కాలేదు. Page refresh చేయండి."
+        );
+      });
+    }
+
+    function openPhoneScreen(mode) {
+      currentMode = mode;
+
+      phoneTitle.textContent =
+        mode === "registration"
+          ? "New Registration"
+          : "Login";
+
+      phoneInput.value = "";
+      otpInput.value = "";
+      clearMessages();
+
+      showScreen(phoneScreen);
+      createRecaptcha();
+    }
+
+    newRegistrationBtn.addEventListener("click", function () {
+      openPhoneScreen("registration");
+    });
+
+    loginBtn.addEventListener("click", function () {
+      openPhoneScreen("login");
+    });
+
+    backBtn.addEventListener("click", function () {
+      resetRecaptcha();
+      clearMessages();
+      showScreen(startScreen);
+    });
+
+    otpBackBtn.addEventListener("click", function () {
+      showScreen(phoneScreen);
+    });
+
+    sendOtpBtn.addEventListener("click", async function () {
+
+      clearMessages();
+
+      let mobile = phoneInput.value.trim();
+
+      if (!/^[6-9][0-9]{9}$/.test(mobile)) {
+        showMessage(
+          phoneMessage,
+          "దయచేసి సరైన 10 digit Indian mobile number ఇవ్వండి."
+        );
+        return;
+      }
+
+      if (!recaptchaVerifier) {
+        showMessage(
+          phoneMessage,
+          "reCAPTCHA ఇంకా load కాలేదు. Page refresh చేసి ప్రయత్నించండి."
+        );
+        return;
+      }
+
+      const phoneNumber = "+91" + mobile;
+
+      sendOtpBtn.disabled = true;
+      sendOtpBtn.textContent = "Sending OTP...";
+
+      try {
+
+        confirmationResult = await signInWithPhoneNumber(
+          auth,
+          phoneNumber,
+          recaptchaVerifier
+        );
+
+        showMessage(
+          phoneMessage,
+          "OTP మీ మొబైల్‌కు పంపబడింది.",
+          true
+        );
+
+        showScreen(otpScreen);
+
+      } catch (error) {
+
+        console.error(error);
+
+        let message = error.message;
+
+        if (error.code === "auth/invalid-phone-number") {
+          message = "Mobile number తప్పుగా ఉంది.";
+        }
+
+        if (error.code === "auth/too-many-requests") {
+          message = "చాలా OTPలు పంపబడ్డాయి. కొంతసేపటి తర్వాత ప్రయత్నించండి.";
+        }
+
+        if (error.code === "auth/quota-exceeded") {
+          message = "Firebase SMS daily quota పూర్తయింది.";
+        }
+
+        if (error.code === "auth/operation-not-allowed") {
+          message = "Firebase Phone Authentication enable చేయలేదు.";
+        }
+
+        showMessage(phoneMessage, message);
+
+        createRecaptcha();
+
+      } finally {
+        sendOtpBtn.disabled = false;
+        sendOtpBtn.textContent = "Send OTP";
+      }
+
+    });
+
+    verifyOtpBtn.addEventListener("click", async function () {
+
+      clearMessages();
+
+      const otp = otpInput.value.trim();
+
+      if (!/^[0-9]{6}$/.test(otp)) {
+        showMessage(
+          otpMessage,
+          "దయచేసి 6 digit OTP ఇవ్వండి."
+        );
+        return;
+      }
+
+      if (!confirmationResult) {
+        showMessage(
+          otpMessage,
+          "ముందుగా Send OTP ప్రెస్ చేయండి."
+        );
+        return;
+      }
+
+      verifyOtpBtn.disabled = true;
+      verifyOtpBtn.textContent = "Verifying...";
+
+      try {
+
+        await confirmationResult.confirm(otp);
+
+        showMessage(
+          otpMessage,
+          "OTP verified successfully.",
+          true
+        );
+
+      } catch (error) {
+
+        console.error(error);
+
+        let message = "OTP verification failed.";
+
+        if (error.code === "auth/invalid-verification-code") {
+          message = "OTP తప్పుగా ఉంది.";
+        }
+
+        if (error.code === "auth/code-expired") {
+          message = "OTP గడువు ముగిసింది. మళ్లీ OTP పంపించండి.";
+        }
+
+        showMessage(otpMessage, message);
+
+      } finally {
+        verifyOtpBtn.disabled = false;
+        verifyOtpBtn.textContent = "Verify OTP";
+      }
+
+    });
+
+    logoutBtn.addEventListener("click", async function () {
+      await signOut(auth);
+      showScreen(startScreen);
+    });
+
+    onAuthStateChanged(auth, function (user) {
+
+      if (user) {
+        document.getElementById("userPhone").textContent =
+          "Mobile: " + (user.phoneNumber || "");
+
+        showScreen(homeScreen);
+      } else {
+        showScreen(startScreen);
+      }
+
+    });
+
+  </script>
+
+</body>
+</html>
