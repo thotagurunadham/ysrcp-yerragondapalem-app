@@ -1,128 +1,233 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="te">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>YSRCP YERRAGONDAPALEM</title>
-<style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#f2f4f7;color:#222}
-header{background:linear-gradient(110deg,#1456a0,#198754);color:white;text-align:center;padding:25px 15px}
-header h1{margin:0;font-size:25px}
-header p{margin:8px 0 0;font-weight:bold}
-.container{max-width:480px;margin:auto;padding:20px}
-.card{background:white;border-radius:14px;padding:20px;margin-bottom:16px;box-shadow:0 3px 12px #0001}
-h2{color:#15539b;margin-top:0}
-button{width:100%;padding:14px;border:0;border-radius:8px;background:#15539b;color:white;font-size:16px;margin-top:10px;cursor:pointer}
-input{width:100%;padding:13px;margin:6px 0 12px;border:1px solid #ccc;border-radius:7px}
-label{font-weight:bold;font-size:14px}
-.hidden{display:none}
-.idcard{border:2px solid #1456a0;border-radius:8px;overflow:hidden;background:white}
-.idhead{background:linear-gradient(110deg,#1456a0,#198754);color:white;text-align:center;padding:18px}
-.idhead h1{margin:0;font-size:22px}
-.idhead p{font-weight:bold;margin:8px 0}
-.idtitle{background:white;color:#15539b;padding:10px;border-radius:5px;margin-top:12px;font-weight:bold}
-.photo{width:130px;height:150px;object-fit:cover;border:4px solid #eee;margin:20px auto;display:block}
-.details{padding:15px}
-.row{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid #eee}
-.row b:first-child{color:#555}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>YSRCP YERRAGONDAPALEM</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, "Noto Sans Telugu", sans-serif;
+    }
+
+    body {
+      background: #f2f5f9;
+      color: #222;
+    }
+
+    header {
+      background: linear-gradient(135deg, #087f5b, #075e45);
+      color: white;
+      padding: 22px 15px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 25px;
+      margin-bottom: 8px;
+    }
+
+    header p {
+      font-size: 15px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 18px;
+    }
+
+    .welcome {
+      background: white;
+      border-radius: 15px;
+      padding: 22px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      margin-bottom: 20px;
+    }
+
+    .welcome h2 {
+      color: #087f5b;
+      margin-bottom: 10px;
+      font-size: 23px;
+    }
+
+    .welcome p {
+      line-height: 1.7;
+      color: #555;
+    }
+
+    .photo-section {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .photo-card {
+      background: white;
+      padding: 12px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 10px;
+      background: #e9ecef;
+    }
+
+    .photo-card h3 {
+      margin-top: 10px;
+      color: #087f5b;
+      font-size: 17px;
+    }
+
+    .menu {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    .menu-card {
+      background: white;
+      padding: 22px 10px;
+      text-align: center;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-3px);
+      background: #e8f7f1;
+    }
+
+    .menu-card .icon {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .menu-card h3 {
+      color: #075e45;
+      font-size: 17px;
+    }
+
+    footer {
+      text-align: center;
+      background: #075e45;
+      color: white;
+      padding: 18px;
+      margin-top: 25px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 500px) {
+      header h1 {
+        font-size: 21px;
+      }
+
+      .photo-section {
+        grid-template-columns: 1fr;
+      }
+
+      .photo-card img {
+        height: 260px;
+      }
+
+      .menu {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<header>
-<h1>YSRCP</h1>
-<p>YERRAGONDAPALEM</p>
-</header>
+  <header>
+    <h1>YSRCP YERRAGONDAPALEM</h1>
+    <p>యర్రగొండపాలెం నియోజకవర్గ సమాచారం</p>
+  </header>
 
-<div class="container">
+  <main class="container">
 
-<div id="home" class="card">
-<h2>Welcome</h2>
-<p>YSRCP YERRAGONDAPALEM</p>
-<p>Member Registration & Digital ID Card</p>
-<button onclick="show('register')">Member Registration</button>
-<button onclick="show('card')">View Sample ID Card</button>
-</div>
+    <section class="welcome">
+      <h2>వైఎస్సార్ కాంగ్రెస్ పార్టీ</h2>
+      <p>
+        యర్రగొండపాలెం నియోజకవర్గానికి సంబంధించిన సమాచారం,
+        కార్యక్రమాలు, వార్తలు మరియు సభ్యుల వివరాల కోసం ఈ వేదిక.
+      </p>
+    </section>
 
-<div id="register" class="card hidden">
-<h2>Member Registration</h2>
-<label>Full Name</label>
-<input id="name" placeholder="Enter member name">
+    <section class="photo-section">
 
-<label>Mobile Number</label>
-<input id="mobile" placeholder="Enter mobile number" type="tel">
+      <div class="photo-card">
+        <img src="id-right.jpg" alt="ID Right Photo"
+             onerror="this.src='https://via.placeholder.com/500x300?text=Photo+1';">
+        <h3>నియోజకవర్గ సమాచారం</h3>
+      </div>
 
-<label>Village Name</label>
-<input id="village" placeholder="Enter village">
+      <div class="photo-card">
+        <img src="id-left.jpg" alt="ID Left Photo"
+             onerror="this.src='https://via.placeholder.com/500x300?text=Photo+2';">
+        <h3>పార్టీ కార్యక్రమాలు</h3>
+      </div>
 
-<label>Panchayat Name</label>
-<input id="panchayat" placeholder="Enter panchayat">
+    </section>
 
-<label>Mandal Name</label>
-<input id="mandal" placeholder="Enter mandal">
+    <section class="menu">
 
-<button onclick="saveMember()">Submit Registration</button>
-<button onclick="show('home')">Back</button>
-</div>
+      <div class="menu-card" onclick="showMessage('తాజా వార్తలు త్వరలో అందుబాటులోకి వస్తాయి.')">
+        <div class="icon">📰</div>
+        <h3>తాజా వార్తలు</h3>
+      </div>
 
-<div id="card" class="card hidden">
-<h2>Digital Member ID Card</h2>
-<div class="idcard">
-<div class="idhead">
-<h1>YSRCP</h1>
-<p>YERRAGONDAPALEM</p>
-<div class="idtitle">MEMBER ID CARD</div>
-</div>
+      <div class="menu-card" onclick="showMessage('కార్యక్రమాల వివరాలు త్వరలో అందుబాటులోకి వస్తాయి.')">
+        <div class="icon">📅</div>
+        <h3>కార్యక్రమాలు</h3>
+      </div>
 
-<img class="photo" src="https://via.placeholder.com/130x150?text=PHOTO" alt="Member photo">
+      <div class="menu-card" onclick="showMessage('వీడియోలు త్వరలో అందుబాటులోకి వస్తాయి.')">
+        <div class="icon">🎥</div>
+        <h3>వీడియోలు</h3>
+      </div>
 
-<div class="details">
-<h2 id="cardName" style="text-align:center">MEMBER NAME</h2>
-<p style="text-align:center">YSRCP MEMBER</p>
-<div class="row"><b>Member ID</b><span id="cardId">YGP-0001</span></div>
-<div class="row"><b>Mobile</b><span id="cardMobile">-</span></div>
-<div class="row"><b>Village</b><span id="cardVillage">-</span></div>
-<div class="row"><b>Panchayat</b><span id="cardPanchayat">-</span></div>
-<div class="row"><b>Mandal</b><span id="cardMandal">-</span></div>
-</div>
-</div>
-<button onclick="window.print()">Print ID Card</button>
-<button onclick="show('home')">Back to Home</button>
-</div>
+      <div class="menu-card" onclick="showMessage('ఫోటోలు త్వరలో అందుబాటులోకి వస్తాయి.')">
+        <div class="icon">📷</div>
+        <h3>ఫోటోలు</h3>
+      </div>
 
-</div>
+      <div class="menu-card" onclick="showMessage('సభ్యుల వివరాలు త్వరలో అందుబాటులోకి వస్తాయి.')">
+        <div class="icon">👥</div>
+        <h3>సభ్యుల వివరాలు</h3>
+      </div>
 
-<script>
-let memberCount=1;
+      <div class="menu-card" onclick="showMessage('నోటిఫికేషన్లు త్వరలో అందుబాటులోకి వస్తాయి.')">
+        <div class="icon">🔔</div>
+        <h3>నోటిఫికేషన్లు</h3>
+      </div>
 
-function show(id){
-document.querySelectorAll('.card').forEach(x=>x.classList.add('hidden'));
-document.getElementById(id).classList.remove('hidden');
-}
+    </section>
 
-function saveMember(){
-let name=document.getElementById('name').value;
-let mobile=document.getElementById('mobile').value;
-let village=document.getElementById('village').value;
-let panchayat=document.getElementById('panchayat').value;
-let mandal=document.getElementById('mandal').value;
+  </main>
 
-if(!name||!mobile||!village||!panchayat||!mandal){
-alert('Please fill all details');
-return;
-}
+  <footer>
+    © 2026 YSRCP YERRAGONDAPALEM
+  </footer>
 
-document.getElementById('cardName').textContent=name.toUpperCase();
-document.getElementById('cardMobile').textContent=mobile;
-document.getElementById('cardVillage').textContent=village.toUpperCase();
-document.getElementById('cardPanchayat').textContent=panchayat.toUpperCase();
-document.getElementById('cardMandal').textContent=mandal.toUpperCase();
-document.getElementById('cardId').textContent='YGP-'+String(memberCount++).padStart(4,'0');
-
-show('card');
-}
-</script>
+  <script>
+    function showMessage(message) {
+      alert(message);
+    }
+  </script>
 
 </body>
 </html>
