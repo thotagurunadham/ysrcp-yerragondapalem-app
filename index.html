@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>YSRCP YERRAGONDAPALEM</title>
-
-  <!-- Firebase SDK -->
-  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 
   <style>
     * {
@@ -20,326 +16,149 @@
 
     body {
       min-height: 100vh;
-      background: linear-gradient(135deg, #fff1d6, #ffffff);
       display: flex;
       justify-content: center;
       align-items: center;
       padding: 20px;
-    }
-
-    .app {
-      width: 100%;
-      max-width: 430px;
+      background: linear-gradient(135deg, #fff1d6, #ffffff);
     }
 
     .card {
-      background: #ffffff;
-      border-radius: 22px;
+      width: 100%;
+      max-width: 420px;
+      background: white;
       padding: 30px 22px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+      border-radius: 22px;
       text-align: center;
-    }
-
-    .logo {
-      width: 90px;
-      height: 90px;
-      object-fit: contain;
-      margin-bottom: 15px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
     }
 
     h1 {
       color: #b66b00;
       font-size: 24px;
-      line-height: 1.3;
-      margin-bottom: 14px;
+      line-height: 1.4;
+      margin-bottom: 12px;
     }
 
     h2 {
-      color: #222222;
-      font-size: 25px;
-      margin-bottom: 18px;
+      color: #222;
+      margin-bottom: 22px;
     }
 
     p {
-      color: #555555;
-      font-size: 15px;
-      line-height: 1.5;
+      color: #555;
       margin-bottom: 22px;
+      line-height: 1.5;
     }
 
     input {
       width: 100%;
       padding: 15px;
-      border: 1px solid #cccccc;
+      margin-bottom: 14px;
+      border: 1px solid #ccc;
       border-radius: 12px;
       font-size: 17px;
-      outline: none;
-      margin-bottom: 14px;
-    }
-
-    input:focus {
-      border-color: #d88900;
     }
 
     button {
       width: 100%;
       padding: 15px;
+      margin-top: 8px;
       border: none;
       border-radius: 12px;
       font-size: 17px;
       font-weight: bold;
       cursor: pointer;
-      margin-top: 8px;
     }
 
-    button:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-    }
-
-    .primary {
+    .login {
       background: #d88900;
       color: white;
     }
 
-    .primary:hover {
-      background: #b86e00;
-    }
-
-    .dark {
-      background: #222222;
+    .logout {
+      background: #222;
       color: white;
     }
 
-    .light {
-      background: #eeeeee;
-      color: #222222;
-    }
-
     .hidden {
-      display: none !important;
+      display: none;
     }
 
     .error {
-      color: #d00000;
+      color: red;
+      margin-top: 15px;
       font-size: 14px;
-      line-height: 1.5;
-      margin-top: 16px;
-      word-break: break-word;
     }
 
     .success {
-      color: #168000;
+      color: green;
+      margin-top: 15px;
       font-size: 14px;
-      line-height: 1.5;
-      margin-top: 16px;
     }
 
-    .home-title {
-      color: #b66b00;
-      font-size: 26px;
-      font-weight: bold;
-      line-height: 1.4;
-      margin-bottom: 18px;
-    }
-
-    .user-mobile {
+    .user-box {
       background: #fff5df;
       padding: 15px;
       border-radius: 12px;
-      color: #444444;
+      margin: 20px 0;
+      color: #333;
       line-height: 1.8;
-      margin-bottom: 20px;
-    }
-
-    .small-text {
-      color: #777777;
-      font-size: 13px;
-      margin-top: 15px;
-    }
-
-    .loading {
-      color: #b66b00;
-      font-size: 14px;
-      margin-top: 15px;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="app">
+  <!-- LOGIN SCREEN -->
+  <div id="loginScreen" class="card">
 
-    <!-- START SCREEN -->
-    <div id="startScreen" class="card">
+    <h1>YSRCP YERRAGONDAPALEM</h1>
 
-      <h1>YSRCP YERRAGONDAPALEM</h1>
+    <h2>Login</h2>
 
-      <p>
-        Welcome to YSRCP Yerragondapalem App
-      </p>
+    <p>Enter your mobile number and password</p>
 
-      <button
-        id="newRegistrationButton"
-        class="primary"
-        onclick="showRegistration()"
-      >
-        New Registration
-      </button>
+    <input
+      type="tel"
+      id="mobileNumber"
+      placeholder="Enter mobile number"
+      maxlength="10"
+      inputmode="numeric"
+    >
 
-      <button
-        id="loginButton"
-        class="dark"
-        onclick="showLogin()"
-      >
-        Login
-      </button>
+    <input
+      type="password"
+      id="password"
+      placeholder="Enter password"
+      maxlength="20"
+    >
 
-      <div id="startError" class="error"></div>
+    <button class="login" onclick="loginUser()">
+      Login
+    </button>
+
+    <div id="loginError" class="error"></div>
+
+  </div>
+
+
+  <!-- HOME SCREEN -->
+  <div id="homeScreen" class="card hidden">
+
+    <h1>YSRCP YERRAGONDAPALEM</h1>
+
+    <div class="user-box">
+      <b>Login Successful</b>
+      <br>
+      <span id="userMobile"></span>
     </div>
 
+    <p>Welcome to the Home Screen</p>
 
-    <!-- REGISTRATION SCREEN -->
-    <div id="registrationScreen" class="card hidden">
-
-      <h2>New Registration</h2>
-
-      <p>
-        Enter your mobile number to continue
-      </p>
-
-      <input
-        type="tel"
-        id="registrationMobile"
-        placeholder="Enter 10 digit mobile number"
-        maxlength="10"
-        inputmode="numeric"
-      />
-
-      <button
-        id="registrationSendButton"
-        class="primary"
-        onclick="sendRegistrationOTP()"
-      >
-        Send OTP
-      </button>
-
-      <button
-        class="dark"
-        onclick="goBack()"
-      >
-        Back
-      </button>
-
-      <div id="registrationError" class="error"></div>
-      <div id="registrationSuccess" class="success"></div>
-
-      <!-- Invisible reCAPTCHA -->
-      <div id="registrationRecaptcha"></div>
-    </div>
-
-
-    <!-- LOGIN SCREEN -->
-    <div id="loginScreen" class="card hidden">
-
-      <h2>Login</h2>
-
-      <p>
-        Enter your registered mobile number
-      </p>
-
-      <input
-        type="tel"
-        id="loginMobile"
-        placeholder="Enter 10 digit mobile number"
-        maxlength="10"
-        inputmode="numeric"
-      />
-
-      <button
-        id="loginSendButton"
-        class="primary"
-        onclick="sendLoginOTP()"
-      >
-        Send OTP
-      </button>
-
-      <button
-        class="dark"
-        onclick="goBack()"
-      >
-        Back
-      </button>
-
-      <div id="loginError" class="error"></div>
-      <div id="loginSuccess" class="success"></div>
-
-      <!-- Invisible reCAPTCHA -->
-      <div id="loginRecaptcha"></div>
-    </div>
-
-
-    <!-- OTP SCREEN -->
-    <div id="otpScreen" class="card hidden">
-
-      <h2>Verify OTP</h2>
-
-      <p id="otpMessage">
-        Enter the OTP sent to your mobile number
-      </p>
-
-      <input
-        type="text"
-        id="otpInput"
-        placeholder="Enter 6 digit OTP"
-        maxlength="6"
-        inputmode="numeric"
-      />
-
-      <button
-        id="verifyButton"
-        class="primary"
-        onclick="verifyOTP()"
-      >
-        Verify OTP
-      </button>
-
-      <button
-        class="dark"
-        onclick="goBackToMobileScreen()"
-      >
-        Back
-      </button>
-
-      <div id="otpError" class="error"></div>
-      <div id="otpSuccess" class="success"></div>
-    </div>
-
-
-    <!-- HOME SCREEN -->
-    <div id="homeScreen" class="card hidden">
-
-      <div class="home-title">
-        YSRCP YERRAGONDAPALEM
-      </div>
-
-      <div class="user-mobile">
-        <b>Login Successful</b>
-        <br />
-        <span id="loggedMobile"></span>
-      </div>
-
-      <p>
-        Welcome to the Home Screen
-      </p>
-
-      <button
-        class="primary"
-        onclick="logoutUser()"
-      >
-        Logout
-      </button>
-    </div>
+    <button class="logout" onclick="logoutUser()">
+      Logout
+    </button>
 
   </div>
 
@@ -347,492 +166,81 @@
   <script>
 
     /*
-      FIREBASE CONFIGURATION
+      మీ నంబర్‌ను ఇక్కడ పెట్టండి.
+      ఉదాహరణకు: 9876543210
     */
 
-   const firebaseConfig = {
-  apiKey: "AIzaSyAUhbObA7zEaNAtdSktvZYXmEENCz29zQ8",
-  authDomain: "ysrcp-yerragondapalem-70f87.firebaseapp.com",
-  projectId: "ysrcp-yerragondapalem-70f87",
-  storageBucket: "ysrcp-yerragondapalem-70f87.firebasestorage.app",
-  messagingSenderId: "299917147474",
-  appId: "1:299917147474:web:ededaaf3c289cc08250e8b",
-  measurementId: "G-1V385HHPGC"
-};
+    const myMobileNumber = "YOUR_MOBILE_NUMBER";
 
     /*
-      INITIALIZE FIREBASE
+      Default Password:
+      మీ ఫోన్ నంబర్‌లోని మొదటి 4 digits
     */
 
-    firebase.initializeApp(firebaseConfig);
-
-    const auth = firebase.auth();
+    const defaultPassword = myMobileNumber.substring(0, 4);
 
 
-    /*
-      GLOBAL VARIABLES
-    */
-
-    let confirmationResult = null;
-    let currentMode = "";
-    let currentMobile = "";
-
-    let registrationRecaptchaVerifier = null;
-    let loginRecaptchaVerifier = null;
-
-
-    /*
-      SCREEN FUNCTIONS
-    */
-
-    function hideAllScreens() {
-      document.getElementById("startScreen").classList.add("hidden");
-      document.getElementById("registrationScreen").classList.add("hidden");
-      document.getElementById("loginScreen").classList.add("hidden");
-      document.getElementById("otpScreen").classList.add("hidden");
-      document.getElementById("homeScreen").classList.add("hidden");
-    }
-
-
-    function clearMessages() {
-      document.getElementById("startError").innerText = "";
-
-      document.getElementById("registrationError").innerText = "";
-      document.getElementById("registrationSuccess").innerText = "";
-
-      document.getElementById("loginError").innerText = "";
-      document.getElementById("loginSuccess").innerText = "";
-
-      document.getElementById("otpError").innerText = "";
-      document.getElementById("otpSuccess").innerText = "";
-    }
-
-
-    function showRegistration() {
-      hideAllScreens();
-      clearMessages();
-
-      document
-        .getElementById("registrationScreen")
-        .classList.remove("hidden");
-
-      document.getElementById("registrationMobile").focus();
-    }
-
-
-    function showLogin() {
-      hideAllScreens();
-      clearMessages();
-
-      document
-        .getElementById("loginScreen")
-        .classList.remove("hidden");
-
-      document.getElementById("loginMobile").focus();
-    }
-
-
-    function goBack() {
-      hideAllScreens();
-      clearMessages();
-
-      document
-        .getElementById("startScreen")
-        .classList.remove("hidden");
-    }
-
-
-    function goBackToMobileScreen() {
-      hideAllScreens();
-      clearMessages();
-
-      if (currentMode === "registration") {
-        document
-          .getElementById("registrationScreen")
-          .classList.remove("hidden");
-      } else {
-        document
-          .getElementById("loginScreen")
-          .classList.remove("hidden");
-      }
-    }
-
-
-    /*
-      MOBILE VALIDATION
-    */
-
-    function validateMobile(mobile) {
-      return /^[6-9][0-9]{9}$/.test(mobile);
-    }
-
-
-    /*
-      CREATE INVISIBLE RECAPTCHA
-    */
-
-    function createRegistrationRecaptcha() {
-      if (!registrationRecaptchaVerifier) {
-        registrationRecaptchaVerifier =
-          new firebase.auth.RecaptchaVerifier(
-            "registrationRecaptcha",
-            {
-              size: "invisible",
-              callback: function () {
-                console.log("Registration security verification completed");
-              },
-              "expired-callback": function () {
-                registrationRecaptchaVerifier = null;
-              }
-            }
-          );
-
-        registrationRecaptchaVerifier.render();
-      }
-
-      return registrationRecaptchaVerifier;
-    }
-
-
-    function createLoginRecaptcha() {
-      if (!loginRecaptchaVerifier) {
-        loginRecaptchaVerifier =
-          new firebase.auth.RecaptchaVerifier(
-            "loginRecaptcha",
-            {
-              size: "invisible",
-              callback: function () {
-                console.log("Login security verification completed");
-              },
-              "expired-callback": function () {
-                loginRecaptchaVerifier = null;
-              }
-            }
-          );
-
-        loginRecaptchaVerifier.render();
-      }
-
-      return loginRecaptchaVerifier;
-    }
-
-
-    /*
-      SEND REGISTRATION OTP
-    */
-
-    function sendRegistrationOTP() {
-      clearMessages();
+    function loginUser() {
 
       const mobile = document
-        .getElementById("registrationMobile")
+        .getElementById("mobileNumber")
         .value
         .trim();
 
-      if (!validateMobile(mobile)) {
-        document.getElementById("registrationError").innerText =
-          "Please enter a valid 10 digit Indian mobile number.";
-
-        return;
-      }
-
-      currentMode = "registration";
-      currentMobile = mobile;
-
-      const phoneNumber = "+91" + mobile;
-
-      const button = document.getElementById(
-        "registrationSendButton"
-      );
-
-      button.disabled = true;
-      button.innerText = "Sending OTP...";
-
-      document.getElementById("registrationSuccess").innerText =
-        "Please wait. OTP is being sent.";
-
-      const appVerifier = createRegistrationRecaptcha();
-
-      auth.signInWithPhoneNumber(phoneNumber, appVerifier)
-        .then(function (result) {
-          confirmationResult = result;
-
-          hideAllScreens();
-
-          document
-            .getElementById("otpScreen")
-            .classList.remove("hidden");
-
-          document.getElementById("otpMessage").innerText =
-            "Enter the OTP sent to +91 " + currentMobile;
-
-          document.getElementById("otpInput").value = "";
-          document.getElementById("otpInput").focus();
-        })
-        .catch(function (error) {
-          document.getElementById("registrationSuccess").innerText = "";
-
-          document.getElementById("registrationError").innerText =
-            getFriendlyError(error);
-
-          button.disabled = false;
-          button.innerText = "Send OTP";
-
-          resetRegistrationRecaptcha();
-        });
-    }
-
-
-    /*
-      SEND LOGIN OTP
-    */
-
-    function sendLoginOTP() {
-      clearMessages();
-
-      const mobile = document
-        .getElementById("loginMobile")
+      const password = document
+        .getElementById("password")
         .value
         .trim();
 
-      if (!validateMobile(mobile)) {
-        document.getElementById("loginError").innerText =
-          "Please enter a valid 10 digit Indian mobile number.";
+      const error = document.getElementById("loginError");
 
+      error.innerText = "";
+
+      if (mobile === "") {
+        error.innerText = "Please enter your mobile number.";
         return;
       }
 
-      currentMode = "login";
-      currentMobile = mobile;
+      if (password === "") {
+        error.innerText = "Please enter your password.";
+        return;
+      }
 
-      const phoneNumber = "+91" + mobile;
+      if (mobile !== myMobileNumber) {
+        error.innerText = "Invalid mobile number.";
+        return;
+      }
 
-      const button = document.getElementById(
-        "loginSendButton"
-      );
+      if (password !== defaultPassword) {
+        error.innerText = "Invalid password.";
+        return;
+      }
 
-      button.disabled = true;
-      button.innerText = "Sending OTP...";
+      document.getElementById("loginScreen")
+        .classList.add("hidden");
 
-      document.getElementById("loginSuccess").innerText =
-        "Please wait. OTP is being sent.";
+      document.getElementById("homeScreen")
+        .classList.remove("hidden");
 
-      const appVerifier = createLoginRecaptcha();
+      document.getElementById("userMobile")
+        .innerText = "Mobile Number: " + mobile;
 
-      auth.signInWithPhoneNumber(phoneNumber, appVerifier)
-        .then(function (result) {
-          confirmationResult = result;
-
-          hideAllScreens();
-
-          document
-            .getElementById("otpScreen")
-            .classList.remove("hidden");
-
-          document.getElementById("otpMessage").innerText =
-            "Enter the OTP sent to +91 " + currentMobile;
-
-          document.getElementById("otpInput").value = "";
-          document.getElementById("otpInput").focus();
-        })
-        .catch(function (error) {
-          document.getElementById("loginSuccess").innerText = "";
-
-          document.getElementById("loginError").innerText =
-            getFriendlyError(error);
-
-          button.disabled = false;
-          button.innerText = "Send OTP";
-
-          resetLoginRecaptcha();
-        });
     }
 
-
-    /*
-      VERIFY OTP
-    */
-
-    function verifyOTP() {
-      clearMessages();
-
-      const otp = document
-        .getElementById("otpInput")
-        .value
-        .trim();
-
-      if (!/^[0-9]{6}$/.test(otp)) {
-        document.getElementById("otpError").innerText =
-          "Please enter the 6 digit OTP.";
-
-        return;
-      }
-
-      if (!confirmationResult) {
-        document.getElementById("otpError").innerText =
-          "OTP session expired. Please request a new OTP.";
-
-        return;
-      }
-
-      const button = document.getElementById("verifyButton");
-
-      button.disabled = true;
-      button.innerText = "Verifying...";
-
-      document.getElementById("otpSuccess").innerText =
-        "Please wait. OTP is being verified.";
-
-      confirmationResult.confirm(otp)
-        .then(function (result) {
-          const user = result.user;
-
-          document.getElementById("loggedMobile").innerText =
-            user.phoneNumber || "+91 " + currentMobile;
-
-          confirmationResult = null;
-
-          hideAllScreens();
-
-          document
-            .getElementById("homeScreen")
-            .classList.remove("hidden");
-        })
-        .catch(function (error) {
-          document.getElementById("otpSuccess").innerText = "";
-
-          document.getElementById("otpError").innerText =
-            getFriendlyError(error);
-
-          button.disabled = false;
-          button.innerText = "Verify OTP";
-        });
-    }
-
-
-    /*
-      LOGOUT
-    */
 
     function logoutUser() {
-      auth.signOut()
-        .then(function () {
-          confirmationResult = null;
-          currentMode = "";
-          currentMobile = "";
 
-          document.getElementById("otpInput").value = "";
+      document.getElementById("homeScreen")
+        .classList.add("hidden");
 
-          goBack();
-        })
-        .catch(function (error) {
-          document.getElementById("otpError").innerText =
-            getFriendlyError(error);
-        });
+      document.getElementById("loginScreen")
+        .classList.remove("hidden");
+
+      document.getElementById("mobileNumber").value = "";
+      document.getElementById("password").value = "";
+      document.getElementById("loginError").innerText = "";
+
     }
-
-
-    /*
-      RESET RECAPTCHA
-    */
-
-    function resetRegistrationRecaptcha() {
-      registrationRecaptchaVerifier = null;
-
-      const container = document.getElementById(
-        "registrationRecaptcha"
-      );
-
-      container.innerHTML = "";
-    }
-
-
-    function resetLoginRecaptcha() {
-      loginRecaptchaVerifier = null;
-
-      const container = document.getElementById(
-        "loginRecaptcha"
-      );
-
-      container.innerHTML = "";
-    }
-
-
-    /*
-      FIREBASE ERROR MESSAGES
-    */
-
-    function getFriendlyError(error) {
-      if (!error || !error.code) {
-        return "Something went wrong. Please try again.";
-      }
-
-      switch (error.code) {
-
-        case "auth/api-key-not-valid":
-          return "Firebase API key is invalid. Please check the Firebase configuration.";
-
-        case "auth/invalid-api-key":
-          return "Firebase API key is invalid. Please check the Firebase configuration.";
-
-        case "auth/invalid-phone-number":
-          return "Invalid mobile number. Please check and try again.";
-
-        case "auth/too-many-requests":
-          return "Too many OTP requests. Please wait and try again later.";
-
-        case "auth/quota-exceeded":
-          return "SMS quota exceeded. Please try again later.";
-
-        case "auth/operation-not-allowed":
-          return "Phone Authentication is not enabled in Firebase.";
-
-        case "auth/captcha-check-failed":
-          return "Security verification failed. Please refresh the page and try again.";
-
-        case "auth/invalid-verification-code":
-          return "Incorrect OTP. Please enter the correct OTP.";
-
-        case "auth/code-expired":
-          return "OTP expired. Please request a new OTP.";
-
-        case "auth/network-request-failed":
-          return "Network error. Please check your internet connection.";
-
-        case "auth/unauthorized-domain":
-          return "This website domain is not authorized in Firebase.";
-
-        case "auth/invalid-verification-id":
-          return "OTP verification session is invalid. Please request a new OTP.";
-
-        default:
-          return error.message || "Something went wrong. Please try again.";
-      }
-    }
-
-
-    /*
-      AUTH STATE
-    */
-
-    auth.onAuthStateChanged(function (user) {
-      if (user) {
-        document.getElementById("loggedMobile").innerText =
-          user.phoneNumber || "";
-
-        hideAllScreens();
-
-        document
-          .getElementById("homeScreen")
-          .classList.remove("hidden");
-      } else {
-        hideAllScreens();
-
-        document
-          .getElementById("startScreen")
-          .classList.remove("hidden");
-      }
-    });
 
   </script>
 
