@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YSRCP YERRAGONDAPALEM</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f2f4f7;color:#222}
+header{background:linear-gradient(110deg,#1456a0,#198754);color:white;text-align:center;padding:25px 15px}
+header h1{margin:0;font-size:25px}
+header p{margin:8px 0 0;font-weight:bold}
+.container{max-width:480px;margin:auto;padding:20px}
+.card{background:white;border-radius:14px;padding:20px;margin-bottom:16px;box-shadow:0 3px 12px #0001}
+h2{color:#15539b;margin-top:0}
+button{width:100%;padding:14px;border:0;border-radius:8px;background:#15539b;color:white;font-size:16px;margin-top:10px;cursor:pointer}
+input{width:100%;padding:13px;margin:6px 0 12px;border:1px solid #ccc;border-radius:7px}
+label{font-weight:bold;font-size:14px}
+.hidden{display:none}
+.idcard{border:2px solid #1456a0;border-radius:8px;overflow:hidden;background:white}
+.idhead{background:linear-gradient(110deg,#1456a0,#198754);color:white;text-align:center;padding:18px}
+.idhead h1{margin:0;font-size:22px}
+.idhead p{font-weight:bold;margin:8px 0}
+.idtitle{background:white;color:#15539b;padding:10px;border-radius:5px;margin-top:12px;font-weight:bold}
+.photo{width:130px;height:150px;object-fit:cover;border:4px solid #eee;margin:20px auto;display:block}
+.details{padding:15px}
+.row{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid #eee}
+.row b:first-child{color:#555}
+</style>
+</head>
+<body>
+
+<header>
+<h1>YSRCP</h1>
+<p>YERRAGONDAPALEM</p>
+</header>
+
+<div class="container">
+
+<div id="home" class="card">
+<h2>Welcome</h2>
+<p>YSRCP YERRAGONDAPALEM</p>
+<p>Member Registration & Digital ID Card</p>
+<button onclick="show('register')">Member Registration</button>
+<button onclick="show('card')">View Sample ID Card</button>
+</div>
+
+<div id="register" class="card hidden">
+<h2>Member Registration</h2>
+<label>Full Name</label>
+<input id="name" placeholder="Enter member name">
+
+<label>Mobile Number</label>
+<input id="mobile" placeholder="Enter mobile number" type="tel">
+
+<label>Village Name</label>
+<input id="village" placeholder="Enter village">
+
+<label>Panchayat Name</label>
+<input id="panchayat" placeholder="Enter panchayat">
+
+<label>Mandal Name</label>
+<input id="mandal" placeholder="Enter mandal">
+
+<button onclick="saveMember()">Submit Registration</button>
+<button onclick="show('home')">Back</button>
+</div>
+
+<div id="card" class="card hidden">
+<h2>Digital Member ID Card</h2>
+<div class="idcard">
+<div class="idhead">
+<h1>YSRCP</h1>
+<p>YERRAGONDAPALEM</p>
+<div class="idtitle">MEMBER ID CARD</div>
+</div>
+
+<img class="photo" src="https://via.placeholder.com/130x150?text=PHOTO" alt="Member photo">
+
+<div class="details">
+<h2 id="cardName" style="text-align:center">MEMBER NAME</h2>
+<p style="text-align:center">YSRCP MEMBER</p>
+<div class="row"><b>Member ID</b><span id="cardId">YGP-0001</span></div>
+<div class="row"><b>Mobile</b><span id="cardMobile">-</span></div>
+<div class="row"><b>Village</b><span id="cardVillage">-</span></div>
+<div class="row"><b>Panchayat</b><span id="cardPanchayat">-</span></div>
+<div class="row"><b>Mandal</b><span id="cardMandal">-</span></div>
+</div>
+</div>
+<button onclick="window.print()">Print ID Card</button>
+<button onclick="show('home')">Back to Home</button>
+</div>
+
+</div>
+
+<script>
+let memberCount=1;
+
+function show(id){
+document.querySelectorAll('.card').forEach(x=>x.classList.add('hidden'));
+document.getElementById(id).classList.remove('hidden');
+}
+
+function saveMember(){
+let name=document.getElementById('name').value;
+let mobile=document.getElementById('mobile').value;
+let village=document.getElementById('village').value;
+let panchayat=document.getElementById('panchayat').value;
+let mandal=document.getElementById('mandal').value;
+
+if(!name||!mobile||!village||!panchayat||!mandal){
+alert('Please fill all details');
+return;
+}
+
+document.getElementById('cardName').textContent=name.toUpperCase();
+document.getElementById('cardMobile').textContent=mobile;
+document.getElementById('cardVillage').textContent=village.toUpperCase();
+document.getElementById('cardPanchayat').textContent=panchayat.toUpperCase();
+document.getElementById('cardMandal').textContent=mandal.toUpperCase();
+document.getElementById('cardId').textContent='YGP-'+String(memberCount++).padStart(4,'0');
+
+show('card');
+}
+</script>
+
+</body>
+</html>
