@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>YSRCP YERRAGONDAPALEM</title>
 
 <style>
@@ -14,8 +15,8 @@
 }
 
 body {
-  background: linear-gradient(135deg, #075fc4, #008b61);
   min-height: 100vh;
+  background: linear-gradient(135deg, #075fc4, #008b61);
   display: flex;
   justify-content: center;
   padding: 15px;
@@ -25,11 +26,11 @@ body {
   width: 100%;
   max-width: 420px;
   min-height: 720px;
-  background: #ffffff;
+  background: white;
   border-radius: 25px;
   overflow: hidden;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
   position: relative;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
 }
 
 .screen {
@@ -59,15 +60,15 @@ body {
 
 .header p {
   font-size: 12px;
-  margin-top: 12px;
   font-weight: bold;
+  margin-top: 12px;
 }
 
 .content {
-  padding: 25px 20px 90px;
+  padding: 25px 20px 95px;
 }
 
-h2.title {
+.title {
   text-align: center;
   color: #173d69;
   margin-bottom: 12px;
@@ -77,6 +78,7 @@ h2.title {
   text-align: center;
   color: #666;
   font-size: 14px;
+  line-height: 1.5;
   margin-bottom: 25px;
 }
 
@@ -84,7 +86,7 @@ label {
   display: block;
   color: #173d69;
   font-weight: bold;
-  margin: 12px 0 7px;
+  margin: 13px 0 7px;
 }
 
 input,
@@ -96,6 +98,11 @@ textarea {
   border-radius: 10px;
   font-size: 15px;
   outline: none;
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
 }
 
 button {
@@ -136,24 +143,24 @@ button {
 .topbar {
   background: linear-gradient(135deg, #075fc4, #008b61);
   color: white;
-  padding: 15px;
+  padding: 13px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
+.topbar h3 {
+  font-size: 16px;
+  text-align: center;
+}
+
 .menu-btn {
   width: 45px;
-  padding: 8px;
+  padding: 5px;
   margin: 0;
   background: transparent;
   color: white;
   font-size: 28px;
-}
-
-.topbar h3 {
-  font-size: 17px;
-  text-align: center;
 }
 
 .bell {
@@ -190,7 +197,7 @@ button {
   background: #f3f8fc;
   color: #173d69;
   border: 1px solid #d8e4ee;
-  padding: 22px 8px;
+  padding: 20px 8px;
   font-size: 14px;
 }
 
@@ -203,25 +210,42 @@ button {
 .section-title {
   color: #173d69;
   margin: 25px 0 12px;
-  font-size: 18px;
+  font-size: 20px;
 }
 
-.news-card {
+.post-card {
   background: #f5f8fa;
-  padding: 15px;
   border-radius: 12px;
-  margin-bottom: 12px;
+  padding: 15px;
+  margin-bottom: 14px;
   border-left: 4px solid #08a65b;
 }
 
-.news-card h4 {
+.post-card h4 {
   color: #173d69;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
+  font-size: 17px;
 }
 
-.news-card p {
-  color: #666;
-  font-size: 13px;
+.post-card p {
+  color: #555;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.post-card img,
+.post-card video {
+  width: 100%;
+  border-radius: 10px;
+  margin-top: 12px;
+  max-height: 300px;
+  object-fit: cover;
+}
+
+.post-date {
+  color: #888;
+  font-size: 11px;
+  margin-top: 10px;
 }
 
 .bottom-menu {
@@ -229,13 +253,14 @@ button {
   bottom: 0;
   left: 0;
   right: 0;
-  height: 75px;
+  height: 78px;
   background: white;
   border-top: 1px solid #dce5eb;
-  display: grid;
+  display: none;
   grid-template-columns: repeat(5, 1fr);
   align-items: center;
   text-align: center;
+  z-index: 5;
 }
 
 .bottom-menu button {
@@ -259,7 +284,7 @@ button {
   height: 55px;
   border-radius: 50%;
   margin: auto !important;
-  font-size: 25px !important;
+  font-size: 27px !important;
 }
 
 .side-menu {
@@ -267,12 +292,12 @@ button {
   position: absolute;
   top: 65px;
   left: 0;
-  width: 85%;
-  min-height: 600px;
+  width: 86%;
+  min-height: 620px;
   background: white;
-  z-index: 10;
+  z-index: 20;
   box-shadow: 5px 5px 20px rgba(0,0,0,0.25);
-  padding: 25px 18px;
+  padding: 20px 15px;
 }
 
 .side-menu.active {
@@ -283,7 +308,7 @@ button {
   text-align: center;
   padding: 15px;
   border-bottom: 1px solid #ddd;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
 }
 
 .profile-circle {
@@ -338,25 +363,35 @@ button {
   </p>
 
   <label>Mobile Number</label>
-  <input id="loginMobile" type="tel"
-         maxlength="10"
-         placeholder="Enter 10-digit mobile number">
+  <input
+    id="loginMobile"
+    type="tel"
+    maxlength="10"
+    placeholder="Enter 10-digit mobile number"
+  >
 
   <label>Password</label>
-  <input id="loginPassword" type="password"
-         placeholder="Enter your password">
+  <input
+    id="loginPassword"
+    type="password"
+    placeholder="Enter your password"
+  >
 
   <button class="primary" onclick="loginUser()">
     Login
   </button>
 
-  <button class="secondary"
-          onclick="showScreen('registerScreen')">
+  <button
+    class="secondary"
+    onclick="showScreen('registerScreen')"
+  >
     New User? Register Now
   </button>
 
-  <button class="link"
-          onclick="showScreen('resetScreen')">
+  <button
+    class="link"
+    onclick="showScreen('resetScreen')"
+  >
     Reset Password
   </button>
 
@@ -365,8 +400,10 @@ button {
 <!-- REGISTRATION SCREEN -->
 <div id="registerScreen" class="screen">
 
-  <button class="back"
-          onclick="showScreen('loginScreen')">
+  <button
+    class="back"
+    onclick="showScreen('loginScreen')"
+  >
     ← Back to Login
   </button>
 
@@ -377,9 +414,12 @@ button {
   </p>
 
   <label>Mobile Number</label>
-  <input id="registerMobile" type="tel"
-         maxlength="10"
-         placeholder="Enter 10-digit mobile number">
+  <input
+    id="registerMobile"
+    type="tel"
+    maxlength="10"
+    placeholder="Enter 10-digit mobile number"
+  >
 
   <button class="primary" onclick="sendOTP()">
     Send OTP
@@ -388,8 +428,11 @@ button {
   <div id="otpArea" style="display:none">
 
     <label>Enter OTP</label>
-    <input id="otp" type="number"
-           placeholder="Enter OTP">
+    <input
+      id="otp"
+      type="number"
+      placeholder="Enter OTP"
+    >
 
     <button class="primary" onclick="verifyOTP()">
       Verify OTP
@@ -400,15 +443,23 @@ button {
   <div id="passwordArea" style="display:none">
 
     <label>Create Password</label>
-    <input id="newPassword" type="password"
-           placeholder="Create password">
+    <input
+      id="newPassword"
+      type="password"
+      placeholder="Create password"
+    >
 
     <label>Confirm Password</label>
-    <input id="confirmPassword" type="password"
-           placeholder="Confirm password">
+    <input
+      id="confirmPassword"
+      type="password"
+      placeholder="Confirm password"
+    >
 
-    <button class="primary"
-            onclick="completeRegistration()">
+    <button
+      class="primary"
+      onclick="completeRegistration()"
+    >
       Complete Registration
     </button>
 
@@ -419,21 +470,26 @@ button {
 <!-- RESET PASSWORD SCREEN -->
 <div id="resetScreen" class="screen">
 
-  <button class="back"
-          onclick="showScreen('loginScreen')">
+  <button
+    class="back"
+    onclick="showScreen('loginScreen')"
+  >
     ← Back to Login
   </button>
 
   <h2 class="title">Reset Password</h2>
 
   <p class="subtitle">
-    Verify your mobile number
+    Verify your mobile number to reset password
   </p>
 
   <label>Mobile Number</label>
-  <input id="resetMobile" type="tel"
-         maxlength="10"
-         placeholder="Enter 10-digit mobile number">
+  <input
+    id="resetMobile"
+    type="tel"
+    maxlength="10"
+    placeholder="Enter 10-digit mobile number"
+  >
 
   <button class="primary" onclick="resetOTP()">
     Send OTP
@@ -442,12 +498,18 @@ button {
   <div id="resetArea" style="display:none">
 
     <label>Enter OTP</label>
-    <input id="resetCode" type="number"
-           placeholder="Enter OTP">
+    <input
+      id="resetCode"
+      type="number"
+      placeholder="Enter OTP"
+    >
 
     <label>New Password</label>
-    <input id="resetPassword" type="password"
-           placeholder="Enter new password">
+    <input
+      id="resetPassword"
+      type="password"
+      placeholder="Enter new password"
+    >
 
     <button class="primary" onclick="completeReset()">
       Reset Password
@@ -462,13 +524,14 @@ button {
 
   <div class="topbar">
     <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
     <h3>YSRCP YERRAGONDAPALEM</h3>
+
     <div class="bell">🔔</div>
   </div>
 
   <div class="banner">
-    <h2>Welcome to YSRCP</h2>
-    <p>YERRAGONDAPALEM CONSTITUENCY</p>
+    <h2>YSRCP YERRAGONDAPALEM</h2>
     <p>Digital Platform for Party Members</p>
   </div>
 
@@ -506,24 +569,68 @@ button {
 
   </div>
 
-  <h3 class="section-title">Latest News</h3>
+  <h3 class="section-title">Posts</h3>
 
-  <div class="news-card">
-    <h4>YSRCP Yerragondapalem Updates</h4>
-    <p>Latest constituency news and party updates will appear here.</p>
+  <div id="postsContainer">
+
+    <div class="post-card">
+      <h4>No Posts Yet</h4>
+      <p>New posts will appear here.</p>
+    </div>
+
   </div>
 
-  <div class="news-card">
-    <h4>Mandal Level Updates</h4>
-    <p>Peddaraveedu, Pullalacheruvu, Yerragondapalem, Pedda Dornala and Tripuranthakam.</p>
-  </div>
+</div>
+
+<!-- CREATE POST SCREEN -->
+<div id="postScreen" class="screen">
+
+  <button
+    class="back"
+    onclick="showScreen('homeScreen')"
+  >
+    ← Back to Home
+  </button>
+
+  <h2 class="title">Create New Post</h2>
+
+  <p class="subtitle">
+    Share your post with members
+  </p>
+
+  <label>Post Title</label>
+  <input
+    id="postTitle"
+    type="text"
+    placeholder="Enter post title"
+  >
+
+  <label>Post Details</label>
+  <textarea
+    id="postText"
+    placeholder="Write your post here"
+  ></textarea>
+
+  <label>Photo URL (Optional)</label>
+  <input
+    id="postImage"
+    type="url"
+    placeholder="Paste image URL"
+  >
+
+  <button class="primary" onclick="publishPost()">
+    Publish Post
+  </button>
 
 </div>
 
 <!-- PROFILE SCREEN -->
 <div id="profileScreen" class="screen">
 
-  <button class="back" onclick="showScreen('homeScreen')">
+  <button
+    class="back"
+    onclick="showScreen('homeScreen')"
+  >
     ← Back to Home
   </button>
 
@@ -535,15 +642,24 @@ button {
     <p id="profileMobile" style="margin-top:8px;"></p>
   </div>
 
-  <button class="primary" onclick="showMessage('My ID Card Screen')">
-    My ID Card
+  <button
+    class="primary"
+    onclick="showMessage('My ID Card Screen')"
+  >
+    🪪 My ID Card
   </button>
 
-  <button class="secondary" onclick="showMessage('Edit Profile Screen')">
-    Edit Profile
+  <button
+    class="secondary"
+    onclick="showMessage('Edit Profile Screen')"
+  >
+    ✏️ Edit Profile
   </button>
 
-  <button class="link" onclick="logoutUser()">
+  <button
+    class="link"
+    onclick="logoutUser()"
+  >
     Logout
   </button>
 
@@ -560,7 +676,7 @@ button {
     <p id="menuMobile" style="margin-top:7px;"></p>
   </div>
 
-  <button onclick="showScreen('profileScreen'); toggleMenu();">
+  <button onclick="showScreen('profileScreen'); closeMenu();">
     👤 My Profile
   </button>
 
@@ -570,10 +686,6 @@ button {
 
   <button onclick="showMessage('Edit Profile Screen')">
     ✏️ Edit Profile
-  </button>
-
-  <button onclick="showMessage('Notifications Screen')">
-    🔔 Notifications
   </button>
 
   <button onclick="showMessage('Settings Screen')">
@@ -587,7 +699,7 @@ button {
 </div>
 
 <!-- BOTTOM MENU -->
-<div id="bottomMenu" class="bottom-menu" style="display:none">
+<div id="bottomMenu" class="bottom-menu">
 
   <button onclick="showScreen('homeScreen')">
     <span>🏠</span>
@@ -599,14 +711,13 @@ button {
     News
   </button>
 
-  <button class="plus"
-          onclick="showMessage('Create New Post Screen')">
+  <button class="plus" onclick="showScreen('postScreen')">
     +
   </button>
 
-  <button onclick="showMessage('Notifications Screen')">
-    <span>🔔</span>
-    Alerts
+  <button onclick="showMessage('Gallery Screen')">
+    <span>🖼️</span>
+    Gallery
   </button>
 
   <button onclick="showScreen('profileScreen')">
@@ -635,16 +746,27 @@ function showScreen(screenId) {
 
   const bottomMenu = document.getElementById("bottomMenu");
 
-  if (screenId === "homeScreen" ||
-      screenId === "profileScreen") {
+  if (
+    screenId === "homeScreen" ||
+    screenId === "postScreen" ||
+    screenId === "profileScreen"
+  ) {
     bottomMenu.style.display = "grid";
   } else {
     bottomMenu.style.display = "none";
+  }
+
+  if (screenId === "homeScreen") {
+    loadPosts();
   }
 }
 
 function toggleMenu() {
   document.getElementById("sideMenu").classList.toggle("active");
+}
+
+function closeMenu() {
+  document.getElementById("sideMenu").classList.remove("active");
 }
 
 function showMessage(message) {
@@ -724,8 +846,10 @@ function loginUser() {
   const savedPassword =
     localStorage.getItem("registeredPassword");
 
-  if (mobile === savedMobile &&
-      password === savedPassword) {
+  if (
+    mobile === savedMobile &&
+    password === savedPassword
+  ) {
 
     document.getElementById("profileMobile").innerText =
       "Mobile: " + mobile;
@@ -791,8 +915,98 @@ function completeReset() {
   showScreen("loginScreen");
 }
 
+function publishPost() {
+
+  const title =
+    document.getElementById("postTitle").value.trim();
+
+  const text =
+    document.getElementById("postText").value.trim();
+
+  const image =
+    document.getElementById("postImage").value.trim();
+
+  if (title === "" && text === "") {
+    alert("Please enter a post title or post details.");
+    return;
+  }
+
+  const posts =
+    JSON.parse(localStorage.getItem("posts") || "[]");
+
+  const newPost = {
+    title: title || "New Post",
+    text: text,
+    image: image,
+    date: new Date().toLocaleString()
+  };
+
+  posts.unshift(newPost);
+
+  localStorage.setItem("posts", JSON.stringify(posts));
+
+  document.getElementById("postTitle").value = "";
+  document.getElementById("postText").value = "";
+  document.getElementById("postImage").value = "";
+
+  alert("Post published successfully.");
+
+  showScreen("homeScreen");
+}
+
+function loadPosts() {
+
+  const container =
+    document.getElementById("postsContainer");
+
+  const posts =
+    JSON.parse(localStorage.getItem("posts") || "[]");
+
+  if (posts.length === 0) {
+    container.innerHTML = `
+      <div class="post-card">
+        <h4>No Posts Yet</h4>
+        <p>New posts will appear here.</p>
+      </div>
+    `;
+    return;
+  }
+
+  container.innerHTML = "";
+
+  posts.forEach(post => {
+
+    const card = document.createElement("div");
+    card.className = "post-card";
+
+    const title = document.createElement("h4");
+    title.innerText = post.title;
+
+    const text = document.createElement("p");
+    text.innerText = post.text;
+
+    const date = document.createElement("div");
+    date.className = "post-date";
+    date.innerText = "Posted: " + post.date;
+
+    card.appendChild(title);
+    card.appendChild(text);
+
+    if (post.image) {
+      const image = document.createElement("img");
+      image.src = post.image;
+      image.alt = "Post Image";
+      card.appendChild(image);
+    }
+
+    card.appendChild(date);
+
+    container.appendChild(card);
+  });
+}
+
 function logoutUser() {
-  document.getElementById("sideMenu").classList.remove("active");
+  closeMenu();
   showScreen("loginScreen");
 }
 
