@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>YSRCP YERRAGONDAPALEM - Login</title>
+  <title>YSRCP YERRAGONDAPALEM</title>
 
   <style>
     * {
@@ -15,6 +15,17 @@
     }
 
     body {
+      background: #f5f7fb;
+      color: #17233c;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    /* LOGIN PAGE */
+
+    .login-page {
       min-height: 100vh;
       background: linear-gradient(135deg, #075bb5, #008b55);
       display: flex;
@@ -55,14 +66,14 @@
       margin-top: 12px;
     }
 
-    h3 {
+    .login-box h3 {
       text-align: center;
       color: #17233c;
       margin-bottom: 25px;
       font-size: 23px;
     }
 
-    label {
+    .login-box label {
       display: block;
       color: #17233c;
       font-weight: bold;
@@ -70,7 +81,7 @@
       margin-bottom: 7px;
     }
 
-    input {
+    .login-box input {
       width: 100%;
       padding: 14px;
       border: 1px solid #cbd8df;
@@ -79,7 +90,7 @@
       outline: none;
     }
 
-    input:focus {
+    .login-box input:focus {
       border-color: #075bb5;
     }
 
@@ -93,18 +104,12 @@
       color: white;
       font-size: 17px;
       font-weight: bold;
-      cursor: pointer;
-    }
-
-    .login-btn:hover {
-      background: #006f45;
     }
 
     .message {
       text-align: center;
       margin-top: 15px;
       font-size: 14px;
-      color: #d00000;
     }
 
     .info {
@@ -114,52 +119,907 @@
       margin-top: 20px;
       line-height: 1.5;
     }
+
+    /* APP PAGE */
+
+    .app-page {
+      display: none;
+      min-height: 100vh;
+      padding-bottom: 80px;
+    }
+
+    /* HEADER */
+
+    .app-header {
+      background: white;
+      padding: 22px 18px 16px;
+      border-bottom: 1px solid #eeeeee;
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .member-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .member-photo {
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #075bb5;
+      background: #e8eef8;
+    }
+
+    .member-name {
+      min-width: 0;
+    }
+
+    .member-name h2 {
+      font-size: 22px;
+      color: #075bb5;
+      white-space: nowrap;
+    }
+
+    .member-name p {
+      color: #777;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .header-icon {
+      width: 42px;
+      height: 42px;
+      border: none;
+      border-radius: 50%;
+      background: #f3f6fa;
+      font-size: 21px;
+      color: #17233c;
+    }
+
+    .id-card-btn {
+      border: none;
+      border-radius: 20px;
+      padding: 10px 12px;
+      background: linear-gradient(135deg, #075bb5, #008b55);
+      color: white;
+      font-size: 11px;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    /* TOP TABS */
+
+    .top-tabs {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      overflow-x: auto;
+      margin-top: 25px;
+    }
+
+    .top-tabs button {
+      border: none;
+      background: transparent;
+      color: #888;
+      font-size: 14px;
+      font-weight: bold;
+      padding: 12px 5px;
+      white-space: nowrap;
+      border-bottom: 4px solid transparent;
+    }
+
+    .top-tabs button.active {
+      color: #075bb5;
+      border-bottom-color: #075bb5;
+    }
+
+    /* FEED */
+
+    .feed {
+      padding: 18px;
+    }
+
+    .post-card {
+      background: white;
+      border: 1px solid #e1e5eb;
+      border-radius: 22px;
+      padding: 18px;
+      margin-bottom: 18px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    }
+
+    .post-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .post-user {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .post-user img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #075bb5;
+    }
+
+    .post-user h3 {
+      font-size: 16px;
+      color: #17233c;
+    }
+
+    .official-line {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      margin-top: 5px;
+    }
+
+    .official-badge {
+      background: #d8f7df;
+      color: #008b55;
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: bold;
+    }
+
+    .post-time {
+      color: #888;
+      font-size: 12px;
+    }
+
+    .post-menu {
+      border: none;
+      background: transparent;
+      font-size: 25px;
+      color: #555;
+    }
+
+    .post-content {
+      margin-top: 22px;
+    }
+
+    .post-content h2 {
+      color: #075bb5;
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+    .post-content p {
+      color: #303746;
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    .read-more {
+      color: #075bb5;
+      font-weight: bold;
+      margin-top: 15px;
+      display: inline-block;
+    }
+
+    .post-images {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3px;
+      margin-top: 20px;
+      border-radius: 15px;
+      overflow: hidden;
+    }
+
+    .post-images img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      background: #e9edf3;
+    }
+
+    .post-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 18px;
+      color: #555;
+    }
+
+    .post-actions button {
+      border: none;
+      background: transparent;
+      color: #555;
+      font-size: 14px;
+    }
+
+    .post-actions span {
+      font-size: 25px;
+      vertical-align: middle;
+      margin-right: 4px;
+    }
+
+    /* FLOATING ADD BUTTON */
+
+    .add-post-btn {
+      position: fixed;
+      right: 20px;
+      bottom: 92px;
+      width: 62px;
+      height: 62px;
+      border: none;
+      border-radius: 50%;
+      background: #1600e8;
+      color: white;
+      font-size: 38px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+      z-index: 20;
+    }
+
+    /* BOTTOM NAVIGATION */
+
+    .bottom-nav {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 75px;
+      background: white;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      border-top: 1px solid #e5e5e5;
+      box-shadow: 0 -3px 15px rgba(0, 0, 0, 0.08);
+      z-index: 15;
+    }
+
+    .bottom-nav button {
+      border: none;
+      background: transparent;
+      color: #9299a5;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    .bottom-nav button span {
+      display: block;
+      font-size: 27px;
+      margin-bottom: 4px;
+    }
+
+    .bottom-nav button.active {
+      color: #075bb5;
+      font-weight: bold;
+    }
+
+    /* SIDE BAR */
+
+    .overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 30;
+    }
+
+    .side-bar {
+      position: fixed;
+      top: 0;
+      left: -330px;
+      width: 310px;
+      max-width: 85%;
+      height: 100vh;
+      background: white;
+      z-index: 31;
+      transition: left 0.3s ease;
+      overflow-y: auto;
+      padding-bottom: 25px;
+    }
+
+    .side-bar.open {
+      left: 0;
+    }
+
+    .side-profile {
+      padding: 35px 22px 25px;
+      background: linear-gradient(135deg, #075bb5, #008b55);
+      color: white;
+    }
+
+    .side-profile img {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid white;
+      margin-bottom: 12px;
+    }
+
+    .side-profile h2 {
+      font-size: 21px;
+    }
+
+    .side-profile p {
+      font-size: 13px;
+      margin-top: 5px;
+    }
+
+    .side-section-title {
+      color: #888;
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      padding: 22px 22px 8px;
+    }
+
+    .side-menu button {
+      width: 100%;
+      border: none;
+      background: white;
+      text-align: left;
+      padding: 15px 22px;
+      font-size: 16px;
+      color: #303746;
+    }
+
+    .side-menu button:hover {
+      background: #f1f6ff;
+      color: #075bb5;
+    }
+
+    .side-divider {
+      height: 1px;
+      background: #e5e5e5;
+      margin: 12px 22px;
+    }
+
+    .close-side {
+      position: absolute;
+      right: 15px;
+      top: 15px;
+      border: none;
+      background: white;
+      color: #075bb5;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      font-size: 20px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 420px) {
+
+      .member-photo {
+        width: 55px;
+        height: 55px;
+      }
+
+      .member-name h2 {
+        font-size: 18px;
+      }
+
+      .id-card-btn {
+        padding: 8px 9px;
+        font-size: 10px;
+      }
+
+      .header-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 18px;
+      }
+
+      .post-content p {
+        font-size: 16px;
+      }
+
+      .post-images img {
+        height: 180px;
+      }
+
+      .post-actions button {
+        font-size: 12px;
+      }
+
+    }
+
   </style>
 </head>
 
 <body>
 
-  <div class="login-box">
+  <!-- LOGIN PAGE -->
 
-    <div class="logo">
-      <h1>YSRCP</h1>
-      <h2>YERRAGONDAPALEM</h2>
-      <p>PEOPLE • PROGRESS • PROSPERITY</p>
+  <div class="login-page" id="loginPage">
+
+    <div class="login-box">
+
+      <div class="logo">
+        <h1>YSRCP</h1>
+        <h2>YERRAGONDAPALEM</h2>
+        <p>PEOPLE • PROGRESS • PROSPERITY</p>
+      </div>
+
+      <h3>Member Login</h3>
+
+      <label for="mobileNumber">Mobile Number</label>
+
+      <input
+        type="tel"
+        id="mobileNumber"
+        maxlength="10"
+        inputmode="numeric"
+        placeholder="Enter 10-digit mobile number"
+      >
+
+      <label for="password">Password</label>
+
+      <input
+        type="password"
+        id="password"
+        maxlength="4"
+        inputmode="numeric"
+        placeholder="Enter first 4 digits"
+      >
+
+      <button class="login-btn" onclick="login()">
+        Login
+      </button>
+
+      <p id="message" class="message"></p>
+
+      <p class="info">
+        Enter the first 4 digits of your mobile number as password.
+      </p>
+
     </div>
 
-    <h3>Member Login</h3>
+  </div>
 
-    <label for="mobileNumber">Mobile Number</label>
 
-    <input
-      type="tel"
-      id="mobileNumber"
-      maxlength="10"
-      inputmode="numeric"
-      placeholder="Enter 10-digit mobile number"
+  <!-- APP PAGE -->
+
+  <div class="app-page" id="appPage">
+
+    <!-- HEADER -->
+
+    <header class="app-header">
+
+      <div class="header-top">
+
+        <div class="member-info">
+
+          <img
+            class="member-photo"
+            src="member-photo.jpg"
+            alt="Member Photo"
+          >
+
+          <div class="member-name">
+            <h2>Thota</h2>
+            <p>Member</p>
+          </div>
+
+        </div>
+
+        <div class="header-actions">
+
+          <button class="id-card-btn" onclick="openIDCard()">
+            🪪 ID CARD
+          </button>
+
+          <button class="header-icon" onclick="showMessage('Notifications')">
+            ♧
+          </button>
+
+          <button class="header-icon" onclick="openSideBar()">
+            ☰
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- TOP TABS -->
+
+      <div class="top-tabs">
+
+        <button class="active" onclick="selectTab(this)">
+          PARTY
+        </button>
+
+        <button onclick="selectTab(this)">
+          ⭐ CAMPAIGNERS
+        </button>
+
+        <button onclick="selectTab(this)">
+          LEADERS
+        </button>
+
+        <button onclick="selectTab(this)">
+          LOCAL
+        </button>
+
+      </div>
+
+    </header>
+
+
+    <!-- FEED -->
+
+    <main class="feed">
+
+      <article class="post-card">
+
+        <div class="post-header">
+
+          <div class="post-user">
+
+            <img
+              src="party-logo.png"
+              alt="Party Logo"
+            >
+
+            <div>
+              <h3>YSR Congress Party ✔</h3>
+
+              <div class="official-line">
+                <span class="official-badge">OFFICIAL</span>
+                <span class="post-time">• 21m ago</span>
+              </div>
+            </div>
+
+          </div>
+
+          <button class="post-menu" onclick="showMessage('Post Options')">
+            ⋮
+          </button>
+
+        </div>
+
+
+        <div class="post-content">
+
+          <h2>📢 #YSRCPUpdates</h2>
+
+          <p>
+            Yerragondapalem constituency latest party updates,
+            important announcements and public activities details
+            ikkada display avutayi.
+          </p>
+
+          <span class="read-more">
+            Read more⌄
+          </span>
+
+        </div>
+
+
+        <div class="post-images">
+
+          <img
+            src="post-image-1.jpg"
+            alt="Post Image 1"
+          >
+
+          <img
+            src="post-image-2.jpg"
+            alt="Post Image 2"
+          >
+
+        </div>
+
+
+        <div class="post-actions">
+
+          <button onclick="showMessage('Liked')">
+            <span>♡</span> 40
+          </button>
+
+          <button onclick="showMessage('Comments')">
+            <span>◯</span> 3
+          </button>
+
+          <button onclick="showMessage('Share Post')">
+            <span>♧</span> 7
+          </button>
+
+          <button onclick="showMessage('Post Saved')">
+            <span>▱</span>
+          </button>
+
+        </div>
+
+      </article>
+
+
+      <article class="post-card">
+
+        <div class="post-header">
+
+          <div class="post-user">
+
+            <img
+              src="party-logo.png"
+              alt="Party Logo"
+            >
+
+            <div>
+              <h3>YSR Congress Party ✔</h3>
+
+              <div class="official-line">
+                <span class="official-badge">OFFICIAL</span>
+                <span class="post-time">• 47m ago</span>
+              </div>
+            </div>
+
+          </div>
+
+          <button class="post-menu" onclick="showMessage('Post Options')">
+            ⋮
+          </button>
+
+        </div>
+
+
+        <div class="post-content">
+
+          <h2>YSRCP Party Updates</h2>
+
+          <p>
+            Party news, constituency meetings, mandal activities
+            and member updates soon ikkada kanipistayi.
+          </p>
+
+        </div>
+
+      </article>
+
+    </main>
+
+<!-- FLOATING ADD POST BUTTON -->
+
+    <button
+      class="add-post-btn"
+      onclick="showMessage('Add Post Page Soon')"
     >
-
-    <label for="password">Password</label>
-
-    <input
-      type="password"
-      id="password"
-      maxlength="4"
-      inputmode="numeric"
-      placeholder="Enter first 4 digits"
-    >
-
-    <button class="login-btn" onclick="login()">
-      Login
+      +
     </button>
 
-    <p id="message" class="message"></p>
 
-    <p class="info">
-      Enter the first 4 digits of your mobile number as password.
-    </p>
+    <!-- BOTTOM NAVIGATION -->
+
+    <nav class="bottom-nav">
+
+      <button
+        class="active"
+        onclick="showMessage('Home')"
+      >
+        <span>⌂</span>
+        Home
+      </button>
+
+      <button
+        onclick="showMessage('News Page Soon')"
+      >
+        <span>▤</span>
+        News
+      </button>
+
+      <button
+        onclick="showMessage('Gallery Page Soon')"
+      >
+        <span>▧</span>
+        Gallery
+      </button>
+
+      <button
+        onclick="showMessage('Meetings Page Soon')"
+      >
+        <span>▣</span>
+        Meetings
+      </button>
+
+    </nav>
 
   </div>
+
+
+  <!-- SIDE BAR OVERLAY -->
+
+  <div
+    class="overlay"
+    id="overlay"
+    onclick="closeSideBar()"
+  ></div>
+
+
+  <!-- SIDE BAR -->
+
+  <aside
+    class="side-bar"
+    id="sideBar"
+  >
+
+    <button
+      class="close-side"
+      onclick="closeSideBar()"
+    >
+      ×
+    </button>
+
+
+    <!-- SIDE PROFILE -->
+
+    <div class="side-profile">
+
+      <img
+        src="member-photo.jpg"
+        alt="Member Photo"
+      >
+
+      <h2>Thota Gurunadham</h2>
+
+      <p>YSRCP Member</p>
+
+      <p>Peddaraveedu Mandal</p>
+
+    </div>
+
+
+    <!-- SIDE MENU -->
+
+    <div class="side-menu">
+
+      <button
+        onclick="showMessage('Profile Page Soon')"
+      >
+        👤 &nbsp; Profile
+      </button>
+
+
+      <button
+        onclick="openIDCard()"
+      >
+        🪪 &nbsp; ID Card
+      </button>
+
+
+      <button
+        onclick="showMessage('Saved Posts Page Soon')"
+      >
+        🔖 &nbsp; Saved Posts
+      </button>
+
+
+      <button
+        onclick="showMessage('My Posts Page Soon')"
+      >
+        📝 &nbsp; My Posts
+      </button>
+
+
+      <div class="side-divider"></div>
+
+
+      <div class="side-section-title">
+        PARTY & UPDATES
+      </div>
+
+
+      <button
+        onclick="showMessage('News & Media Page Soon')"
+      >
+        📰 &nbsp; News & Media
+      </button>
+
+
+      <button
+        onclick="showMessage('Gallery Page Soon')"
+      >
+        🖼️ &nbsp; Gallery
+      </button>
+
+
+      <button
+        onclick="showMessage('Meetings Page Soon')"
+      >
+        📅 &nbsp; Meetings
+      </button>
+
+
+      <button
+        onclick="showMessage('Live Updates Page Soon')"
+      >
+        🔴 &nbsp; Live Updates
+      </button>
+
+
+      <button
+        onclick="showMessage('Surveys Page Soon')"
+      >
+        📋 &nbsp; Surveys
+      </button>
+
+
+      <div class="side-divider"></div>
+
+
+      <div class="side-section-title">
+        QUICK LINKS
+      </div>
+
+
+      <button
+        onclick="openWhatsAppChannel()"
+      >
+        🟢 &nbsp; WhatsApp Channel
+      </button>
+
+
+      <button
+        onclick="openYouTubeChannel()"
+      >
+        ▶️ &nbsp; YouTube Channel
+      </button>
+
+
+      <button
+        onclick="showMessage('Notifications')"
+      >
+        🔔 &nbsp; Notifications
+      </button>
+
+
+      <div class="side-divider"></div>
+
+
+      <button
+        onclick="showMessage('Settings Page Soon')"
+      >
+        ⚙️ &nbsp; Settings
+      </button>
+
+
+      <button
+        onclick="showMessage('Share App')"
+      >
+        🔗 &nbsp; Share App
+      </button>
+
+
+      <button
+        onclick="logout()"
+      >
+        🚪 &nbsp; Logout
+      </button>
+
+    </div>
+
+  </aside>
+
+
+  <!-- JAVASCRIPT -->
 
   <script>
 
@@ -176,6 +1036,7 @@
 
       message.style.color = "#d00000";
 
+
       if (!/^[0-9]{10}$/.test(mobile)) {
 
         message.innerText =
@@ -184,6 +1045,7 @@
         return;
 
       }
+
 
       if (!/^[0-9]{4}$/.test(password)) {
 
@@ -194,8 +1056,10 @@
 
       }
 
+
       const correctPassword =
         mobile.substring(0, 4);
+
 
       if (password !== correctPassword) {
 
@@ -206,12 +1070,121 @@
 
       }
 
+
       message.style.color = "#008b55";
 
       message.innerText =
         "Login successful.";
 
-      alert("Login successful");
+
+      document.getElementById("loginPage").style.display =
+        "none";
+
+      document.getElementById("appPage").style.display =
+        "block";
+
+    }
+
+
+    function selectTab(button) {
+
+      const tabs =
+        document.querySelectorAll(".top-tabs button");
+
+
+      tabs.forEach(function(tab) {
+
+        tab.classList.remove("active");
+
+      });
+
+
+      button.classList.add("active");
+
+    }
+
+
+    function openSideBar() {
+
+      document
+        .getElementById("sideBar")
+        .classList.add("open");
+
+
+      document
+        .getElementById("overlay")
+        .style.display = "block";
+
+    }
+
+
+    function closeSideBar() {
+
+      document
+        .getElementById("sideBar")
+        .classList.remove("open");
+
+
+      document
+        .getElementById("overlay")
+        .style.display = "none";
+
+    }
+
+
+    function openIDCard() {
+
+      closeSideBar();
+
+      alert("ID Card Page Soon");
+
+    }
+
+
+    function openWhatsAppChannel() {
+
+      alert("WhatsApp Channel Link next step lo add chestham.");
+
+    }
+
+
+    function openYouTubeChannel() {
+
+      alert("YouTube Channel Link next step lo add chestham.");
+
+    }
+
+
+    function showMessage(message) {
+
+      alert(message);
+
+    }
+
+
+    function logout() {
+
+      closeSideBar();
+
+
+      document.getElementById("appPage").style.display =
+        "none";
+
+
+      document.getElementById("loginPage").style.display =
+        "flex";
+
+
+      document.getElementById("mobileNumber").value =
+        "";
+
+
+      document.getElementById("password").value =
+        "";
+
+
+      document.getElementById("message").innerText =
+        "";
 
     }
 
