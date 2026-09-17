@@ -135,8 +135,8 @@
       type="tel"
       id="mobileNumber"
       maxlength="10"
+      inputmode="numeric"
       placeholder="Enter 10-digit mobile number"
-      oninput="setPassword()"
     >
 
     <label for="password">Password</label>
@@ -145,6 +145,7 @@
       type="password"
       id="password"
       maxlength="4"
+      inputmode="numeric"
       placeholder="Enter first 4 digits"
     >
 
@@ -155,45 +156,39 @@
     <p id="message" class="message"></p>
 
     <p class="info">
-      Password is the first 4 digits of your mobile number.
+      Enter the first 4 digits of your mobile number as password.
     </p>
 
   </div>
 
   <script>
 
-    function setPassword() {
-
-      const mobile = document.getElementById("mobileNumber").value;
-
-      if (mobile.length >= 4) {
-
-        document.getElementById("password").value =
-          mobile.substring(0, 4);
-
-      } else {
-
-        document.getElementById("password").value = "";
-
-      }
-
-    }
-
     function login() {
 
       const mobile =
-        document.getElementById("mobileNumber").value;
+        document.getElementById("mobileNumber").value.trim();
 
       const password =
-        document.getElementById("password").value;
+        document.getElementById("password").value.trim();
 
       const message =
         document.getElementById("message");
+
+      message.style.color = "#d00000";
 
       if (!/^[0-9]{10}$/.test(mobile)) {
 
         message.innerText =
           "Please enter a valid 10-digit mobile number.";
+
+        return;
+
+      }
+
+      if (!/^[0-9]{4}$/.test(password)) {
+
+        message.innerText =
+          "Please enter a 4-digit password.";
 
         return;
 
@@ -205,7 +200,7 @@
       if (password !== correctPassword) {
 
         message.innerText =
-          "Password must be the first 4 digits of your mobile number.";
+          "Incorrect password. Enter the first 4 digits of your mobile number.";
 
         return;
 
