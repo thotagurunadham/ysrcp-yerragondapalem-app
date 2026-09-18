@@ -3,1181 +3,2124 @@
 
 <head>
 
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>YSRCP YERRAGONDAPALEM</title>
-
-<style>
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-}
-
-body {
-  background: #f5f7fb;
-  color: #17233c;
-}
-
-button {
-  cursor: pointer;
-  font-family: Arial, sans-serif;
-}
-
-/* LOGIN */
-
-.login-page {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  background: linear-gradient(135deg, #075bb5, #008b55);
-}
-
-.login-box {
-  width: 100%;
-  max-width: 390px;
-  background: white;
-  padding: 30px 25px;
-  border-radius: 20px;
-  box-shadow: 0 8px 25px #0004;
-}
-
-.logo {
-  text-align: center;
-  margin-bottom: 25px;
-}
-
-.logo h1 {
-  color: #075bb5;
-  font-size: 38px;
-  letter-spacing: 3px;
-}
-
-.logo h2 {
-  color: #008b55;
-  font-size: 20px;
-  margin-top: 5px;
-}
-
-.logo p {
-  color: #777;
-  font-size: 12px;
-  margin-top: 12px;
-}
-
-.login-box h3 {
-  text-align: center;
-  margin-bottom: 22px;
-  font-size: 23px;
-}
-
-.login-box label {
-  display: block;
-  margin: 15px 0 7px;
-  font-weight: bold;
-}
-
-.login-box input {
-  width: 100%;
-  padding: 14px;
-  border: 1px solid #ccd5df;
-  border-radius: 9px;
-  font-size: 16px;
-  outline: none;
-}
-
-.login-box input:focus {
-  border-color: #075bb5;
-}
-
-.login-btn {
-  width: 100%;
-  border: none;
-  padding: 14px;
-  margin-top: 25px;
-  border-radius: 9px;
-  background: #008b55;
-  color: white;
-  font-size: 17px;
-  font-weight: bold;
-}
-
-.message {
-  text-align: center;
-  margin-top: 15px;
-  font-size: 14px;
-}
-
-.info {
-  text-align: center;
-  color: #777;
-  font-size: 12px;
-  margin-top: 20px;
-  line-height: 1.5;
-}
-
-/* APP */
-
-.app-page {
-  display: none;
-  min-height: 100vh;
-  padding-bottom: 85px;
-}
-
-.app-header {
-  background: white;
-  padding: 20px 16px 15px;
-  border-bottom: 1px solid #e5e5e5;
-}
-
-.header-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
-}
-
-.member-info {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  min-width: 0;
-}
-
-.member-photo {
-  width: 58px;
-  height: 58px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid #075bb5;
-  background: #e7edf5;
-}
-
-.member-name h2 {
-  color: #075bb5;
-  font-size: 21px;
-}
-
-.member-name p {
-  color: #777;
-  font-size: 13px;
-  margin-top: 5px;
-}
-
-.header-actions {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.id-card-btn {
-  border: none;
-  border-radius: 20px;
-  padding: 10px 12px;
-  background: linear-gradient(135deg, #075bb5, #008b55);
-  color: white;
-  font-size: 11px;
-  font-weight: bold;
-}
-
-.header-icon {
-  width: 40px;
-  height: 40px;
-  border: none;
-  border-radius: 50%;
-  background: #f1f4f8;
-  font-size: 21px;
-  color: #17233c;
-}
-
-/* PAGE CONTENT */
-
-.page-content {
-  padding: 18px;
-}
-
-.page-title {
-  color: #075bb5;
-  font-size: 25px;
-  margin-bottom: 15px;
-}
-
-.empty-box {
-  min-height: 420px;
-  background: white;
-  border: 1px solid #e1e5eb;
-  border-radius: 22px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 25px;
-}
-
-.empty-icon {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #075bb5, #008b55);
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 38px;
-  margin-bottom: 20px;
-}
-
-.empty-box h2 {
-  color: #075bb5;
-  font-size: 21px;
-}
-
-.empty-box p {
-  color: #777;
-  margin-top: 12px;
-  line-height: 1.6;
-}
-
-/* PROFILE */
-
-.profile-card {
-  background: white;
-  border-radius: 20px;
-  padding: 25px;
-  text-align: center;
-  border: 1px solid #e1e5eb;
-}
-
-.profile-card img {
-  width: 110px;
-  height: 110px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 4px solid #075bb5;
-}
-
-.profile-card h2 {
-  margin-top: 15px;
-  color: #075bb5;
-}
-
-.profile-card p {
-  color: #777;
-  margin-top: 8px;
-}
-
-.profile-details {
-  text-align: left;
-  margin-top: 25px;
-  line-height: 2;
-}
-
-.profile-details strong {
-  color: #075bb5;
-}
-
-/* ID CARD */
-
-.id-card {
-  background: white;
-  border-radius: 18px;
-  overflow: hidden;
-  border: 2px solid #075bb5;
-  box-shadow: 0 5px 15px #0002;
-}
-
-.id-card-header {
-  background: linear-gradient(135deg, #075bb5, #008b55);
-  color: white;
-  text-align: center;
-  padding: 18px;
-}
-
-.id-card-header h2 {
-  font-size: 22px;
-}
-
-.id-card-header p {
-  margin-top: 5px;
-  font-size: 13px;
-}
-
-.id-card-body {
-  padding: 22px;
-  text-align: center;
-}
-
-.id-card-body img {
-  width: 115px;
-  height: 115px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 4px solid #075bb5;
-}
-
-.id-card-body h2 {
-  margin-top: 15px;
-  color: #075bb5;
-}
-
-.designation {
-  color: #008b55;
-  font-weight: bold;
-  font-size: 13px;
-  margin-top: 7px;
-}
-
-.id-details {
-  text-align: left;
-  margin-top: 20px;
-  line-height: 2;
-}
-
-.id-details strong {
-  color: #075bb5;
-}
-
-.id-card-footer {
-  background: #f0f5fb;
-  text-align: center;
-  padding: 12px;
-  font-size: 12px;
-  color: #555;
-}
-
-/* BOTTOM NAV */
-
-.bottom-nav {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 78px;
-  background: white;
-  border-top: 1px solid #ddd;
-  box-shadow: 0 -3px 15px #0001;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  z-index: 15;
-}
-
-.bottom-nav button {
-  border: none;
-  background: transparent;
-  color: #9299a5;
-  font-size: 12px;
-  text-align: center;
-}
-
-.bottom-nav button span {
-  display: block;
-  font-size: 27px;
-  margin-bottom: 4px;
-}
-
-.bottom-nav button.active {
-  color: #075bb5;
-  font-weight: bold;
-}
-
-/* FLOATING BUTTON */
-
-.add-post-btn {
-  position: fixed;
-  right: 20px;
-  bottom: 95px;
-  width: 60px;
-  height: 60px;
-  border: none;
-  border-radius: 50%;
-  background: #075bb5;
-  color: white;
-  font-size: 35px;
-  box-shadow: 0 5px 15px #0004;
-  z-index: 20;
-}
-
-/* SIDEBAR */
-
-.overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: #0008;
-  z-index: 30;
-}
-
-.side-bar {
-  position: fixed;
-  top: 0;
-  left: -330px;
-  width: 310px;
-  max-width: 85%;
-  height: 100vh;
-  background: white;
-  z-index: 31;
-  overflow-y: auto;
-  transition: left 0.3s ease;
-  padding-bottom: 25px;
-}
-
-.side-bar.open {
-  left: 0;
-}
-
-.close-side {
-  position: absolute;
-  right: 14px;
-  top: 14px;
-  width: 34px;
-  height: 34px;
-  border: none;
-  border-radius: 50%;
-  background: white;
-  color: #075bb5;
-  font-size: 22px;
-}
-
-.side-profile {
-  padding: 35px 22px 25px;
-  background: linear-gradient(135deg, #075bb5, #008b55);
-  color: white;
-}
-
-.side-profile img {
-  width: 75px;
-  height: 75px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid white;
-}
-
-.side-profile h2 {
-  margin-top: 12px;
-  font-size: 21px;
-}
-
-.side-profile p {
-  margin-top: 6px;
-  font-size: 13px;
-}
-
-.side-section-title {
-  color: #888;
-  font-size: 12px;
-  font-weight: bold;
-  letter-spacing: 1px;
-  padding: 20px 22px 8px;
-}
-
-.side-menu button {
-  width: 100%;
-  border: none;
-  background: white;
-  text-align: left;
-  padding: 15px 22px;
-  font-size: 16px;
-  color: #303746;
-}
-
-.side-menu button:hover {
-  background: #eef5ff;
-  color: #075bb5;
-}
-
-.side-divider {
-  height: 1px;
-  background: #e5e5e5;
-  margin: 12px 22px;
-}
-
-@media (max-width: 420px) {
-
-  .member-photo {
-    width: 52px;
-    height: 52px;
-  }
-
-  .member-name h2 {
-    font-size: 18px;
-  }
-
-  .id-card-btn {
-    padding: 8px 9px;
-    font-size: 10px;
-  }
-
-  .header-icon {
-    width: 35px;
-    height: 35px;
-    font-size: 18px;
-  }
-
-}
-
-</style>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>YSRCP YERRAGONDAPALEM</title>
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f4f7fb;
+      color: #17233c;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    input,
+    textarea,
+    select {
+      font-family: Arial, sans-serif;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    /* LOGIN */
+
+    .login-page {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      background: linear-gradient(135deg, #075bb5, #008b55);
+    }
+
+    .login-box {
+      width: 100%;
+      max-width: 390px;
+      background: white;
+      padding: 30px 25px;
+      border-radius: 20px;
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.25);
+    }
+
+    .login-logo {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .login-logo h1 {
+      color: #075bb5;
+      font-size: 40px;
+      letter-spacing: 3px;
+    }
+
+    .login-logo h2 {
+      color: #008b55;
+      font-size: 20px;
+      margin-top: 5px;
+    }
+
+    .login-logo p {
+      color: #777;
+      font-size: 12px;
+      margin-top: 12px;
+    }
+
+    .login-box h3 {
+      text-align: center;
+      font-size: 23px;
+      margin-bottom: 22px;
+    }
+
+    .login-box label {
+      display: block;
+      margin: 15px 0 7px;
+      font-weight: bold;
+    }
+
+    .login-box input {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #ccd7e2;
+      border-radius: 9px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    .login-box input:focus {
+      border-color: #075bb5;
+    }
+
+    .login-btn {
+      width: 100%;
+      margin-top: 25px;
+      padding: 14px;
+      border: none;
+      border-radius: 9px;
+      background: #008b55;
+      color: white;
+      font-size: 17px;
+      font-weight: bold;
+    }
+
+    .login-message {
+      text-align: center;
+      margin-top: 14px;
+      font-size: 14px;
+    }
+
+    .login-info {
+      color: #777;
+      text-align: center;
+      font-size: 12px;
+      line-height: 1.5;
+      margin-top: 18px;
+    }
+
+    /* APP HEADER */
+
+    .app-page {
+      min-height: 100vh;
+      padding-bottom: 90px;
+    }
+
+    .app-header {
+      background: white;
+      padding: 18px 16px 0;
+      border-bottom: 1px solid #e4e8ee;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .member-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .member-photo {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #075bb5;
+      background: #e9eef5;
+    }
+
+    .member-name {
+      min-width: 0;
+    }
+
+    .member-name h2 {
+      color: #075bb5;
+      font-size: 21px;
+      white-space: nowrap;
+    }
+
+    .member-name p {
+      color: #777;
+      font-size: 13px;
+      margin-top: 4px;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .id-card-btn {
+      border: none;
+      border-radius: 22px;
+      padding: 10px 12px;
+      color: white;
+      background: linear-gradient(135deg, #075bb5, #008b55);
+      font-size: 11px;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .header-icon {
+      width: 40px;
+      height: 40px;
+      border: none;
+      border-radius: 50%;
+      background: #f1f4f8;
+      font-size: 21px;
+      color: #17233c;
+    }
+
+    .notification-icon {
+      position: relative;
+    }
+
+    .notification-count {
+      position: absolute;
+      top: -3px;
+      right: -2px;
+      background: #e60023;
+      color: white;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      font-size: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* TOP OPTIONS */
+
+    .top-options {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      overflow-x: auto;
+      margin-top: 22px;
+    }
+
+    .top-options button {
+      border: none;
+      background: transparent;
+      color: #858b96;
+      font-size: 14px;
+      font-weight: bold;
+      padding: 13px 8px;
+      white-space: nowrap;
+      border-bottom: 4px solid transparent;
+    }
+
+    .top-options button.active {
+      color: #075bb5;
+      border-bottom-color: #075bb5;
+    }
+
+    /* PAGE AREA */
+
+    .page-area {
+      padding: 18px;
+    }
+
+    .page-title {
+      font-size: 23px;
+      color: #075bb5;
+      margin-bottom: 15px;
+    }
+
+    .empty-page {
+      background: white;
+      border: 1px solid #e0e6ee;
+      border-radius: 18px;
+      padding: 45px 20px;
+      text-align: center;
+      color: #8b929d;
+    }
+
+    .empty-page .empty-icon {
+      font-size: 45px;
+      margin-bottom: 12px;
+    }
+
+    /* HOME POSTS EMPTY */
+
+    .home-empty {
+      background: white;
+      border: 1px solid #e0e6ee;
+      border-radius: 20px;
+      padding: 45px 20px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .home-empty h2 {
+      color: #075bb5;
+      font-size: 21px;
+      margin-bottom: 10px;
+    }
+
+    .home-empty p {
+      color: #777;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    /* POST CARD */
+
+    .post-card {
+      background: white;
+      border: 1px solid #e0e6ee;
+      border-radius: 20px;
+      padding: 17px;
+      margin-bottom: 18px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    }
+
+    .post-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .post-user {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .post-user img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #075bb5;
+    }
+
+    .post-user h3 {
+      font-size: 15px;
+    }
+
+    .official-line {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      margin-top: 5px;
+    }
+
+    .official-badge {
+      background: #d9f6df;
+      color: #008b55;
+      border-radius: 6px;
+      padding: 4px 7px;
+      font-size: 10px;
+      font-weight: bold;
+    }
+
+    .post-time {
+      color: #888;
+      font-size: 11px;
+    }
+
+    .post-menu {
+      border: none;
+      background: transparent;
+      font-size: 25px;
+      color: #555;
+    }
+
+    .post-title {
+      color: #075bb5;
+      font-size: 19px;
+      margin-top: 20px;
+      margin-bottom: 12px;
+    }
+
+    .post-description {
+      color: #303746;
+      font-size: 16px;
+      line-height: 1.7;
+      white-space: pre-wrap;
+    }
+
+    .post-images {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3px;
+      margin-top: 18px;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .post-images img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      background: #edf1f6;
+    }
+
+    .post-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 15px;
+    }
+
+    .post-actions button {
+      border: none;
+      background: transparent;
+      color: #555;
+      font-size: 13px;
+    }
+
+    .post-actions span {
+      font-size: 23px;
+      margin-right: 4px;
+      vertical-align: middle;
+    }
+
+    /* FLOATING ADD POST */
+
+    .add-post-btn {
+      position: fixed;
+      right: 20px;
+      bottom: 94px;
+      width: 60px;
+      height: 60px;
+      border: none;
+      border-radius: 50%;
+      background: #1600e8;
+      color: white;
+      font-size: 38px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+      z-index: 20;
+    }
+
+    /* BOTTOM NAVIGATION */
+
+    .bottom-nav {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 78px;
+      background: white;
+      border-top: 1px solid #e3e7ed;
+      box-shadow: 0 -3px 15px rgba(0, 0, 0, 0.08);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      z-index: 15;
+    }
+
+    .bottom-nav button {
+      border: none;
+      background: transparent;
+      color: #9299a5;
+      font-size: 12px;
+      text-align: center;
+      min-width: 60px;
+    }
+
+    .bottom-nav button span {
+      display: block;
+      font-size: 27px;
+      margin-bottom: 4px;
+    }
+
+    .bottom-nav button.active {
+      color: #075bb5;
+      font-weight: bold;
+    }
+
+    /* SIDE BAR */
+
+    .overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 30;
+    }
+
+    .side-bar {
+      position: fixed;
+      top: 0;
+      left: -340px;
+      width: 320px;
+      max-width: 86%;
+      height: 100vh;
+      overflow-y: auto;
+      background: white;
+      z-index: 31;
+      transition: left 0.3s ease;
+      padding-bottom: 25px;
+    }
+
+    .side-bar.open {
+      left: 0;
+    }
+
+    .side-profile {
+      padding: 28px 22px 24px;
+      background: linear-gradient(135deg, #075bb5, #008b55);
+      color: white;
+    }
+
+    .side-profile img {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid white;
+      margin-bottom: 12px;
+    }
+
+    .side-profile h2 {
+      font-size: 21px;
+    }
+
+    .side-profile p {
+      font-size: 13px;
+      margin-top: 5px;
+    }
+
+    .close-side {
+      position: absolute;
+      right: 14px;
+      top: 14px;
+      width: 32px;
+      height: 32px;
+      border: none;
+      border-radius: 50%;
+      background: white;
+      color: #075bb5;
+      font-size: 21px;
+    }
+
+    .side-section-title {
+      padding: 20px 22px 8px;
+      color: #888;
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .side-menu button {
+      width: 100%;
+      border: none;
+      background: white;
+      text-align: left;
+      padding: 15px 22px;
+      color: #303746;
+      font-size: 16px;
+    }
+
+    .side-menu button:hover {
+      background: #eef5ff;
+      color: #075bb5;
+    }
+
+    .side-divider {
+      height: 1px;
+      background: #e5e5e5;
+      margin: 12px 22px;
+    }
+
+    /* COMMON FORMS */
+
+    .form-card {
+      background: white;
+      border: 1px solid #e0e6ee;
+      border-radius: 20px;
+      padding: 20px;
+    }
+
+    .form-card label {
+      display: block;
+      margin: 14px 0 7px;
+      font-weight: bold;
+      color: #303746;
+    }
+
+    .form-card input,
+    .form-card textarea,
+    .form-card select {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #ccd7e2;
+      border-radius: 9px;
+      font-size: 15px;
+      outline: none;
+    }
+
+    .form-card textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .primary-btn {
+      width: 100%;
+      border: none;
+      border-radius: 9px;
+      padding: 14px;
+      margin-top: 20px;
+      background: linear-gradient(135deg, #075bb5, #008b55);
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .secondary-btn {
+      width: 100%;
+      border: 1px solid #075bb5;
+      border-radius: 9px;
+      padding: 13px;
+      margin-top: 10px;
+      background: white;
+      color: #075bb5;
+      font-size: 15px;
+      font-weight: bold;
+    }
+
+    /* ID CARD */
+
+    .id-card-wrapper {
+      background: white;
+      border: 1px solid #dbe2eb;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .id-card-header {
+      background: linear-gradient(110deg, #075bb5, #008b55);
+      padding: 16px 10px 18px;
+      text-align: center;
+      position: relative;
+    }
+
+    .id-leader-photo {
+      width: 65px;
+      height: 65px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid white;
+      position: absolute;
+      top: 13px;
+    }
+
+    .id-leader-left {
+      left: 12px;
+    }
+
+    .id-leader-right {
+      right: 12px;
+    }
+
+    .id-card-header h1 {
+      color: white;
+      font-size: 31px;
+      letter-spacing: 3px;
+    }
+
+    .id-card-header h2 {
+      color: white;
+      font-size: 16px;
+      margin-top: 3px;
+    }
+
+    .id-card-label {
+      display: inline-block;
+      background: white;
+      color: #075bb5;
+      padding: 10px 17px;
+      border-radius: 5px;
+      margin-top: 15px;
+      font-size: 15px;
+      font-weight: bold;
+    }
+
+    .id-color-line {
+      height: 8px;
+      background: linear-gradient(
+        90deg,
+        #f3a400 0%,
+        #f3a400 33%,
+        #e64d4d 33%,
+        #e64d4d 66%,
+        #008b55 66%,
+        #008b55 100%
+      );
+    }
+
+    .id-card-body {
+      padding: 25px 18px;
+      text-align: center;
+    }
+
+    .id-member-photo {
+      width: 180px;
+      height: 220px;
+      object-fit: cover;
+      border: 8px solid #f0f0f0;
+      border-radius: 8px;
+      box-shadow: 0 0 0 1px #d5d5d5;
+      background: #e8edf3;
+    }
+
+    .id-member-name {
+      color: #a52d38;
+      font-size: 23px;
+      font-weight: bold;
+      margin-top: 28px;
+      line-height: 1.3;
+      text-transform: uppercase;
+    }
+
+    .id-designation {
+      color: #075bb5;
+      font-size: 16px;
+      font-weight: bold;
+      margin-top: 9px;
+      text-transform: uppercase;
+    }
+
+    .id-constituency {
+      color: #555;
+      font-size: 15px;
+      margin-top: 12px;
+    }
+
+    .id-details {
+      margin-top: 25px;
+      border-top: 1px solid #e0e0e0;
+      padding-top: 12px;
+    }
+
+    .id-detail-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      padding: 10px 0;
+      border-bottom: 1px solid #eeeeee;
+      font-size: 14px;
+    }
+
+    .id-detail-row strong {
+      color: #303746;
+    }
+
+    .id-detail-row span {
+      color: #075bb5;
+      font-weight: bold;
+      text-align: right;
+      text-transform: uppercase;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 420px) {
+
+      .member-photo {
+        width: 52px;
+        height: 52px;
+      }
+
+      .member-name h2 {
+        font-size: 18px;
+      }
+
+      .id-card-btn {
+        padding: 8px 9px;
+        font-size: 10px;
+      }
+
+      .header-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+      }
+
+      .top-options button {
+        font-size: 12px;
+      }
+
+      .id-card-header h1 {
+        font-size: 27px;
+      }
+
+      .id-card-header h2 {
+        font-size: 14px;
+      }
+
+      .id-leader-photo {
+        width: 55px;
+        height: 55px;
+      }
+
+      .id-member-photo {
+        width: 155px;
+        height: 195px;
+      }
+
+      .id-member-name {
+        font-size: 20px;
+      }
+
+      .id-detail-row {
+        font-size: 12px;
+      }
+
+      .post-images img {
+        height: 175px;
+      }
+
+    }
+
+  </style>
 
 </head>
 
 <body>
 
-<!-- LOGIN PAGE -->
+  <!-- LOGIN PAGE -->
 
-<div class="login-page" id="loginPage">
+  <section class="login-page" id="loginPage">
 
-  <div class="login-box">
+    <div class="login-box">
 
-    <div class="logo">
-      <h1>YSRCP</h1>
-      <h2>YERRAGONDAPALEM</h2>
-      <p>PEOPLE • PROGRESS • PROSPERITY</p>
-    </div>
-
-    <h3>Member Login</h3>
-
-    <label>Mobile Number</label>
-
-    <input
-      type="tel"
-      id="mobileNumber"
-      maxlength="10"
-      inputmode="numeric"
-      placeholder="Enter 10-digit mobile number"
-    >
-
-    <label>Password</label>
-
-    <input
-      type="password"
-      id="password"
-      maxlength="4"
-      inputmode="numeric"
-      placeholder="Enter first 4 digits"
-    >
-
-    <button class="login-btn" onclick="login()">
-      Login
-    </button>
-
-    <p class="message" id="message"></p>
-
-    <p class="info">
-      Enter the first 4 digits of your mobile number as password.
-    </p>
-
-  </div>
-
-</div>
-
-
-<!-- APP PAGE -->
-
-<div class="app-page" id="appPage">
-
-  <!-- HEADER -->
-
-  <header class="app-header">
-
-    <div class="header-top">
-
-      <div class="member-info">
-
-        <img
-          class="member-photo"
-          src="member-photo.jpg"
-          alt="Member Photo"
-        >
-
-        <div class="member-name">
-          <h2>Thota</h2>
-          <p>Member</p>
-        </div>
-
+      <div class="login-logo">
+        <h1>YSRCP</h1>
+        <h2>YERRAGONDAPALEM</h2>
+        <p>PEOPLE • PROGRESS • PROSPERITY</p>
       </div>
 
-      <div class="header-actions">
+      <h3>Member Login</h3>
 
-        <button
-          class="id-card-btn"
-          onclick="openPage('id')"
-        >
-          🪪 ID CARD
-        </button>
+      <label for="mobileNumber">Mobile Number</label>
 
-        <button
-          class="header-icon"
-          onclick="showMessage('Notifications')"
-        >
-          ♧
-        </button>
+      <input
+        type="tel"
+        id="mobileNumber"
+        maxlength="10"
+        inputmode="numeric"
+        placeholder="Enter 10-digit mobile number"
+      >
 
-        <button
-          class="header-icon"
-          onclick="openSideBar()"
-        >
-          ☰
-        </button>
+      <label for="password">Password</label>
 
-      </div>
+      <input
+        type="password"
+        id="password"
+        maxlength="4"
+        inputmode="numeric"
+        placeholder="Enter first 4 digits"
+      >
 
-    </div>
+      <button class="login-btn" onclick="login()">
+        Login
+      </button>
 
-  </header>
+      <p id="loginMessage" class="login-message"></p>
 
-
-  <!-- PAGE AREA -->
-
-  <main class="page-content" id="pageContent">
-
-    <h1 class="page-title">Home</h1>
-
-    <div class="empty-box">
-
-      <div class="empty-icon">🏛️</div>
-
-      <h2>
-        Welcome to YSRCP Yerragondapalem
-      </h2>
-
-      <p>
-        Latest party updates, news, gallery photos and
-        meetings will be displayed here.
+      <p class="login-info">
+        Enter the first 4 digits of your mobile number as password.
       </p>
 
     </div>
 
-  </main>
+  </section>
 
 
-  <!-- FLOATING ADD BUTTON -->
+  <!-- APP PAGE -->
 
-  <button
-    class="add-post-btn"
-    onclick="showMessage('Add Post Page Soon')"
-  >
-    +
-  </button>
+  <section class="app-page hidden" id="appPage">
 
+    <!-- HEADER -->
 
-  <!-- BOTTOM NAVIGATION -->
+    <header class="app-header">
 
-  <nav class="bottom-nav">
+      <div class="header-top">
 
-    <button
-      id="homeBtn"
-      class="active"
-      onclick="openPage('home')"
-    >
-      <span>⌂</span>
-      Home
-    </button>
-
-    <button
-      id="newsBtn"
-      onclick="openPage('news')"
-    >
-      <span>▤</span>
-      News
-    </button>
-
-    <button
-      id="galleryBtn"
-      onclick="openPage('gallery')"
-    >
-      <span>▧</span>
-      Gallery
-    </button>
-
-    <button
-      id="meetingsBtn"
-      onclick="openPage('meetings')"
-    >
-      <span>▣</span>
-      Meetings
-    </button>
-
-  </nav>
-
-</div>
-
-
-<!-- OVERLAY -->
-
-<div
-  class="overlay"
-  id="overlay"
-  onclick="closeSideBar()"
-></div>
-
-
-<!-- SIDE BAR -->
-
-<aside class="side-bar" id="sideBar">
-
-  <button
-    class="close-side"
-    onclick="closeSideBar()"
-  >
-    ×
-  </button>
-
-  <div class="side-profile">
-
-    <img
-      src="member-photo.jpg"
-      alt="Member Photo"
-    >
-
-    <h2>Thota Gurunadham</h2>
-
-    <p>YSRCP Member</p>
-
-    <p>Peddaraveedu Mandal</p>
-
-  </div>
-
-  <div class="side-menu">
-
-    <button onclick="openPage('profile')">
-      👤 &nbsp; Profile
-    </button>
-
-    <button onclick="openPage('id')">
-      🪪 &nbsp; ID Card
-    </button>
-
-    <button onclick="showMessage('Saved Posts Page Soon')">
-      🔖 &nbsp; Saved Posts
-    </button>
-
-    <button onclick="showMessage('My Posts Page Soon')">
-      📝 &nbsp; My Posts
-    </button>
-
-    <div class="side-divider"></div>
-
-    <div class="side-section-title">
-      PARTY & UPDATES
-    </div>
-
-    <button onclick="openPage('news')">
-      📰 &nbsp; News & Media
-    </button>
-
-    <button onclick="openPage('gallery')">
-      🖼️ &nbsp; Gallery
-    </button>
-
-    <button onclick="openPage('meetings')">
-      📅 &nbsp; Meetings
-    </button>
-
-    <button onclick="showMessage('Live Updates Page Soon')">
-      🔴 &nbsp; Live Updates
-    </button>
-
-    <button onclick="showMessage('Surveys Page Soon')">
-      📋 &nbsp; Surveys
-    </button>
-
-    <div class="side-divider"></div>
-
-    <div class="side-section-title">
-      QUICK LINKS
-    </div>
-
-    <button onclick="openWhatsAppChannel()">
-      🟢 &nbsp; WhatsApp Channel
-    </button>
-
-    <button onclick="openYouTubeChannel()">
-      ▶️ &nbsp; YouTube Channel
-    </button>
-
-    <button onclick="showMessage('Notifications')">
-      🔔 &nbsp; Notifications
-    </button>
-
-    <div class="side-divider"></div>
-
-    <button onclick="showMessage('Settings Page Soon')">
-      ⚙️ &nbsp; Settings
-    </button>
-
-    <button onclick="showMessage('Share App Page Soon')">
-      🔗 &nbsp; Share App
-    </button>
-
-    <button onclick="logout()">
-      🚪 &nbsp; Logout
-    </button>
-
-  </div>
-
-</aside>
-
-
-<script>
-
-/* LOGIN */
-
-function login() {
-
-  const mobile =
-    document.getElementById("mobileNumber").value.trim();
-
-  const password =
-    document.getElementById("password").value.trim();
-
-  const message =
-    document.getElementById("message");
-
-  message.style.color = "#d00000";
-
-  if (!/^[0-9]{10}$/.test(mobile)) {
-
-    message.innerText =
-      "Please enter a valid 10-digit mobile number.";
-
-    return;
-
-  }
-
-  if (!/^[0-9]{4}$/.test(password)) {
-
-    message.innerText =
-      "Please enter a 4-digit password.";
-
-    return;
-
-  }
-
-  const correctPassword =
-    mobile.substring(0, 4);
-
-  if (password !== correctPassword) {
-
-    message.innerText =
-      "Incorrect password.";
-
-    return;
-
-  }
-
-  document.getElementById("loginPage").style.display =
-    "none";
-
-  document.getElementById("appPage").style.display =
-    "block";
-
-}
-
-
-/* PAGE NAVIGATION */
-
-function openPage(page) {
-
-  closeSideBar();
-
-  const content =
-    document.getElementById("pageContent");
-
-  const buttons =
-    document.querySelectorAll(".bottom-nav button");
-
-  buttons.forEach(function(button) {
-    button.classList.remove("active");
-  });
-
-  if (page === "home") {
-
-    content.innerHTML = `
-
-      <h1 class="page-title">Home</h1>
-
-      <div class="empty-box">
-
-        <div class="empty-icon">🏛️</div>
-
-        <h2>
-          Welcome to YSRCP Yerragondapalem
-        </h2>
-
-        <p>
-          Latest party updates, news, gallery photos and
-          meetings will be displayed here.
-        </p>
-
-      </div>
-
-    `;
-
-    document.getElementById("homeBtn").classList.add("active");
-
-  }
-
-  else if (page === "news") {
-
-    content.innerHTML = `
-
-      <h1 class="page-title">News & Media</h1>
-
-      <div class="empty-box">
-
-        <div class="empty-icon">📰</div>
-
-        <h2>News Page</h2>
-
-        <p>
-          Party news and important announcements
-          will be displayed here.
-        </p>
-
-      </div>
-
-    `;
-
-    document.getElementById("newsBtn").classList.add("active");
-
-  }
-
-  else if (page === "gallery") {
-
-    content.innerHTML = `
-
-      <h1 class="page-title">Gallery</h1>
-
-      <div class="empty-box">
-
-        <div class="empty-icon">🖼️</div>
-
-        <h2>Gallery Page</h2>
-
-        <p>
-          Party event photos and activity photos
-          will be displayed here.
-        </p>
-
-      </div>
-
-    `;
-
-    document.getElementById("galleryBtn").classList.add("active");
-
-  }
-
-  else if (page === "meetings") {
-
-    content.innerHTML = `
-
-      <h1 class="page-title">Meetings</h1>
-
-      <div class="empty-box">
-
-        <div class="empty-icon">📅</div>
-
-        <h2>Meetings Page</h2>
-
-        <p>
-          Constituency and mandal meetings
-          will be displayed here.
-        </p>
-
-      </div>
-
-    `;
-
-    document.getElementById("meetingsBtn").classList.add("active");
-
-  }
-
-  else if (page === "profile") {
-
-    content.innerHTML = `
-
-      <h1 class="page-title">Profile</h1>
-
-      <div class="profile-card">
-
-        <img
-          src="member-photo.jpg"
-          alt="Member Photo"
-        >
-
-        <h2>Thota Gurunadham</h2>
-
-        <p>YSRCP Member</p>
-
-        <div class="profile-details">
-
-          <p><strong>Mandal:</strong> Peddaraveedu</p>
-
-          <p><strong>Constituency:</strong> Yerragondapalem</p>
-
-          <p><strong>Party:</strong> YSR Congress Party</p>
-
-          <p><strong>Status:</strong> Active Member</p>
-
-        </div>
-
-      </div>
-
-    `;
-
-  }
-
-  else if (page === "id") {
-
-    content.innerHTML = `
-
-      <h1 class="page-title">Digital ID Card</h1>
-
-      <div class="id-card">
-
-        <div class="id-card-header">
-
-          <h2>YSRCP YERRAGONDAPALEM</h2>
-
-          <p>DIGITAL MEMBER ID CARD</p>
-
-        </div>
-
-        <div class="id-card-body">
+        <div class="member-info">
 
           <img
             src="member-photo.jpg"
+            class="member-photo"
+            id="headerMemberPhoto"
             alt="Member Photo"
           >
 
-          <h2>Thota Gurunadham</h2>
+          <div class="member-name">
 
-          <p class="designation">
-            YSRCP MEMBER
-          </p>
+            <h2 id="headerMemberName">
+              Thota
+            </h2>
 
-          <div class="id-details">
-
-            <p>
-              <strong>Member ID:</strong>
-              YGP-PDV-001
-            </p>
-
-            <p>
-              <strong>Mandal:</strong>
-              Peddaraveedu
-            </p>
-
-            <p>
-              <strong>Constituency:</strong>
-              Yerragondapalem
-            </p>
-
-            <p>
-              <strong>Party:</strong>
-              YSR Congress Party
+            <p id="headerMemberDesignation">
+              Member
             </p>
 
           </div>
 
         </div>
 
-        <div class="id-card-footer">
-          YSRCP YERRAGONDAPALEM
+        <div class="header-actions">
+
+          <button
+            class="id-card-btn"
+            onclick="openIDCard()"
+          >
+            🪪 ID CARD
+          </button>
+
+          <button
+            class="header-icon notification-icon"
+            onclick="openNotifications()"
+            title="Notifications"
+          >
+
+            🔔
+
+            <span
+              class="notification-count"
+              id="notificationCount"
+            >
+              3
+            </span>
+
+          </button>
+
+          <button
+            class="header-icon"
+            onclick="openSideBar()"
+            title="Menu"
+          >
+            ☰
+          </button>
+
         </div>
 
       </div>
 
-    `;
 
-  }
+      <!-- ONLY OPTIONS -->
 
-}
+      <div class="top-options">
 
+        <button
+          class="active"
+          onclick="selectTopOption(this, 'party')"
+        >
+          PARTY
+        </button>
 
-/* SIDEBAR */
+        <button
+          onclick="selectTopOption(this, 'campaigners')"
+        >
+          CAMPAIGNERS
+        </button>
 
-function openSideBar() {
+        <button
+          onclick="selectTopOption(this, 'leaders')"
+        >
+          LEADERS
+        </button>
 
-  document
-    .getElementById("sideBar")
-    .classList.add("open");
+        <button
+          onclick="selectTopOption(this, 'local')"
+        >
+          LOCAL
+        </button>
 
-  document
-    .getElementById("overlay")
-    .style.display = "block";
+      </div>
 
-}
-
-function closeSideBar() {
-
-  document
-    .getElementById("sideBar")
-    .classList.remove("open");
-
-  document
-    .getElementById("overlay")
-    .style.display = "none";
-
-}
-
-
-/* QUICK LINKS */
-
-function openWhatsAppChannel() {
-
-  alert("WhatsApp Channel Link next step lo add chestham.");
-
-}
-
-function openYouTubeChannel() {
-
-  alert("YouTube Channel Link next step lo add chestham.");
-
-}
+    </header>
 
 
-/* MESSAGE */
+    <!-- HOME PAGE -->
 
-function showMessage(message) {
+    <main
+      class="page-area"
+      id="homePage"
+    >
 
-  alert(message);
+      <div class="home-empty">
 
-}
+        <div class="empty-icon">
+          📰
+        </div>
+
+        <h2>
+          YSRCP YERRAGONDAPALEM
+        </h2>
+
+        <p>
+          Latest party updates, announcements,
+          public activities and member posts
+          will appear here.
+        </p>
+
+      </div>
+
+      <div id="postsContainer"></div>
+
+    </main>
 
 
-/* LOGOUT */
+    <!-- NEWS PAGE -->
 
-function logout() {
+    <main
+      class="page-area hidden"
+      id="newsPage"
+    >
 
-  closeSideBar();
+      <h2 class="page-title">
+        News & Media
+      </h2>
 
-  document.getElementById("appPage").style.display =
-    "none";
+      <div class="empty-page">
 
-  document.getElementById("loginPage").style.display =
-    "flex";
+        <div class="empty-icon">
+          📰
+        </div>
 
-  document.getElementById("mobileNumber").value =
-    "";
+        <p>
+          News page is ready.
+          News content will be added here.
+        </p>
 
-  document.getElementById("password").value =
-    "";
+      </div>
 
-  document.getElementById("message").innerText =
-    "";
+    </main>
 
-}
 
-</script>
+    <!-- GALLERY PAGE -->
+
+    <main
+      class="page-area hidden"
+      id="galleryPage"
+    >
+
+      <h2 class="page-title">
+        Gallery
+      </h2>
+
+      <div
+        id="galleryContainer"
+        class="empty-page"
+      >
+
+        <div class="empty-icon">
+          🖼️
+        </div>
+
+        <p>
+          Gallery photos will appear here.
+        </p>
+
+      </div>
+
+    </main>
+
+
+    <!-- MEETINGS PAGE -->
+
+    <main
+      class="page-area hidden"
+      id="meetingsPage"
+    >
+
+      <h2 class="page-title">
+        Meetings
+      </h2>
+
+      <div class="empty-page">
+
+        <div class="empty-icon">
+          📅
+        </div>
+
+        <p>
+          Constituency and mandal meetings
+          will appear here.
+        </p>
+
+      </div>
+
+    </main>
+
+
+    <!-- PROFILE PAGE -->
+
+    <main
+      class="page-area hidden"
+      id="profilePage"
+    >
+
+      <h2 class="page-title">
+        Profile
+      </h2>
+
+      <div class="form-card">
+
+        <label for="profileName">
+          Full Name
+        </label>
+
+        <input
+          type="text"
+          id="profileName"
+          placeholder="Enter full name"
+          value="Thota Gurunadham"
+        >
+
+        <label for="profileDesignation">
+          Designation
+        </label>
+
+        <input
+          type="text"
+          id="profileDesignation"
+          placeholder="Enter designation"
+          value="MANDAL SOCIAL MEDIA WING GENERAL SECRETARY"
+        >
+
+        <label for="profileMob
+</head>
+
+<body>
+
+  <!-- LOGIN PAGE -->
+
+  <section id="loginPage" class="login-page">
+
+    <div class="login-box">
+
+      <div class="logo">
+        <h1>YSRCP</h1>
+        <h2>YERRAGONDAPALEM</h2>
+        <p>PEOPLE • PROGRESS • PROSPERITY</p>
+      </div>
+
+      <h3>Member Login</h3>
+
+      <label>Mobile Number</label>
+
+      <input
+        type="tel"
+        id="mobileNumber"
+        maxlength="10"
+        inputmode="numeric"
+        placeholder="Enter mobile number"
+      >
+
+      <label>Password</label>
+
+      <input
+        type="password"
+        id="password"
+        maxlength="4"
+        inputmode="numeric"
+        placeholder="Enter first 4 digits"
+      >
+
+      <button class="login-btn" onclick="login()">
+        Login
+      </button>
+
+      <p id="loginMessage" class="message"></p>
+
+      <p class="info">
+        Password: Your mobile number first 4 digits
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- MAIN APP -->
+
+  <section id="appPage" class="app-page">
+
+    <!-- HEADER -->
+
+    <header class="app-header">
+
+      <div class="header-top">
+
+        <div class="member-info">
+
+          <img
+            src="member-photo.jpg"
+            class="member-photo"
+            alt="Member Photo"
+          >
+
+          <div class="member-name">
+            <h2>Thota Gurunadham</h2>
+            <p>YSRCP Member</p>
+          </div>
+
+        </div>
+
+        <div class="header-actions">
+
+          <button
+            class="id-card-btn"
+            onclick="openIDCard()"
+          >
+            🪪 ID CARD
+          </button>
+
+          <button
+            class="header-icon notification-button"
+            onclick="openNotifications()"
+          >
+            🔔
+          </button>
+
+          <button
+            class="header-icon"
+            onclick="openSideBar()"
+          >
+            ☰
+          </button>
+
+        </div>
+
+      </div>
+
+    </header>
+
+
+    <!-- EMPTY POSTS AREA -->
+
+    <main id="homePage" class="page-content">
+
+      <div class="page-heading">
+        <h2>Latest Updates</h2>
+        <p>YSRCP Yerragondapalem updates</p>
+      </div>
+
+      <div id="postsContainer">
+
+        <!-- Posts will appear here after adding -->
+
+        <div class="empty-posts">
+
+          <div class="empty-icon">📰</div>
+
+          <h3>No Posts Available</h3>
+
+          <p>
+            Latest party updates, news and announcements
+            will appear here.
+          </p>
+
+        </div>
+
+      </div>
+
+    </main>
+
+
+    <!-- NEWS PAGE -->
+
+    <main id="newsPage" class="page-content hidden-page">
+
+      <div class="page-heading">
+        <h2>News</h2>
+        <p>Latest constituency news</p>
+      </div>
+
+      <div class="empty-page">
+        <div>📰</div>
+        <h3>No News Available</h3>
+        <p>News updates will be added here.</p>
+      </div>
+
+    </main>
+
+
+    <!-- GALLERY PAGE -->
+
+    <main id="galleryPage" class="page-content hidden-page">
+
+      <div class="page-heading">
+        <h2>Gallery</h2>
+        <p>Photos and videos</p>
+      </div>
+
+      <div id="galleryContainer" class="empty-page">
+
+        <div>🖼️</div>
+        <h3>No Photos Available</h3>
+        <p>Gallery photos will appear here.</p>
+
+      </div>
+
+    </main>
+
+
+    <!-- MEETINGS PAGE -->
+
+    <main id="meetingsPage" class="page-content hidden-page">
+
+      <div class="page-heading">
+        <h2>Meetings</h2>
+        <p>Party meetings and programs</p>
+      </div>
+
+      <div class="empty-page">
+
+        <div>📅</div>
+        <h3>No Meetings Available</h3>
+        <p>Meeting details will appear here.</p>
+
+      </div>
+
+    </main>
+
+
+    <!-- PROFILE PAGE -->
+
+    <main id="profilePage" class="page-content hidden-page">
+
+      <div class="page-heading">
+        <h2>My Profile</h2>
+        <p>Member profile details</p>
+      </div>
+
+      <div class="profile-card">
+
+        <img
+          src="member-photo.jpg"
+          class="profile-large-photo"
+          alt="Profile Photo"
+        >
+
+        <h2>Thota Gurunadham</h2>
+
+        <p>YSRCP Social Media</p>
+
+        <p>Peddaraveedu Mandal</p>
+
+        <button
+          class="primary-btn"
+          onclick="showMessage('Profile editing will be added next.')"
+        >
+          Edit Profile
+        </button>
+
+      </div>
+
+    </main>
+
+
+    <!-- ID CARD PAGE -->
+
+    <main id="idCardPage" class="page-content hidden-page">
+
+      <div class="page-heading">
+
+        <button
+          class="back-btn"
+          onclick="goHome()"
+        >
+          ← Back
+        </button>
+
+        <h2>Member ID Card</h2>
+
+      </div>
+
+      <div class="id-card">
+
+        <div class="id-card-header">
+
+          <img
+            src="id-left.jpeg"
+            alt="Left Image"
+          >
+
+          <div>
+            <h1>YSRCP</h1>
+            <h2>YERRAGONDAPALEM</h2>
+            <div class="id-card-title">
+              MEMBER ID CARD
+            </div>
+          </div>
+
+          <img
+            src="id-right.jpeg"
+            alt="Right Image"
+          >
+
+        </div>
+
+
+        <div class="id-card-body">
+
+          <img
+            src="member-photo.jpg"
+            class="id-member-photo"
+            alt="Member Photo"
+          >
+
+          <h2 class="id-member-name">
+            THOTA GURUNADHAM
+          </h2>
+
+          <h3 class="id-designation">
+            MANDAL SOCIAL MEDIA GENERAL SECRETARY
+          </h3>
+
+          <p class="id-constituency">
+            Yerragondapalem Constituency
+          </p>
+
+          <div class="id-details">
+
+            <div>
+              <span>Member ID</span>
+              <strong id="displayMemberId">
+                YGP-PDV-001
+              </strong>
+            </div>
+
+            <div>
+              <span>Mobile</span>
+              <strong id="displayMobile">
+                9876543210
+              </strong>
+            </div>
+
+            <div>
+              <span>Village</span>
+              <strong>YERRAGONDAPALEM</strong>
+            </div>
+
+            <div>
+              <span>Panchayat</span>
+              <strong>YERRAGONDAPALEM</strong>
+            </div>
+
+            <div>
+              <span>Mandal</span>
+              <strong>PEDDARAVEEDU</strong>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </main>
+
+
+    <!-- NOTIFICATIONS PAGE -->
+
+    <main id="notificationsPage" class="page-content hidden-page">
+
+      <div class="page-heading">
+
+        <button
+          class="back-btn"
+          onclick="goHome()"
+        >
+          ← Back
+        </button>
+
+        <h2>Notifications</h2>
+
+      </div>
+
+      <div class="notification-card">
+
+        <div class="notification-icon">🔔</div>
+
+        <div>
+          <h3>No New Notifications</h3>
+          <p>You are all caught up.</p>
+        </div>
+
+      </div>
+
+    </main>
+
+
+    <!-- ADD POST MODAL -->
+
+    <div id="postModal" class="modal">
+
+      <div class="modal-box">
+
+        <div class="modal-header">
+
+          <h2>Add New Post</h2>
+
+          <button
+            class="modal-close"
+            onclick="closePostModal()"
+          >
+            ×
+          </button>
+
+        </div>
+
+        <label>Post Title</label>
+
+        <input
+          type="text"
+          id="postTitle"
+          placeholder="Enter post title"
+        >
+
+        <label>Post Description</label>
+
+        <textarea
+          id="postDescription"
+          placeholder="Enter post description"
+        ></textarea>
+
+        <label>Upload Image</label>
+
+        <input
+          type="file"
+          id="postImage"
+          accept="image/*"
+        >
+
+        <button
+          class="primary-btn"
+          onclick="addPost()"
+        >
+          Publish Post
+        </button>
+
+        <p id="postMessage" class="message"></p>
+
+      </div>
+
+    </div>
+
+
+    <!-- FLOATING ADD BUTTON -->
+
+    <button
+      class="add-post-btn"
+      onclick="openPostModal()"
+    >
+      +
+    </button>
+
+
+    <!-- BOTTOM NAVIGATION -->
+
+    <nav class="bottom-nav">
+
+      <button
+        class="active"
+        onclick="showPage('homePage', this)"
+      >
+        <span>⌂</span>
+        Home
+      </button>
+
+      <button
+        onclick="showPage('newsPage', this)"
+      >
+        <span>▤</span>
+        News
+      </button>
+
+      <button
+        onclick="openPostModal()"
+      >
+        <span>＋</span>
+        Add Post
+      </button>
+
+      <button
+        onclick="showPage('galleryPage', this)"
+      >
+        <span>▧</span>
+        Gallery
+      </button>
+
+      <button
+        onclick="showPage('meetingsPage', this)"
+      >
+        <span>▣</span>
+        Meetings
+      </button>
+
+    </nav>
+
+  </section>
+
+
+  <!-- OVERLAY -->
+
+  <div
+    id="overlay"
+    class="overlay"
+    onclick="closeSideBar()"
+  ></div>
+
+
+  <!-- SIDE BAR -->
+
+  <aside id="sideBar" class="side-bar">
+
+    <button
+      class="close-side"
+      onclick="closeSideBar()"
+    >
+      ×
+    </button>
+
+    <div class="side-profile">
+
+      <img
+        src="member-photo.jpg"
+        alt="Member Photo"
+      >
+
+      <h2>Thota Gurunadham</h2>
+
+      <p>YSRCP Social Media</p>
+
+      <p>Peddaraveedu Mandal</p>
+
+    </div>
+
+
+    <div class="side-menu">
+
+      <button onclick="showPageFromSide('profilePage')">
+        👤 Profile
+      </button>
+
+      <button onclick="openIDCard()">
+        🪪 ID Card
+      </button>
+
+      <button onclick="showMessage('Saved Posts will be added next.')">
+        🔖 Saved Posts
+      </button>
+
+      <button onclick="showMessage('My Posts will be added next.')">
+        📝 My Posts
+      </button>
+
+      <div class="side-divider"></div>
+
+      <div class="side-section-title">
+        PARTY & UPDATES
+      </div>
+
+      <button onclick="showPageFromSide('newsPage')">
+        📰 News & Media
+      </button>
+
+      <button onclick="showPageFromSide('galleryPage')">
+        🖼️ Gallery
+      </button>
+
+      <button onclick="showPageFromSide('meetingsPage')">
+        📅 Meetings
+      </button>
+
+      <button onclick="showMessage('Live Updates will be added next.')">
+        🔴 Live Updates
+      </button>
+
+      <button onclick="showMessage('Surveys will be added next.')">
+        📋 Surveys
+      </button>
+
+      <div class="side-divider"></div>
+
+      <div class="side-section-title">
+        QUICK LINKS
+      </div>
+
+      <button onclick="openWhatsAppChannel()">
+        🟢 WhatsApp Channel
+      </button>
+
+      <button onclick="openYouTubeChannel()">
+        ▶️ YouTube Channel
+      </button>
+
+      <button onclick="openNotifications()">
+        🔔 Notifications
+      </button>
+
+      <div class="side-divider"></div>
+
+      <button onclick="showMessage('Settings will be added next.')">
+        ⚙️ Settings
+      </button>
+
+      <button onclick="shareApp()">
+        🔗 Share App
+      </button>
+
+      <button onclick="logout()">
+        🚪 Logout
+      </button>
+
+    </div>
+
+  </aside>
+
+
+  <!-- JAVASCRIPT -->
+
+  <script>
+
+    let currentMobile = "";
+
+    function login() {
+
+      const mobile =
+        document.getElementById("mobileNumber").value.trim();
+
+      const password =
+        document.getElementById("password").value.trim();
+
+      const message =
+        document.getElementById("loginMessage");
+
+      message.style.color = "#d00000";
+
+      if (!/^[0-9]{10}$/.test(mobile)) {
+
+        message.innerText =
+          "Please enter a valid 10-digit mobile number.";
+
+        return;
+
+      }
+
+      if (!/^[0-9]{4}$/.test(password)) {
+
+        message.innerText =
+          "Please enter a 4-digit password.";
+
+        return;
+
+      }
+
+      if (password !== mobile.substring(0, 4)) {
+
+        message.innerText =
+          "Incorrect password.";
+
+        return;
+
+      }
+
+      currentMobile = mobile;
+
+      document.getElementById("loginPage").style.display =
+        "none";
+
+      document.getElementById("appPage").style.display =
+        "block";
+
+      document.getElementById("displayMobile").innerText =
+        mobile;
+
+      document.getElementById("displayMemberId").innerText =
+        "YGP-PDV-001";
+
+    }
+
+
+    function showPage(pageId, button) {
+
+      const pages = document.querySelectorAll(
+        ".page-content"
+      );
+
+      pages.forEach(function(page) {
+
+        page.classList.add("hidden-page");
+
+      });
+
+      document.getElementById(pageId)
+        .classList.remove("hidden-page");
+
+      const buttons = document.querySelectorAll(
+        ".bottom-nav button"
+      );
+
+      buttons.forEach(function(btn) {
+
+        btn.classList.remove("active");
+
+      });
+
+      if (button) {
+
+        button.classList.add("active");
+
+      }
+
+      closeSideBar();
+
+    }
+
+
+    function showPageFromSide(pageId) {
+
+      showPage(pageId, null);
+
+      closeSideBar();
+
+    }
+
+
+    function goHome() {
+
+      showPage("homePage", null);
+
+    }
+
+
+    function openIDCard() {
+
+      showPage("idCardPage", null);
+
+      closeSideBar();
+
+    }
+
+
+    function openNotifications() {
+
+      showPage("notificationsPage", null);
+
+      closeSideBar();
+
+    }
+
+
+    function openSideBar() {
+
+      document
+        .getElementById("sideBar")
+        .classList.add("open");
+
+      document
+        .getElementById("overlay")
+        .style.display = "block";
+
+    }
+
+
+    function closeSideBar() {
+
+      document
+        .getElementById("sideBar")
+        .classList.remove("open");
+
+      document
+        .getElementById("overlay")
+        .style.display = "none";
+
+    }
+
+
+    function openPostModal() {
+
+      document
+        .getElementById("postModal")
+        .classList.add("show");
+
+    }
+
+
+    function closePostModal() {
+
+      document
+        .getElementById("postModal")
+        .classList.remove("show");
+
+    }
+
+
+    function addPost() {
+
+      const title =
+        document.getElementById("postTitle").value.trim();
+
+      const description =
+        document.getElementById("postDescription").value.trim();
+
+      const imageInput =
+        document.getElementById("postImage");
+
+      const postMessage =
+        document.getElementById("postMessage");
+
+      if (title === "" || description === "") {
+
+        postMessage.innerText =
+          "Please enter title and description.";
+
+        return;
+
+      }
+
+      const postCard =
+        document.createElement("article");
+
+      postCard.className = "post-card";
+
+      postCard.innerHTML = `
+
+        <div class="post-header">
+
+          <div class="post-user">
+
+            <img
+              src="member-photo.jpg"
+              alt="Member Photo"
+            >
+
+            <div>
+              <h3>Thota Gurunadham</h3>
+
+              <div class="official-line">
+                <span class="official-badge">
+                  MEMBER
+                </span>
+
+                <span class="post-time">
+                  • Just now
+                </span>
+              </div>
+
+            </div>
+
+          </div>
+
+          <button
+            class="post-menu"
+            onclick="showMessage('Post Options')"
+          >
+            ⋮
+          </button>
+
+        </div>
+
+        <div class="post-content">
+
+          <h2>${title}</h2>
+
+          <p>${description}</p>
+
+        </div>
+
+        <div class="post-actions">
+
+          <button onclick="showMessage('Liked')">
+            ♡ Like
+          </button>
+
+          <button onclick="showMessage('Comments')">
+            ◯ Comment
+          </button>
+
+          <button onclick="showMessage('Share Post')">
+            ♧ Share
+          </button>
+
+          <button onclick="showMessage('Post Saved')">
+            ▱ Save
+          </button>
+
+        </div>
+
+      `;
+
+      if (imageInput.files.length > 0) {
+
+        const imageFile =
+          imageInput.files[0];
+
+        const imageUrl =
+          URL.createObjectURL(imageFile);
+
+        const image =
+          document.createElement("img");
+
+        image.src = imageUrl;
+
+        image.className = "uploaded-post-image";
+
+        postCard
+          .querySelector(".post-content")
+          .appendChild(image);
+
+      }
+
+      const container =
+        document.getElementById("postsContainer");
+
+      const emptyPosts =
+        container.querySelector(".empty-posts");
+
+      if (emptyPosts) {
+
+        emptyPosts.remove();
+
+      }
+
+      container.prepend(postCard);
+
+      document.getElementById("postTitle").value = "";
+
+      document.getElementById("postDescription").value = "";
+
+      document.getElementById("postImage").value = "";
+
+      postMessage.innerText =
+        "Post added successfully.";
+
+      setTimeout(function() {
+
+        closePostModal();
+
+        postMessage.innerText = "";
+
+      }, 700);
+
+    }
+
+
+    function openWhatsAppChannel() {
+
+      window.open(
+        "https://whatsapp.com/channel/",
+        "_blank"
+      );
+
+    }
+
+
+    function openYouTubeChannel() {
+
+      window.open(
+        "https://youtube.com/",
+        "_blank"
+      );
+
+    }
+
+
+    function shareApp() {
+
+      if (navigator.share) {
+
+        navigator.share({
+
+          title: "YSRCP YERRAGONDAPALEM",
+
+          text: "YSRCP Yerragondapalem Member App",
+
+          url: window.location.href
+
+        });
+
+      } else {
+
+        showMessage("Share option is not supported in this browser.");
+
+      }
+
+    }
+
+
+    function showMessage(message) {
+
+      alert(message);
+
+    }
+
+
+    function logout() {
+
+      closeSideBar();
+
+      document.getElementById("appPage").style.display =
+        "none";
+
+      document.getElementById("loginPage").style.display =
+        "flex";
+
+      document.getElementById("mobileNumber").value = "";
+
+      document.getElementById("password").value = "";
+
+      document.getElementById("loginMessage").innerText = "";
+
+    }
+
+  </script>
 
 </body>
-
 </html>
+
+          
